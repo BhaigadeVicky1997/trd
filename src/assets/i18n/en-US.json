@@ -1,0 +1,193 @@
+{
+  "pleaseWait": "Please Wait",
+  "save": "Save",
+  "auth": {
+    "header": "Login",
+    "tabs": {
+      "signin": {
+        "title": "Sign In",
+        "input": {
+          "signInbtn": "Sign In",
+          "forgotPassword?": "Forgot Password?",
+          "orloginwith": "Or login with",
+          "newtoWazen?": "New to Wazen?",
+          "joinWazenNow": "Join Wazen Now",
+          "enterYourEmail": "Enter Your Email",
+          "enterYourPassword": "Enter Your Password"
+        }
+      },
+      "signup": {
+        "title": "Sign Up",
+        "input": {
+          "mr": "Mr",
+          "mrs": "Mrs",
+          "customcheck": "By creating an account, I agree to Wazen’s. Terms & Conditions and Privacy Policy",
+          "jointoWazen": "Join to Wazen",
+          "orloginwith": "Or login with",
+          "alreadyhaveanaccount": "Already have an account?",
+          "logIn": "Log In",
+          "firstname": "First name",
+          "lastname": "Last name",
+          "enterYourEmail": "Enter Your Email",
+          "nationalIdInput": "National ID / Iqama / 700 Number",
+          "enterYourPassword": "Enter Your Password",
+          "confirmyourpassword": "Confirm your password"
+        }
+      },
+      "forgotPassword": {
+        "title": "Forgot Password?",
+        "input": {
+          "sendbtn": "Send",
+          "newtoWazen": "New to Wazen?",
+          "signUp": "Sign Up",
+          "enterYourEmail": "Enter Your Email"
+        }
+      },
+      "emailhasbeensend": {
+        "title": "Email has been send",
+        "input": {
+          "noteinput": "Please Check the Inbox and Click at the Received link to reset Password",
+          "enterVerificationCode": "Enter Verification Code",
+          "dontreceivethelink": " Don’t receive the link? ",
+          "resend": "Resend",
+          "submit": "Submit"
+        }
+      },
+      "createNewPassword": {
+        "title": "Create New Password",
+        "input": {
+          "noteemailaddress": " Your New Password Must be Different from Previously Used Password",
+          "enterNewPassword": "Enter New Password",
+          "confirmpassword": "Confirm  Password",
+          "submit": "Submit"
+        }
+      }
+    },
+    "verifyEmail": {
+      "title": "Email has been sent",
+      "input": {
+        "noteinput": "Please Check the Inbox",
+        "enterVerificationCode": "Enter Verification Code",
+        "dontreceivethelink": " Don’t receive the link? ",
+        "resend": "Resend",
+        "submit": "Submit"
+      }
+    }
+  },
+
+  "navbar": {
+    "login/signup": "Log In/Sign Up"
+  },
+  "dashboard": {
+    "autoInsuranceBlock": {
+      "title": "Auto Insurance",
+      "input": {
+        "nationalIdInput": "National ID / Iqama / 700 Number",
+        "DOBinput": "DOB/CR Expiry Date",
+        "getaQuote": "Get a Quote",
+        "alreadyhaveanInsurance?": "Already have an Insurance?"
+      },
+
+      "managePolicySpan": "Manage Policy",
+      "dropdownInput": {
+        "cancelPolicyspan": "Cancel Policy",
+        "upgradeReplacePolicySpan": "Upgrade / Replace Policy",
+        "add/DeleteFeaturesSpan": "Add/Delete Features",
+        "renewPolicySpan": "Renew Policy"
+      },
+      "submitClaim": "Submit Claim",
+      "dropdownInputsubmitClaim": {
+        "cancelPolicyspan": "Cancel Policy",
+        "upgradeReplacePolicySpan": "Upgrade / Replace Policy",
+        "add/DeleteFeaturesSpan": "Add/Delete Features",
+        "renewPolicySpan": "Renew Policy"
+      },
+      "myOrdersSpan": "My Orders",
+      "getyourautoinsurancein3easyteps": "Get your auto insurance in 3 easy steps",
+      "steps": {
+        "completeourshortform": "Complete our short form",
+        "getmatchedwithtop-ratedproviders": "Get matched with top-rated providers ",
+        "compareandchoosetherightpolicyforyou": "Compare and choose the right policy for you"
+      },
+      "Submityourclaim": "Submit your claim",
+      "SubmityourclaimBlock": {
+        "para1": "If you encounter any issue and want to submit a claim, our dedicated claims team can help you anytime with our hassle-free claims process, anywhere. Just tell us what happened and we will take it from there.",
+        "para2": "For endorsement or cancelation requests click Here.",
+        "para3": "For claims requests: Fill out this form or call 800 WAZEN",
+        "para4": "and one of our customer service representatives will guide you through your claim.",
+        "SubmitaClaimBtn": "Submit a Claim"
+      },
+      "OurPartners": "Our Partners",
+      "frequentlyAskedQuestions": "Frequently Asked Questions",
+      "frequentlyAskedQuestionsBlock": {
+        "beforePurchasing": "Before Purchasing",
+        "duringPurchased": "During Purchased",
+        "afterPurchasing": "After Purchasing"
+      }
+    }
+  },
+  "profile": {
+    "userBlock": {
+      "user": "Hi Mohammed",
+      "input": {
+        "myPolicies": "My Policies",
+        "myTransactions": "My Transactions",
+        "myAccount": "My Account",
+        "claimTracking": "Claim Tracking"
+      }
+    },
+    "mitsubishiBlock": {
+      "title": "Mitsubishi",
+      "input": {
+        "pajero": "Pajero",
+        "hxb": "HXB",
+        "policyType": "Policy Type",
+        "thirdPartyLiability": "Third Party Liability",
+        "policyExpiryDate": "Policy Expiry Date:",
+        "date": "01/01/2021"
+      }
+    },
+    "mytrasactionBlock": {
+      "input": {
+        "date": "Date",
+        "transactionType": "Transaction Type",
+        "status": "Status"
+      }
+    },
+    "myAccountBlock": {
+      "input": {
+        "editProfile": "Edit Profile",
+        "passwordChange": "Password Change",
+        "languagePreference": "Language Preference",
+        "newsletterSubscription": "Newsletter Subscription",
+        "deleteAccount": "Delete Account"
+      },
+      "tabslanguagePreference": {
+        "title": "Language Preference",
+        "input": {
+          "arabic": "Arabic",
+          "english": "English",
+          "cancel": "Cancel",
+          "save": "Save"
+        }
+      },
+      "tabsnewsletter": {
+        "title": "Newsletter Subscription",
+        "input": {
+          "yes": "Yes",
+          "no": "No",
+          "cancel": "Cancel",
+          "save": "Save"
+        }
+      },
+      "tabDeleteAccount": {
+        "title": "Are you sure?",
+        "input": {
+          "note": "Do you really want to delete your account?",
+          "cancel": "Cancel",
+          "save": "Save"
+        }
+      }
+    }
+  }
+}

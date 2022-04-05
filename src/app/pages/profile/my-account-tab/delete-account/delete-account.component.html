@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-md-center account-wrap">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 position-relative mb-4">
+      <p class="mb-0 py-4">{{ "profile.myAccountBlock.tabDeleteAccount.title" | translate }}</p>
+      <p class="delete-dialog">{{ "profile.myAccountBlock.tabDeleteAccount.input.note" | translate }}</p>
+      <div class="d-flex justify-content-center py-4">
+        <button type="submit" class="btn-outline mx-2" [routerLink]="[ '/wazen/profile/my-account' ]">{{ "profile.myAccountBlock.tabDeleteAccount.input.cancel" | translate }}</button>
+        <button type="submit" class="btn-main">{{ "profile.myAccountBlock.tabDeleteAccount.input.save" | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

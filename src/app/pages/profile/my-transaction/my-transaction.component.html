@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row justify-content-md-center date-range mt-3">
+    <div
+      class="
+        col-xs-12 col-sm-12 col-md-12 col-lg-5
+        position-relative
+        mb-lg-5 mb-2
+      "
+    >
+      <!-- <input type="text" class="form-control" id="datepickerRange" name="transactions-dates"
+          placeholder="01/01/2020 - 01/05/2021" /> -->
+      <input
+        class="form-control"
+        [owlDateTime]="dt2"
+        [selectMode]="'range'"
+        placeholder="DOB/CR Expiry Date"
+        placeholder="01/01/2020 - 01/05/2021"
+        (dateTimeChange)="getMyTransactionsByDate($event.value)"
+      />
+      <span [owlDateTimeTrigger]="dt2"><i class="bx bx-calendar"></i></span>
+      <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+    </div>
+  </div>
+  <div class="row px-lg-5">
+    <div class="transaction-wrap p-lg-5 bg-sec br-5">
+      <div class="transaction-list">
+        <div class="transaction-filter">
+          <div class="filter-item">
+            <p>Date</p>
+          </div>
+          <div class="filter-item ml-2">
+            <p>Transaction Type</p>
+          </div>
+          <div class="filter-item">
+            <p>Status</p>
+          </div>
+        </div>
+
+        <ng-container *ngIf="!isLoading; else loaderTemplate">
+          <div
+            class="transaction-item"
+            *ngFor="let transaction of transactions"
+          >
+            <p class="m-0">
+              {{ transaction.transactionDate | date: "dd/MM/yyyy" }}
+            </p>
+            <div class="transaction-view text-center">
+              <h6>{{ transaction.policyNumber }}</h6>
+              <p class="mb-0">Upgrading policy</p>
+              <p class="mb-0">TPL to Comprehens</p>
+              <p class="mb-0">Ref: #123XXXXXXXX</p>
+            </div>
+            <ng-container [ngSwitch]="transaction.status">
+              <div class="badge-pending" *ngSwitchCase="'Pending'">
+                {{ transaction.status }}
+              </div>
+              <div class="transaction-link" *ngSwitchCase="'completed'">
+                <div class="mb-0 badge-complete">{{ transaction.status }}</div>
+                <a href="#">Download Invoice</a>
+              </div>
+              <div class="badge-reject" *ngSwitchCase="'rejected'">
+                {{ transaction.status }}
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+        <ng-template #loaderTemplate>
+          <div class="loader text-center">
+            <div class="spinner-border text-primary" role="status"></div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

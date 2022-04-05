@@ -1,0 +1,72 @@
+.btn-main {
+    background: $button;
+    border-radius: 34px;
+    color: $links;
+    font-family: "Poppins-Bold";
+    padding: 0.7rem 2rem;
+    font-size: 0.9rem;
+    color: $links;
+    -webkit-box-shadow: 0px 0px 36px #0000000a;
+    box-shadow: 0px 0px 36px #0000000a;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    &:hover {
+      color: $links;
+      opacity: 0.8;
+    }
+    &:disabled {
+      background: #c4c4c4;
+      cursor: no-drop;
+    }
+  }
+  .btn-outline {
+    border-radius: 34px;
+    border: 2px solid $textlight;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.7rem;
+    color: $textlight;
+    background-color: transparent;
+  }
+  .btn-sec {
+    border: 2px solid $secondary;
+    padding: 10px 30px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: 300ms all ease-out;
+    &:hover {
+      background: $button;
+      color: $white;
+      border: 2px solid transparent;
+    }
+  }
+  .btn-primary-outline {
+    border: 2px solid $primary;
+    color: $primary;
+    font-family: "Poppins-Bold";
+    padding: 10px 30px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    background-color: transparent;
+    transition: 300ms all ease-out;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  .btn-fade {
+    border: 0;
+    color: $white;
+    font-family: "Poppins-Bold";
+    padding: 10px 30px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    background-color:#C4C4C4;
+    transition: 300ms all ease-out;
+    &:hover {
+      opacity: 0.5;
+    }
+  }

@@ -1,0 +1,751 @@
+.cancel-policy-stepwizard {
+  #progressbar {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+
+    li {
+      list-style-type: none;
+      color: #c4c4c4;
+      font-size: 0.85rem;
+      text-align: center;
+      width: fit-content;
+      float: left;
+      position: relative;
+      margin: 0 1rem;
+      &:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 2.5rem;
+        line-height: 2.5rem;
+        font-weight: 600;
+        display: block;
+        font-size: 1rem;
+        color: $white;
+        background: #c4c4c4;
+        border-radius: 50%;
+        margin: 0 auto 0.752rem auto;
+      }
+      &:first-child:after {
+        content: none;
+      }
+    }
+    li.checked {
+      &::before {
+        content: "\eca4" !important;
+        font-family: boxicons !important;
+        font-size: 1.5rem;
+      }
+    }
+    li.open {
+      color: $primary;
+      &:before,
+      &:after {
+        background: $primary;
+        color: white;
+      }
+    }
+  }
+}
+.cancel-policy-wrap {
+  padding: 8rem 0;
+  &_title {
+    .icon-car {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      margin: 0 5px 0 0;
+      background-position: 0 21.5%;
+      background: url(../../img/car-icon.svg) no-repeat;
+      background-size: 75%;
+      display: inline-block;
+    }
+    p {
+      color: $textlight;
+    }
+    h4 {
+      font-family: "Poppins-Bold";
+    }
+  }
+  &_inner {
+    .icon-car {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      margin: 0 5px 0 0;
+      background-position: 0 21.5%;
+      background: url(../../img/car-icon.svg) no-repeat;
+      background-size: 75%;
+      display: inline-block;
+    }
+    .col-1 {
+      width: 4rem;
+      padding: 0 0.2rem;
+
+      .form-control {
+        height: 3rem;
+        font-size: 1.3rem;
+      }
+    }
+    .conformation-checkbox {
+      display: flex;
+      justify-content: center;
+      .customcheck {
+        display: block;
+        position: relative;
+        padding-left: 26px;
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        font-size: 0.8rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 2px;
+        height: 16px;
+        width: 16px;
+        background-color: $dark-bg;
+        border-radius: 50%;
+      }
+      .customcheck:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+      .customcheck input:checked ~ .checkmark {
+        background-color: $primary;
+        border-radius: 50%;
+        transition: 0.3s all ease-in;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .customcheck input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .customcheck .checkmark:after {
+        left: 5px;
+        top: 2px;
+        width: 4.5px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    .owl-carousel {
+      .owl-nav {
+        .nav-btn {
+          height: 30px;
+          position: absolute;
+          width: 30px;
+          cursor: pointer;
+          top: -30px !important;
+          background-color: #e2e2e2;
+          border-radius: 50%;
+        }
+        .prev-slide {
+          left: -1.5rem;
+        }
+        .next-slide {
+          right: -1.5rem;
+        }
+        .owl-prev i,
+        .owl-next i {
+          color: $white;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+// custome popup
+.new-vehicle-modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 98%;
+  border-radius: 5px;
+  z-index: 1;
+  height: 100%;
+  padding: 0 !important;
+  overflow: unset;
+  background-color: #f4f8fb;
+  padding-top: 8%;
+  transition: 0.5s ease-in all;
+  .modal-contents {
+    position: relative;
+    margin: auto;
+    padding: 20px 20px 0 20px;
+    border: 0;
+    border-radius: 5px;
+    transition: 0.5s ease-in all;
+    form {
+      select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url(../../img/down.png);
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+  .new-vehicle-close {
+    color: $primary;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    background-color: $textligh-1;
+    color: $white;
+    top: 15px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    @include for-dflex();
+    border-radius: 50%;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+.cancel-policy-form {
+  form {
+    .form-group {
+      padding: 15px 40px 10px 0;
+    }
+    .form-control {
+      padding: 0.9rem 0.75rem;
+    }
+    select.form-control {
+      color: #788491;
+      cursor: pointer;
+      height: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url(../../img/down.png);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 1.2rem;
+    }
+    #cancelPolicyInput {
+      background-image: url(../../img/date-icon-2.svg);
+      background-repeat: no-repeat;
+      background-position-x: 97%;
+      background-position-y: 11px;
+      background-size: 5%;
+      cursor: pointer;
+    }
+  }
+}
+.cancel-policy-tabel-list {
+  .border-right {
+    border-right: 1px solid #a7a7a7;
+    height: 50px;
+  }
+  table {
+    max-width: 450px;
+
+    tr {
+      td {
+        font-family: "Poppins-Light";
+        font-size: 0.875rem;
+        padding: 0.35rem 0;
+        color: #434343;
+        b {
+          font-family: "Poppins-SemiBold";
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+.cancel-policy-bank-info {
+  form {
+    .form-group {
+      padding: 10px 40px 10px 0;
+    }
+    select.form-control {
+      color: #788491;
+      cursor: pointer;
+      height: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url(../../img/filter-down.svg);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 45%;
+      background-size: 0.9rem;
+    }
+    .conformation-checkbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .customcheck {
+        display: block;
+        position: relative;
+        padding-left: 26px;
+        margin-bottom: 1rem;
+        cursor: pointer;
+
+        font-size: 0.8rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: $dark-bg;
+        border-radius: 50%;
+      }
+      .customcheck:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+      .customcheck input:checked ~ .checkmark {
+        background-color: $primary;
+        border-radius: 50%;
+        transition: 0.3s all ease-in;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .customcheck input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .customcheck .checkmark:after {
+        left: 5.5px;
+        top: 2.5px;
+        width: 4.5px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+      .conformation-checkbox-text {
+        font-size: 0.85rem;
+        color: $textlight;
+      }
+    }
+    .cancel-policy-alert {
+      p {
+        font-family: "Poppins-Light";
+        font-size: 0.775rem;
+        color: #989898;
+      }
+    }
+  }
+}
+@include breakpoint(ipad-max) {
+  .cancel-policy-otp {
+    .btn-main {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  .cancel-policy-cancellation-details-wrap {
+    .cancel-policy-form {
+      form {
+        #cancelPolicyInput {
+          background-size: 8%;
+        }
+      }
+    }
+    .cancel-policy-wrap_total_count {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      padding: 15px;
+      background: $primary-bg;
+    }
+  }
+  .cancel-policy-vehicle-information-wrap {
+    .cancel-policy-tabel-list {
+      background-color: transparent;
+      table {
+        tr {
+          td {
+            font-family: "Poppins-Medium";
+            color: $textlight;
+            b {
+              color: #1a1a1a;
+            }
+          }
+        }
+      }
+      .row {
+        --bs-gutter-x: 0;
+        padding: 15px 0 10px 0;
+        border-radius: 10px;
+      }
+      .policies-list {
+        border: 0;
+        margin-bottom: 0;
+        padding: 0 20px;
+      }
+      .border-right {
+        border: 0;
+      }
+    }
+    &_list {
+      padding: 0 20px;
+      &:first-child {
+        border-bottom: 1px solid #a7a7a7;
+      }
+    }
+    .total-summary {
+      padding: 0 20px;
+    }
+  }
+  .cancel-policy-bank-info {
+    form .form-group {
+      padding: 10px 10px 10px 0;
+    }
+  }
+  .cancel-policy-pay-wrap {
+    background-color: $white;
+    .wazen-payment-list-wrap {
+      padding: 25px 10px;
+    }
+    h6 {
+      text-align: center;
+    }
+    #paypage{
+      .form-card {
+        padding: 10px 15px;
+      }
+    } 
+  }
+  .cancel-policy-thank-wrap{
+    background-color: $textwhite;
+  }
+}
+@include breakpoint(mobile-max) {
+  .cancel-policy-stepwizard {
+    #progressbar {
+      li {
+        font-size: 0.75rem;
+        margin: 0 0.5rem;
+        &::before {
+          width: 2rem;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+  .cancel-policy-otp {
+    .cancel-policy-wrap {
+      background-color: transparent;
+      &_title {
+      }
+      &_inner {
+        #otp-verification {
+          .col-1 {
+            width: 4.5rem;
+            .form-control {
+              height: 3.5rem;
+              border-radius: 18px;
+            }
+          }
+        }
+      }
+    }
+    .renew-policy-wrap_title_des {
+      font-family: "Poppins-SemiBold";
+      font-size: 18px;
+      padding: 0 20px;
+    }
+    .btn-main {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+  .cancel-policy-select-vehicles {
+    .cancel-policy-wrap {
+      background-color: $white;
+      padding: 4rem 20px;
+      z-index: 9999;
+      &_title {
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .cancel-policy-select-vehicles-2 {
+    .card {
+      background-color: transparent;
+    }
+    .cancel-policy-wrap_title {
+      background-color: $textwhite;
+      border-radius: 10px;
+      padding: 30px;
+    }
+    .cancel-policy-wrap_inner {
+      .btn-main#new-vehicle-popup-btn {
+        border-radius: 5px;
+      }
+    }
+    .new-vehicle-modal {
+      margin: 0 auto;
+      width: 80%;
+      border-radius: 25px;
+      height: auto;
+      left: 0;
+      right: 0;
+      .new-vehicle-close {
+        color: $primary;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        background-color: $textligh-1;
+        color: $white;
+        top: -12px;
+        right: -6px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+      .car-icon {
+        display: none;
+      }
+    }
+  }
+  .cancel-policy-vehicles-list {
+    .card {
+      background-color: transparent;
+    }
+    .cancel-policy-wrap_total_count {
+      background: $primary-bg;
+      padding: 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+    }
+  }
+  .cancel-policy-cancellation-details-wrap {
+    .card {
+      background-color: transparent;
+    }
+    .cancel-policy-wrap_inner {
+      .policies-slider {
+        .owl-nav {
+          display: none;
+        }
+      }
+    }
+    .cancel-policy-form {
+      padding: 25px 20px;
+      background-color: #e2effa;
+      margin-bottom: 200px;
+      h4 {
+        text-align: left !important;
+        font-size: 1rem;
+      }
+      form {
+        margin-top: 10px;
+        #cancelPolicyInput {
+          background-size: 8%;
+        }
+        .form-group {
+          padding: 0 0 10px 0;
+        }
+      }
+      .cancel-policy-wrap_total_count {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding: 15px;
+        background: $primary-bg;
+      }
+    }
+  }
+  .cancel-policy-vehicle-information-wrap {
+    .cancel-policy-tabel-list {
+      background-color: transparent;
+      table {
+        tr {
+          td {
+            font-family: "Poppins-Medium";
+            color: $textlight;
+            b {
+              color: #1a1a1a;
+            }
+          }
+        }
+      }
+      .row {
+        --bs-gutter-x: 0;
+        padding: 15px 0 10px 0;
+        border-radius: 10px;
+      }
+      .policies-list {
+        border: 0;
+        margin-bottom: 0;
+        padding: 0 20px;
+      }
+      .border-right {
+        border: 0;
+      }
+    }
+    &_list {
+      padding: 0 20px;
+      &:first-child {
+        border-bottom: 1px solid #a7a7a7;
+      }
+    }
+    .total-summary {
+      flex-direction: column;
+      &_l {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+      &_r {
+        position: fixed;
+        background: $primary-bg;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        transition: 0.3s all ease-in-out;
+      }
+    }
+  }
+  .cancel-policy-bank-info {
+    background-color: transparent;
+    form {
+      .form-group {
+        padding: 10px 0 0 0;
+      }
+      .conformation-checkbox {
+        justify-content: left;
+      }
+      .cancel-policy-alert {
+        p {
+          text-align: left;
+        }
+      }
+    }
+    &_total {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background: $primary-bg;
+    }
+  }
+  .cancel-policy-otp-wrap {
+    padding: 4rem 0;
+    background-color: transparent;
+    &_des {
+      font-size: 1rem;
+      padding: 0 50px;
+    }
+    .cancel-policy-wrap_inner {
+      .col-1 {
+        width: 4.5rem;
+        padding: 0 0.2rem;
+        .form-control {
+          height: 3.5rem;
+          font-size: 1.3rem;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+  .cancel-policy-pay-wrap {
+    background-color: $white;
+    .wazen-payment-list-wrap {
+      padding: 25px 10px;
+    }
+    h6 {
+      margin: 0;
+      text-align: left;
+    }
+    #paypage{
+      .form-card {
+        padding: 10px 15px;
+      }
+    } 
+  }
+  #cancel-policy-select-vehicles-backdrops {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100vw;
+    height: 100vh;
+    background: #eef3f8;
+    opacity: 0.93;
+  }
+  #cancel-policy-select-vehicles-backdrop.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #eef3f8;
+    opacity: 0.93;
+  }
+}
+@include breakpoint(custom-small-mobile-max) {
+  .cancel-policy-stepwizard #progressbar li {
+    font-size: 0.65rem;
+  }
+}

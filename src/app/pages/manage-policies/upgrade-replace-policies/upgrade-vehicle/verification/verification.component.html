@@ -1,0 +1,72 @@
+<div class="row upgrade-policy-otp" *ngIf="otpsection==true">>
+  <div class="col-lg-10 col-sm-12 mx-auto">
+      <div class="card upgrade-policy-wrap text-center mb-5">
+          <div class="upgrade-policy-wrap_title">
+              <h4 class="mb-3 fw-6 d-none d-lg-block">OTP Verification</h4>
+              <p class="fw-5 textlight fs-s upgrade-policy_title_des ">Enter the OTP sent to your registered mobile number</p>
+          </div>
+          <div class="upgrade-policy-wrap_inner">
+              <p class="fw-6 mb-2">+966 ** *** 0000</p>
+              <form id="otp-verification">
+                  <div class="row g-3 my-3 justify-content-center">
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                  </div>
+              </form>
+              <p class="m-4 fw-5 fs-s textlight  ">Didn’t you receive the OTP? <a class="textprimary"
+                      href="#">Resend OTP</a></p>
+              <button type="submit" class="btn-main m-w-100" (click)="verifyOtp()">Verify OTP</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row upgrade-policy-disclaimer" *ngIf="disclaimer==true">
+  <div class="col-lg-10 col-sm-12 mx-auto">
+      <div class="card upgrade-policy-wrap text-center mb-lg-5">
+          <div class="upgrade-policy-wrap_title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+                  <g id="Group_1028" data-name="Group 1028" transform="translate(-905 -468)">
+                      <path id="Icon_metro-warning" data-name="Icon metro-warning"
+                          d="M36.742,8.12,65.381,65.2H8.1L36.742,8.12Zm0-6.192c-1.473,0-2.946.993-4.063,2.98L3.508,63.047c-2.235,3.973-.334,7.224,4.225,7.224H65.752c4.558,0,6.46-3.251,4.225-7.224h0L40.806,4.908c-1.117-1.987-2.59-2.98-4.063-2.98Zm4.271,55.529a4.271,4.271,0,1,1-4.271-4.271A4.271,4.271,0,0,1,41.014,57.457Zm-4.271-8.543a4.271,4.271,0,0,1-4.271-4.271V31.828a4.271,4.271,0,0,1,8.543,0V44.642A4.271,4.271,0,0,1,36.742,48.914Z"
+                          transform="translate(932.429 496.072)" fill="#e25454"></path>
+                      <g id="Ellipse_27" data-name="Ellipse 27" transform="translate(905 468)" fill="none"
+                          stroke="#e25454" stroke-width="1">
+                          <circle cx="64" cy="64" r="64" stroke="none"></circle>
+                          <circle cx="64" cy="64" r="63.5" fill="none"></circle>
+                      </g>
+                  </g>
+              </svg>
+              <h4 class="my-3">Important Legal Disclaimer</h4>
+              <p class="fw-5 textlight fs-s textlight">A legal disclosure that Wazen does not have control of
+                  the
+                  refund. It will depend on <br>
+                  the Insurance Company to refund your old policy after it has been canceled</p>
+          </div>
+          <div class="upgrade-policy-wrap_inner">
+              <div class="conformation-checkbox m-3">
+                  <label class="customcheck td-u textlight">I agree the terms and conditions
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                  </label>
+              </div>
+              <button type="submit" class="btn-main" (click)="continueToVehicle()">Continue</button>
+          </div>
+      </div>
+  </div>
+</div>
+

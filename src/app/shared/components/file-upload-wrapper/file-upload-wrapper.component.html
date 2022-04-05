@@ -1,0 +1,24 @@
+<div class="col-12 img-upload-area">
+  <file-upload [control]="control">
+    <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
+      <file-upload-drop-zone>
+        <ng-container *ngIf="isFileDragDropAvailable; else isNotDragDropAvailable">
+          <span>Upload Your Vehicle’s Picture</span>
+          <p class="mb-0">Your image has to be in PNG format and</p>
+          <p class="mb-0">not less than 512x512</p>
+        </ng-container>
+        <ng-template #isNotDragDropAvailable>
+          <b>Klicken Sie hier</b> um<br> eine Datei auszuwählen
+        </ng-template>
+      </file-upload-drop-zone>
+    </ng-template>
+
+    <ng-template let-i="index" let-file="file" let-control="control" #item>
+      <div class="overlay mb-2">
+        <file-upload-list-item [index]="i" [file]="file" [control]="control" [src]="uploadedFile.value[i]?.binary">
+          Remove</file-upload-list-item>
+      </div>
+    </ng-template>
+  </file-upload>
+
+</div>

@@ -1,0 +1,1955 @@
+.upgrade-policy-stepwizard {
+  #progressbar {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+
+    li {
+      list-style-type: none;
+      color: #c4c4c4;
+      font-size: 0.85rem;
+      text-align: center;
+      width: fit-content;
+      float: left;
+      position: relative;
+      margin: 0 1rem;
+      &:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 2.5rem;
+        line-height: 2.5rem;
+        font-weight: 600;
+        display: block;
+        font-size: 1rem;
+        color: $white;
+        background: #c4c4c4;
+        border-radius: 50%;
+        margin: 0 auto 0.752rem auto;
+      }
+      &:first-child:after {
+        content: none;
+      }
+    }
+    li.checked {
+      &::before {
+        content: "\eca4" !important;
+        font-family: boxicons !important;
+        font-size: 1.5rem;
+      }
+    }
+    li.open {
+      color: $primary;
+      &:before,
+      &:after {
+        background: $primary;
+        color: white;
+      }
+    }
+  }
+}
+.upgrade-policy-wrap {
+  padding: 6rem 0;
+  &_title {
+    p {
+      color: $textligh-1;
+    }
+    h4 {
+      font-family: "Poppins-Bold";
+    }
+    .icon-car {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      margin: 0 5px 0 0;
+      background-position: 0 21.5%;
+      background: url(../../img/car-icon.svg) no-repeat;
+      background-size: 75%;
+      display: inline-block;
+    }
+  }
+  &_inner {
+    .col-1 {
+      width: 4rem;
+      padding: 0 0.2rem;
+
+      .form-control {
+        height: 3rem;
+        font-size: 1.3rem;
+      }
+    }
+    .conformation-checkbox {
+      display: flex;
+      justify-content: center;
+      .customcheck {
+        display: block;
+        position: relative;
+        padding-left: 26px;
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        font-size: 0.8rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: $dark-bg;
+        border-radius: 50%;
+      }
+      .customcheck:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+      .customcheck input:checked ~ .checkmark {
+        background-color: $primary;
+        border-radius: 50%;
+        transition: 0.3s all ease-in;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .customcheck input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .customcheck .checkmark:after {
+        left: 5px;
+        top: 2.5px;
+        width: 4.5px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    .owl-carousel {
+      .owl-nav {
+        .nav-btn {
+          height: 30px;
+          position: absolute;
+          width: 30px;
+          cursor: pointer;
+          top: -30px !important;
+          background-color: #e2e2e2;
+          border-radius: 50%;
+        }
+        .prev-slide {
+          left: -1.5rem;
+        }
+        .next-slide {
+          right: -1.5rem;
+        }
+        .owl-prev i,
+        .owl-next i {
+          color: $white;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+.upgrade-policy-list-table {
+  &_title {
+    background-color: $primary;
+    border-radius: 99px;
+    color: $white;
+    padding: 0.6rem 0;
+  }
+  &_wrap {
+    table {
+      border: 1px solid #e1e1e1;
+      border-top-width: 0;
+      border-left-width: 0;
+      border-right-width: 0;
+      border-bottom-color: 0px;
+      border-bottom-style: none;
+
+      thead {
+        tr {
+          border: 0;
+          th {
+            padding: 2.2rem 0;
+            color: $primary;
+            font-family: "Poppins-SemiBold";
+            border: 0;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            font-family: "Poppins-Bold";
+            font-size: 1.1rem;
+            vertical-align: middle;
+            padding: 0.5rem;
+            position: relative;
+            &:first-child {
+              border-left: 0;
+            }
+            &:last-child {
+              border-right: 0;
+            }
+            a {
+              font-family: inherit;
+            }
+
+            .price {
+              font-family: "Poppins-Bold";
+
+              &::before {
+                content: "SAR ";
+                font-size: 0.875rem;
+                font-family: "Poppins-Medium";
+                color: #b5b5b3;
+              }
+            }
+            span.price-valid {
+              font-size: 0.775rem;
+              color: #c48e8b;
+            }
+            .range-action {
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              top: 12px;
+              right: 28%;
+              a {
+                color: #d1d1d1;
+                height: 20px;
+                i {
+                  font-size: 24px;
+                }
+              }
+            }
+          }
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+    .dp-modal {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      overflow: unset;
+      background-color: $t-white;
+      padding-top: 8%;
+      transition: 0.5s ease-in all;
+      .modal-contents {
+        position: relative;
+        width: 95%;
+        background-color: #eafbff;
+        margin: auto;
+        padding: 20px 20px 0 20px;
+        border: 2px solid $primary;
+        border-radius: 5px;
+        transition: 0.5s ease-in all;
+        p {
+          text-align: left;
+          font-size: 1.2rem;
+        }
+        .details-list-info {
+          text-align: left;
+          p {
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+          }
+          span {
+            font-size: 0.775rem;
+          }
+          .price {
+            font-family: "Poppins-SemiBold";
+            font-size: 1.2rem;
+
+            &::before {
+              content: "SAR ";
+              font-size: 0.875rem;
+              font-family: "Poppins-Medium";
+              color: #a3a3a3;
+            }
+          }
+          &_1 {
+            border-right: 1px solid #c7e2e8;
+            span {
+              color: #1fad35;
+            }
+          }
+          &_2 {
+            border-right: 1px solid #c7e2e8;
+            span {
+              font-family: "Poppins-Light";
+            }
+          }
+          &_3 {
+            border-right: 1px solid #c7e2e8;
+            position: relative;
+            .range-action {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              right: 22%;
+              a {
+                color: #d1d1d1;
+                height: 20px;
+                i {
+                  font-size: 28px;
+                }
+              }
+            }
+          }
+          &_4 {
+            span {
+              font-size: 0.675rem;
+              color: #c48d8d;
+            }
+          }
+        }
+      }
+      .details-close {
+        color: $primary;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        background-color: $white;
+        top: 10px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        @include for-dflex();
+        border-radius: 50%;
+        &:hover,
+        &:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.upgrade-review-wrap {
+  &_l {
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 150px 0;
+    span {
+      font-size: 0.85rem;
+    }
+    P {
+      font-size: 0.75rem;
+      font-family: "Poppins-Light";
+    }
+  }
+  &_r {
+    table {
+      tr {
+        td {
+          color: $textlight;
+          font-family: "Poppins-Light";
+          font-size: 0.9rem;
+          padding: 0.325rem 0;
+          b {
+            color: $secondary;
+            font-family: "Poppins-SemiBold";
+            padding-left: 4rem;
+          }
+          .policies-price {
+            padding-left: 2rem;
+            color: #080808;
+            font-family: "Poppins-Bold";
+
+            &::before {
+              font-family: "Poppins-Medium";
+
+              color: $textlight;
+            }
+          }
+        }
+        dt {
+          font-family: "Poppins-Bold";
+        }
+        dd {
+          font-family: "Poppins-Light";
+          margin-left: 10px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &_total {
+    table {
+      tr {
+        td {
+          width: 160px;
+        }
+      }
+    }
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    .policies-price {
+      font-size: 1.3rem;
+      font-family: "Poppins-Bold";
+      padding-left: 2.5rem;
+      &::before {
+        font-family: "Poppins-Medium";
+      }
+    }
+  }
+}
+.upgrade-policy-vehicles-list {
+  .upgrade-policy-wrap_title {
+    &_des {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+.upgrade-policy-list {
+  .list-con {
+    background-color: $primary;
+    width: 100%;
+    margin: 10px 0 0 0;
+    padding: 5px 15px;
+    color: $white;
+    font-family: "Poppins-SemiBold";
+    font-size: 0.775rem;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    i {
+      font-size: 24px;
+    }
+  }
+  .list-con.collapsed {
+    border-radius: 8px;
+  }
+  .list-dropdown {
+    position: relative;
+    background-color: $primary;
+    border-radius: 0 0 6px 6px;
+    top: -45px;
+    margin: 0 auto;
+    width: 88.5%;
+    padding: 20px 25px;
+    ul {
+      margin-bottom: 0;
+      padding: 0;
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #82d4e3;
+        display: flex;
+        justify-content: space-between;
+        &:last-child {
+          border-bottom: 0;
+        }
+        .conformation-checkbox {
+          justify-content: unset;
+          .customcheck {
+            margin-bottom: 0;
+            color: $white;
+            font-size: 0.85rem;
+          }
+          .customcheck input:checked ~ .checkmark {
+            background-color: #4fce80;
+          }
+          .customcheck .checkmark:after {
+            left: 5.5px;
+            top: 3px;
+            width: 4.5px;
+            height: 9px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+          }
+          .checkmark {
+            background-color: #c6c6c6;
+          }
+        }
+        a {
+          color: $white;
+          font-size: 0.85rem;
+        }
+        .renew-policy-price-dropdown-list {
+          color: #f0f0f0;
+          font-size: 0.875rem;
+          &::before {
+            content: "SAR";
+            color: #c8ecf2;
+            font-family: "Poppins-SemiBold";
+          }
+        }
+      }
+    }
+  }
+  .acc-policies-list.active {
+    .delete-icon {
+      bottom: 3.5rem;
+    }
+  }
+}
+.upgrade-policy-bank-info,
+.upgrade-policy-previous-policy {
+  .conformation-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .customcheck {
+      display: block;
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+
+      font-size: 0.8rem;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 16px;
+      width: 16px;
+      background-color: $dark-bg;
+      border-radius: 50%;
+    }
+    .customcheck:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+    .customcheck input:checked ~ .checkmark {
+      background-color: $primary;
+      border-radius: 50%;
+      transition: 0.3s all ease-in;
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    .customcheck input:checked ~ .checkmark:after {
+      display: block;
+    }
+    .customcheck .checkmark:after {
+      left: 5.5px;
+      top: 2.5px;
+      width: 4.5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    .conformation-checkbox-text {
+      font-size: 0.85rem;
+      color: $textlight;
+    }
+  }
+  form {
+    .form-group {
+      padding: 10px 40px 10px 0;
+    }
+    select.form-control {
+      color: #788491;
+      cursor: pointer;
+      height: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url(../../img/filter-down.svg);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 45%;
+      background-size: 0.9rem;
+    }
+  }
+}
+.upgrade-policy-alert {
+  p {
+    font-family: "Poppins-Light";
+    font-size: 0.775rem;
+    color: #989898;
+  }
+}
+@include breakpoint(ipad-max) {
+  .upgrade-policy-otp {
+    .card {
+      background-color: transparent;
+    }
+    .upgrade-policy_title_des {
+      font-family: "Poppins-SemiBold";
+      font-size: 18px;
+      padding: 0 20px;
+    }
+    .upgrade-policy-wrap_inner {
+      #otp-verification {
+        .col-1 {
+          width: 4.5rem;
+          .form-control {
+            height: 3.5rem;
+            border-radius: 18px;
+          }
+        }
+      }
+    }
+    .btn-main {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: max-content;
+      margin: 0 auto;
+    }
+  }
+  .upgrade-policy-vehicles-list {
+    .card {
+      background-color: transparent;
+    }
+    .upgrade-policy-wrap_title {
+      &_des {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+        p {
+          font-size: 14px;
+        }
+        .btn-main {
+          margin-bottom: 15px;
+        }
+      }
+    }
+    .upgrade-policy-wrap_total_count {
+      background: $primary-bg;
+      padding: 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+    }
+  }
+  .upgrade-policy-select-plan-cover {
+    .card {
+      background-color: transparent;
+    }
+    .upgrade-policy-wrap_inner {
+      .policies-slider {
+        .owl-nav {
+          display: none;
+        }
+      }
+    }
+    .upgrade-policy-list {
+      .list-con {
+        padding: 5px 15px;
+      }
+      .list-dropdown {
+        width: auto;
+        margin: 5px 21.5px;
+      }
+    }
+    .upgrade-review-wrap {
+      // &_l {
+      //   padding: 30px 0;
+      // }
+      &_r {
+        padding: 1rem 0;
+        table {
+          width: 100%;
+          tr {
+            td {
+              b {
+                padding-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .upgrade-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 10px 10px 10px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 0.875rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+    .upgrade-review-wrap_total {
+      table {
+        width: 100%;
+        tr {
+          td {
+            &:last-child {
+              text-align: end;
+              padding-right: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .upgrade-policy-list-table {
+    &_title {
+      border-radius: 8px;
+      padding: 0.7rem 0;
+      &::after {
+        content: " ";
+        position: absolute;
+        left: 47%;
+        border-top: 20px solid $primary;
+        border-right: 20px solid transparent;
+        border-left: 20px solid transparent;
+        border-bottom: none;
+      }
+    }
+    .m-upgrade-policy-list-table_wrap {
+      table {
+        border: 1px solid #e1e1e1;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+        border-bottom-color: 0px;
+        border-bottom-style: none;
+
+        thead {
+          tr {
+            border: 0;
+            th {
+              padding: 1rem 0;
+              color: $primary;
+              font-family: "Poppins-SemiBold";
+              border: 1px solid #e1e1e1;
+              border-top: 0;
+              border-bottom: 0;
+              &:first-child {
+                border-left: 0;
+              }
+              &:last-child {
+                border-right: 0;
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            &:hover,
+            &.active {
+              background-color: #eaf7ff;
+              border-top: 0;
+              border-bottom: 0;
+            }
+            td {
+              font-family: "Poppins-Bold";
+              font-size: 1.1rem;
+              vertical-align: middle;
+              padding: 0.5rem;
+              position: relative;
+              &:first-child {
+                border-left: 0;
+                border-radius: 15px 0 0 15px;
+              }
+              &:last-child {
+                border-right: 0;
+                border-radius: 0 15px 15px 0;
+                // text-align: left;
+              }
+              a {
+                font-family: inherit;
+              }
+
+              .price {
+                font-family: "Poppins-Bold";
+                text-align: center;
+                &::before {
+                  content: "SAR ";
+                  font-size: 0.875rem;
+                  font-family: "Poppins-Medium";
+                  color: #b5b5b3;
+                }
+              }
+              span.price-valid {
+                font-family: "Poppins-Regular";
+                font-size: 0.775rem;
+                color: #c48e8b;
+              }
+              .range-action {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 8px;
+                right: 0;
+                a {
+                  height: 20px;
+                  color: #707070;
+                  i {
+                    font-size: 30px;
+                  }
+                }
+              }
+            }
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+    // mobile popup
+    .dp-modal {
+      display: none;
+      position: absolute;
+      top: 20%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      height: 100%;
+      overflow: unset;
+      background-color: $t-white;
+      padding: 5% 0 0 0;
+      transition: 0.5s ease-in all;
+      .modal-contents {
+        position: relative;
+        width: 100%;
+        background-color: $textwhite;
+        margin: auto;
+        padding: 20px 20px 5px 20px;
+        border: 0;
+        border-radius: 15px;
+        transition: 0.5s ease-in all;
+        p {
+          text-align: left;
+          font-size: 1.2rem;
+        }
+        .details-list-info {
+          text-align: left;
+          border: 1px solid $primary;
+          border-radius: 12px;
+          background-color: #eafbff;
+          &_wrap {
+            // border: 1px solid $primary;
+            padding: 10px 15px;
+            &:nth-child(1) {
+              border-right: 1px solid $primary;
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(2) {
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(3) {
+              border-right: 1px solid $primary;
+            }
+            &:nth-child(4) {
+              background-color: $primary;
+              border-radius: 0 0 12px 0;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 0.775rem;
+            margin-bottom: 0.25rem;
+          }
+          span {
+            font-size: 0.775rem;
+          }
+          .price {
+            font-family: "Poppins-SemiBold";
+            font-size: 1.4rem;
+
+            &::before {
+              content: "SAR ";
+              font-size: 0.975rem;
+              font-family: "Poppins-Medium";
+              color: #a3a3a3;
+            }
+          }
+          &_1 {
+            border: 0;
+            span {
+              color: #1fad35;
+              font-size: 0.875rem;
+            }
+          }
+          &_2 {
+            border: 0;
+            p {
+              margin-bottom: 0;
+            }
+            span {
+              color: $black;
+              font-family: "Poppins-Regular";
+              font-size: 0.875rem;
+            }
+          }
+          &_3 {
+            border: 0;
+            position: relative;
+            p {
+              text-align: center;
+              font-family: "Poppins-Bold";
+              color: #707070;
+            }
+            .range-action {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              position: absolute;
+              top: 8px;
+              right: 0;
+              a {
+                color: #707070;
+                height: 18px;
+                i {
+                  font-size: 32px;
+                }
+              }
+            }
+          }
+          &_4 {
+            color: $textwhite;
+            .price {
+              &::before {
+                color: $textwhite;
+              }
+            }
+            span {
+              font-size: 0.675rem;
+              color: #cecece;
+            }
+          }
+        }
+      }
+      .m-details-close {
+        color: $primary;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        background-color: $textwhite;
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        border: solid #dfdfdf;
+        border-width: thin;
+        @include for-dflex();
+        border-radius: 50%;
+        &:hover,
+        &:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+    // Deduction popup
+    .m-deduction-modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99999;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: unset;
+      // background-color: #f5f8fbbd;
+      transition: 0.5s ease-in all;
+      .modal-contents {
+        position: relative;
+        // width: 1%;
+        margin-left: auto;
+        border-radius: 5px;
+        transition: 0.5s ease-in all;
+        .deduction-modal_title {
+          display: flex;
+          background: $primary;
+          justify-content: space-between;
+          padding: 1rem 2rem;
+          align-items: center;
+          color: $textwhite;
+          p {
+            font-family: "Poppins-Bold";
+          }
+          .m-deduction-details-close {
+            // display: none;
+            i {
+              font-size: 1.8rem;
+            }
+            &:hover,
+            &:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+            }
+          }
+        }
+        .deduction-modal_des {
+          background-color: $textwhite;
+          border: 1px solid #e8e8e8;
+          border-top: 0;
+          height: 200px;
+          overflow: scroll;
+          ul {
+            margin: 0;
+            padding: 0;
+            li {
+              border-bottom: 1px solid #e8e8e8;
+              padding: 10px 0;
+              &:last-child {
+                border: 0;
+              }
+              span {
+                color: #cccccc;
+                font-family: "Poppins-SemiBold";
+                &::before {
+                  content: "SAR ";
+                  font-size: 0.875rem;
+                  font-family: "Poppins-Regular";
+                }
+              }
+              &.active {
+                span {
+                  font-family: "Poppins-Bold";
+                  font-size: 1.2rem;
+                  color: #000;
+                }
+              }
+              &:hover {
+                cursor: pointer;
+                background-color: #f8fafc;
+              }
+            }
+          }
+        }
+      }
+    }
+    .m-upgrade-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+  }
+  #upgrade-policy-con-backdrops.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-bg;
+    opacity: 0.93;
+  }
+}
+
+@include breakpoint(mobile-max) {
+  .upgrade-policy-stepwizard {
+    #progressbar {
+      li {
+        font-size: 0.75rem;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+  .upgrade-policy-page-header-bg {
+    background: $white;
+    margin-left: 12px;
+    border-radius: 0 0 0 8px;
+    header .m-breadcrumbs {
+      padding: 0 15px 0 0;
+    }
+    .policies-slider {
+      padding-right: 0;
+    }
+  }
+  .upgrade-policy-otp {
+    .card {
+      background-color: transparent;
+    }
+    .upgrade-policy_title_des {
+      font-family: "Poppins-SemiBold";
+      font-size: 18px;
+      padding: 0 20px;
+    }
+    .upgrade-policy-wrap_inner {
+      #otp-verification {
+        .col-1 {
+          width: 4.5rem;
+          .form-control {
+            height: 3.5rem;
+            border-radius: 18px;
+          }
+        }
+      }
+    }
+    .btn-main {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+  .upgrade-policy-disclaimer {
+    .upgrade-policy-wrap {
+      background-color: $white;
+      z-index: 99999;
+      padding: 3rem 1rem;
+    }
+  }
+  .upgrade-policy-vehicles-list {
+    .card {
+      background-color: transparent;
+    }
+    .upgrade-policy-wrap_title {
+      &_des {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+        p {
+          font-size: 14px;
+        }
+        .btn-main {
+          margin-bottom: 15px;
+        }
+      }
+    }
+    .upgrade-policy-wrap_total_count {
+      background: $primary-bg;
+      padding: 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+    }
+  }
+  .upgrade-policy-processing {
+    .card {
+      background: $white;
+      z-index: 9999999;
+    }
+  }
+  .upgrade-policy-select-plan {
+    .card {
+      background: transparent;
+    }
+    .policies-slider .owl-nav {
+      display: none;
+    }
+    .upgrade-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+  }
+  .upgrade-policy-bank-details {
+    .upgrade-policy-bank-info {
+      h4 {
+        font-size: 00.875rem;
+        color: $black;
+        font-family: "Poppins-Bold";
+      }
+      form {
+        .form-group {
+          padding: 10px 0;
+        }
+      }
+      &_sec {
+        position: absolute;
+        margin-top: 1.5rem;
+        left: 0;
+        right: 0;
+        &_btn {
+          position: fixed;
+          bottom: 0;
+          width: 90%;
+          left: 0;
+          right: 0;
+          margin: 1rem auto;
+        }
+      }
+    }
+  }
+  .upgrade-policy-previous-policy-wrap {
+    .card {
+      position: fixed;
+      width: 95%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: 30%;
+      background-color: $textwhite;
+      padding: 3rem 0;
+      .upgrade-policy-wrap_title {
+        p {
+          font-size: 0.875rem;
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+  .upgrade-policy-select-plan-cover {
+    .card {
+      background-color: transparent;
+    }
+    .upgrade-policy-wrap_inner {
+      .policies-slider {
+        .owl-nav {
+          display: none;
+        }
+      }
+    }
+    .upgrade-policy-list {
+      .list-con {
+        padding: 5px 15px;
+      }
+      .list-dropdown {
+        width: auto;
+        margin: 5px 21.5px;
+      }
+      .acc-policies-list .delete-icon {
+        bottom: 3rem;
+      }
+    }
+    .upgrade-review-wrap {
+      &_l {
+        padding: 30px 0;
+      }
+      &_r {
+        padding: 1rem 0;
+        table {
+          width: 100%;
+          tr {
+            td {
+              b {
+                padding-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .upgrade-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 10px 10px 10px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            font-size: 1.2rem;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 0.875rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+    .upgrade-review-wrap_total {
+      width: 100%;
+      border-radius: 0 0 5px 5px;
+      background: linear-gradient(0deg, white, #f8f8f8 100%) no-repeat;
+      table {
+        width: 100%;
+        tr {
+          td {
+            &:last-child {
+              text-align: end;
+              padding-right: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .upgrade-policy-list-table {
+    &_title {
+      border-radius: 8px;
+      padding: 0.7rem 0;
+      &::after {
+        content: " ";
+        position: absolute;
+        left: 47%;
+        border-top: 20px solid $primary;
+        border-right: 20px solid transparent;
+        border-left: 20px solid transparent;
+        border-bottom: none;
+      }
+    }
+    .m-upgrade-policy-list-table_wrap {
+      table {
+        border: 1px solid #e1e1e1;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+        border-bottom-color: 0px;
+        border-bottom-style: none;
+
+        thead {
+          tr {
+            border: 0;
+            th {
+              padding: 1rem 0;
+              color: $primary;
+              font-family: "Poppins-SemiBold";
+              border: 1px solid #e1e1e1;
+              border-top: 0;
+              border-bottom: 0;
+              &:first-child {
+                border-left: 0;
+              }
+              &:last-child {
+                border-right: 0;
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            &:hover,
+            &.active {
+              background-color: #eaf7ff;
+              border-top: 0;
+              border-bottom: 0;
+            }
+            td {
+              font-family: "Poppins-Bold";
+              font-size: 1.1rem;
+              vertical-align: middle;
+              padding: 0.5rem;
+              position: relative;
+              &:first-child {
+                border-left: 0;
+                border-radius: 15px 0 0 15px;
+              }
+              &:last-child {
+                border-right: 0;
+                border-radius: 0 15px 15px 0;
+                // text-align: left;
+              }
+              a {
+                font-family: inherit;
+              }
+
+              .price {
+                font-family: "Poppins-Bold";
+                text-align: unset;
+                &::before {
+                  content: "SAR ";
+                  font-size: 0.875rem;
+                  font-family: "Poppins-Medium";
+                  color: #b5b5b3;
+                }
+              }
+              span.price-valid {
+                font-family: "Poppins-Regular";
+                font-size: 0.775rem;
+                color: #c48e8b;
+              }
+              .range-action {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 8px;
+                right: 0;
+                a {
+                  height: 20px;
+                  color: #707070;
+                  i {
+                    font-size: 30px;
+                  }
+                }
+              }
+            }
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+    // mobile popup
+    .dp-modal {
+      display: none;
+      position: absolute;
+      top: 20%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      height: 100%;
+      overflow: unset;
+      background-color: $t-white;
+      padding: 10% 0 0 0;
+      transition: 0.5s ease-in all;
+      .modal-contents {
+        position: relative;
+        width: 100%;
+        background-color: $textwhite;
+        margin: auto;
+        padding: 20px 20px 5px 20px;
+        border: 0;
+        border-radius: 15px;
+        transition: 0.5s ease-in all;
+        p {
+          text-align: left;
+          font-size: 1.2rem;
+        }
+        .details-list-info {
+          text-align: left;
+          border: 1px solid $primary;
+          border-radius: 12px;
+          background-color: #eafbff;
+          &_wrap {
+            // border: 1px solid $primary;
+            padding: 10px 15px;
+            &:nth-child(1) {
+              border-right: 1px solid $primary;
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(2) {
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(3) {
+              border-right: 1px solid $primary;
+            }
+            &:nth-child(4) {
+              background-color: $primary;
+              border-radius: 0 0 12px 0;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 0.775rem;
+            margin-bottom: 0.25rem;
+          }
+          span {
+            font-size: 0.775rem;
+          }
+          .price {
+            font-family: "Poppins-SemiBold";
+            font-size: 1.4rem;
+
+            &::before {
+              content: "SAR ";
+              font-size: 0.975rem;
+              font-family: "Poppins-Medium";
+              color: #a3a3a3;
+            }
+          }
+          &_1 {
+            border: 0;
+            span {
+              color: #1fad35;
+              font-size: 0.875rem;
+            }
+          }
+          &_2 {
+            border: 0;
+            p {
+              margin-bottom: 0;
+            }
+            span {
+              color: $black;
+              font-family: "Poppins-Regular";
+              font-size: 0.875rem;
+            }
+          }
+          &_3 {
+            border: 0;
+            position: relative;
+            p {
+              text-align: center;
+              font-family: "Poppins-Bold";
+              color: #707070;
+            }
+            .range-action {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              position: absolute;
+              top: 8px;
+              right: 0;
+              a {
+                color: #707070;
+                height: 18px;
+                i {
+                  font-size: 32px;
+                }
+              }
+            }
+          }
+          &_4 {
+            color: $textwhite;
+            .price {
+              &::before {
+                color: $textwhite;
+              }
+            }
+            span {
+              font-size: 0.675rem;
+              color: #cecece;
+            }
+          }
+        }
+      }
+      .m-details-close {
+        color: $primary;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        background-color: $textwhite;
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        border: solid #dfdfdf;
+        border-width: thin;
+        @include for-dflex();
+        border-radius: 50%;
+        &:hover,
+        &:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+    // Deduction popup
+    .m-deduction-modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99999;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: unset;
+      // background-color: #f5f8fbbd;
+      transition: 0.5s ease-in all;
+      .modal-contents {
+        position: relative;
+        // width: 1%;
+        margin-left: auto;
+        border-radius: 5px;
+        transition: 0.5s ease-in all;
+        .deduction-modal_title {
+          display: flex;
+          background: $primary;
+          justify-content: space-between;
+          padding: 1rem 2rem;
+          align-items: center;
+          color: $textwhite;
+          p {
+            font-family: "Poppins-Bold";
+          }
+          .m-deduction-details-close {
+            // display: none;
+            i {
+              font-size: 1.8rem;
+            }
+            &:hover,
+            &:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+            }
+          }
+        }
+        .deduction-modal_des {
+          background-color: $textwhite;
+          border: 1px solid #e8e8e8;
+          border-top: 0;
+          height: 200px;
+          overflow: scroll;
+          ul {
+            margin: 0;
+            padding: 0;
+            li {
+              border-bottom: 1px solid #e8e8e8;
+              padding: 10px 0;
+              &:last-child {
+                border: 0;
+              }
+              span {
+                color: #cccccc;
+                font-family: "Poppins-SemiBold";
+                &::before {
+                  content: "SAR ";
+                  font-size: 0.875rem;
+                  font-family: "Poppins-Regular";
+                }
+              }
+              &.active {
+                span {
+                  font-family: "Poppins-Bold";
+                  font-size: 1.2rem;
+                  color: #000;
+                }
+              }
+              &:hover {
+                cursor: pointer;
+                background-color: #f8fafc;
+              }
+            }
+          }
+        }
+      }
+    }
+    .m-upgrade-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+  }
+  .upgrade-policy-payment {
+    .card {
+      background-color: $textwhite;
+    }
+    .pay-wrap {
+      h6 {
+        text-align: left;
+        font-size: 0.775rem;
+      }
+      .pay-wrap-container {
+        width: 100%;
+        p {
+          font-size: 0.87rem;
+        }
+        .pay-wrap-container__button {
+          padding: 0 10px;
+          width: 50%;
+        }
+      }
+    }
+    .btn-main {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      margin: -20px 0;
+    }
+  }
+  .upgrade-policy-thank-you-wrap {
+    .card {
+      background-color: $textwhite;
+      padding: 4rem 1rem;
+    }
+  }
+  #upgrade-policy-con-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eff4f7;
+    opacity: 0.93;
+  }
+  #upgrade-policy-con-backdrops.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    background: $primary-bg;
+    opacity: 0.93;
+  }
+}
+@include breakpoint(custom-small-mobile-max) {
+  .upgrade-policy-stepwizard {
+    #progressbar {
+      li {
+        font-size: 0.65rem;
+        &::before {
+          width: 2rem;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+  .upgrade-policy-payment {
+    .pay-wrap {
+      .pay-wrap-container {
+        p {
+          font-size: 0.675rem;
+        }
+        .pay-wrap-container__button {
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+  .upgrade-policy-select-plan-cover {
+    .upgrade-policy-list {
+      .list-dropdown {
+        margin: 25px 12px 0;
+        padding: 10px 15px;
+      }
+    }
+    .upgrade-policy-wrap_inner {
+      .policies-slider {
+        .acc-policies-list {
+          padding: 0.6rem;
+          .policies-car {
+            .policies-carnum {
+              span {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+              }
+            }
+            .policies-carname {
+              p {
+                font-size: 14px;
+              }
+            }
+          }
+          table {
+            tr {
+              td {
+                p,
+                b {
+                  font-size: 0.6rem;
+                }
+              }
+            }
+          }
+          .delete-icon {
+            // bottom: 0;
+            // right: 0;
+            .icon-delete {
+              background-size: 75%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .upgrade-policy-list-table {
+    .m-upgrade-policy-list-table_wrap {
+      table {
+        thead {
+          tr {
+            th {
+              font-size: 0.8rem;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              font-size: 0.8rem;
+              span.price-valid {
+                font-size: 0.675rem;
+              }
+              .range-action {
+                a {
+                  height: 16px;
+                  i {
+                    font-size: 22px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

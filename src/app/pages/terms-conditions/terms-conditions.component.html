@@ -1,0 +1,162 @@
+<div class="container-fluid terms-conditions-wrap">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 p-0">
+      <div class="comany-about-us"></div>
+    </div>
+  </div>
+</div>
+<div class="container terms-conditions-wrap">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-md-10 col-sm-10 bg-sec contact-wrap">
+      <p class="title">Legal And Admin Policies</p>
+      <div class="company-tabs">
+        <ul class="nav nav-tabs mb-4" role="tablist">
+          <li class="nav-item " role="presentation">
+            <a class="nav-link  active" id="comapany-tab" data-bs-toggle="tab" href="#" role="tab"
+              aria-controls="comapany-info" aria-selected="true" (click)="selectedTab = 0">Terms & Conditions</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link " id="partners-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="partners"
+              aria-selected="false" (click)="selectedTab = 1">Disclaimer</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link " id="company-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="account"
+              aria-selected="false" (click)="selectedTab = 2">Privacy Policy</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link " id="company-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="account"
+              aria-selected="false" (click)="selectedTab = 3">FAQ's</a>
+          </li>
+        </ul>
+        <div class="tab-content tab-container" id="myTabContent">
+          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab == 0}" id="comapany-info" role="tabpanel"
+            aria-labelledby="comapany-tab">
+            <div class="container-fulid">
+              <div class="terms-lists-wrap">
+                <ol>
+                  <li class="list">
+                    <p>Introduction</p>
+                    <ol>
+                      <ng-container *ngFor="let term of terms">
+                        <li [innerHtml]="term.content"></li>
+                      </ng-container>
+                    </ol>
+                  </li>
+                  <li class="list">
+                    <p>Licence</p>
+                    <ol>
+                      <ng-container *ngFor="let term of terms">
+                        <li [innerHtml]="term.content"></li>
+                      </ng-container>
+                    </ol>
+                  </li>
+                </ol>
+
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab == 1}" id="company-partners" role="tabpanel"
+            aria-labelledby="partners-tab">
+            <div class="container-fulid">
+              <div class="terms-lists-wrap">
+                <ol>
+                  <li class="list">
+                    <p>Introduction</p>
+                    <ol>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.quatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosa</li>
+                    </ol>
+                  </li>
+                  <li class="list">
+                    <p>Licence</p>
+                    <ol>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non le consequatur est porro hic suscipit, explicabo quis doloremque
+                        non le consequatur est porro hic suscipit, explicabo quis doloremque
+                        no</li>
+
+                    </ol>
+                  </li>
+                </ol>
+
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab == 2}" id="company-partners" role="tabpanel"
+            aria-labelledby="company-tab">
+            <div class="container-fulid">
+              <div class="terms-lists-wrap">
+                <ol>
+                  <li class="list">
+                    <p>Introduction</p>
+                    <ol>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.quatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosa</li>
+                    </ol>
+                  </li>
+                  <li class="list">
+                    <p>Licence</p>
+                    <ol>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non laboriosam a perferendis labore
+                        blanditiis.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+                        dolorem officiis deleniti alias ut facilis
+                        quae consequatur est porro hic suscipit, explicabo quis doloremque
+                        non le consequatur est porro hic suscipit, explicabo quis doloremque
+                        non le consequatur est porro hic suscipit, explicabo quis doloremque
+                        no</li>
+
+                    </ol>
+                  </li>
+                </ol>
+
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab == 3}" id="company-contact" role="tabpanel"
+            aria-labelledby="company-tab">
+            <app-faq></app-faq>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

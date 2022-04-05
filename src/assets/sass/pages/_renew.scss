@@ -1,0 +1,1501 @@
+.renew-policy-stepwizard {
+  #progressbar {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+
+    li {
+      list-style-type: none;
+      color: #c4c4c4;
+      font-size: 0.85rem;
+      text-align: center;
+      width: fit-content;
+      float: left;
+      position: relative;
+      margin: 0 1rem;
+      &:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 2.5rem;
+        line-height: 2.5rem;
+        font-weight: 600;
+        display: block;
+        font-size: 1rem;
+        color: $textwhite;
+        background: #c4c4c4;
+        border-radius: 50%;
+        margin: 0 auto 0.752rem auto;
+      }
+      &:first-child:after {
+        content: none;
+      }
+    }
+    li.checked {
+      color: $primary;
+      &::before {
+        content: "\eca4" !important;
+        font-family: boxicons !important;
+        font-size: 1.5rem;
+        background: $primary;
+        span {
+          color: $primary;
+        }
+      }
+    }
+    li.open {
+      color: $primary;
+      &:before,
+      &:after {
+        background: $primary;
+        color: white;
+      }
+    }
+  }
+}
+.renew-policy-wrap {
+  padding: 8rem 0;
+  &_title {
+    p {
+      color: $textligh-1;
+    }
+    h4 {
+      font-family: "Poppins-Bold";
+    }
+    .icon-car {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      margin: 0 5px 0 0;
+      background-position: 0 21.5%;
+      background: url(../../img/car-icon.svg) no-repeat;
+      background-size: 75%;
+      display: inline-block;
+    }
+  }
+  &_inner {
+    .col-1 {
+      width: 4rem;
+      padding: 0 0.2rem;
+
+      .form-control {
+        height: 3rem;
+        font-size: 1.3rem;
+      }
+    }
+    .conformation-checkbox {
+      display: flex;
+      justify-content: center;
+      .customcheck {
+        display: block;
+        position: relative;
+        padding-left: 26px;
+        margin-bottom: 12px;
+        cursor: pointer;
+
+        font-size: 0.8rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: $dark-bg;
+        border-radius: 50%;
+      }
+      .customcheck:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+      .customcheck input:checked ~ .checkmark {
+        background-color: $primary;
+        border-radius: 50%;
+        transition: 0.3s all ease-in;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .customcheck input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .customcheck .checkmark:after {
+        left: 5px;
+        top: 3px;
+        width: 4.5px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+    .owl-carousel {
+      .owl-nav {
+        .nav-btn {
+          height: 30px;
+          position: absolute;
+          width: 30px;
+          cursor: pointer;
+          top: -30px !important;
+          background-color: #e2e2e2;
+          border-radius: 50%;
+        }
+        .prev-slide {
+          left: -1.5rem;
+        }
+        .next-slide {
+          right: -1.5rem;
+        }
+        .owl-prev i,
+        .owl-next i {
+          color: $textwhite;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+.renew-policy-tab {
+  li {
+    a {
+      width: 180px;
+      text-align: center;
+    }
+  }
+}
+#add-comprehensive {
+  #datepickerInput {
+    background-image: url(../../img/date-icon-2.svg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-origin: content-box;
+    background-size: 1.5rem 1.5rem;
+    cursor: pointer;
+  }
+  table {
+    border: 1px solid #e1e1e1;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-color: 0px;
+    border-bottom-style: none;
+
+    thead {
+      tr {
+        border: 0;
+        th {
+          padding: 2.2rem 0;
+          color: $primary;
+          font-family: "Poppins-SemiBold";
+          border: 0;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          font-family: "Poppins-Bold";
+          font-size: 1.1rem;
+          vertical-align: middle;
+          padding: 0.5rem;
+          position: relative;
+          &:first-child {
+            border-left: 0;
+          }
+          &:last-child {
+            border-right: 0;
+          }
+          a {
+            font-family: inherit;
+          }
+
+          .price {
+            font-family: "Poppins-Bold";
+
+            &::before {
+              content: "SAR ";
+              font-size: 0.875rem;
+              font-family: "Poppins-Medium";
+              color: #b5b5b3;
+            }
+          }
+          span.price-valid {
+            font-size: 0.775rem;
+            color: #c48e8b;
+          }
+          .range-action {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 12px;
+            right: 28%;
+            a {
+              color: #d1d1d1;
+              height: 20px;
+              i {
+                font-size: 24px;
+              }
+            }
+          }
+        }
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.details-list-wrap {
+  position: relative;
+}
+.dp-modal {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  overflow: unset;
+  background-color: $t-white;
+  padding-top: 8%;
+  transition: 0.5s ease-in all;
+  .modal-contents {
+    position: relative;
+    width: 95%;
+    background-color: #eafbff;
+    margin: auto;
+    padding: 20px 20px 0 20px;
+    border: 2px solid $primary;
+    border-radius: 5px;
+    transition: 0.5s ease-in all;
+    p {
+      text-align: left;
+      font-size: 1.2rem;
+    }
+    .details-list-info {
+      text-align: left;
+      p {
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+      }
+      span {
+        font-size: 0.775rem;
+      }
+      .price {
+        font-family: "Poppins-SemiBold";
+        font-size: 1.2rem;
+
+        &::before {
+          content: "SAR ";
+          font-size: 0.875rem;
+          font-family: "Poppins-Medium";
+          color: #a3a3a3;
+        }
+      }
+      &_1 {
+        border-right: 1px solid #c7e2e8;
+        span {
+          color: #1fad35;
+        }
+      }
+      &_2 {
+        border-right: 1px solid #c7e2e8;
+        span {
+          font-family: "Poppins-Light";
+        }
+      }
+      &_3 {
+        border-right: 1px solid #c7e2e8;
+        position: relative;
+        .range-action {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          right: 22%;
+          a {
+            color: #d1d1d1;
+            height: 20px;
+            i {
+              font-size: 28px;
+            }
+          }
+        }
+      }
+      &_4 {
+        span {
+          font-size: 0.675rem;
+          color: #c48d8d;
+        }
+      }
+    }
+  }
+  .details-close {
+    color: $primary;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    background-color: $textwhite;
+    top: 10px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    @include for-dflex();
+    border-radius: 50%;
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+.renew-policy-select-plan {
+  .renew-policy-mobile-tab {
+    .wazen-tab {
+      border-radius: 12px;
+      li {
+        position: relative;
+        a {
+          width: 165px;
+          padding: 15px 30px;
+          border-radius: 12px;
+        }
+        .nav-link.active {
+          &::after {
+            content: " ";
+            position: absolute;
+            bottom: -15px;
+            left: 65px;
+            border-top: 15px solid $primary;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+.renew-review-wrap {
+  &_l {
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 150px 0;
+    span {
+      font-size: 0.85rem;
+    }
+    P {
+      font-size: 0.75rem;
+      font-family: "Poppins-Light";
+    }
+  }
+  &_r {
+    table {
+      tr {
+        td {
+          color: $textlight;
+          font-family: "Poppins-Light";
+          font-size: 0.9rem;
+          padding: 0.325rem 0;
+          b {
+            color: $secondary;
+            font-family: "Poppins-SemiBold";
+            padding-left: 4rem;
+          }
+          .policies-price {
+            padding-left: 2rem;
+            color: #080808;
+            font-family: "Poppins-Bold";
+
+            &::before {
+              font-family: "Poppins-Medium";
+
+              color: $textlight;
+            }
+          }
+        }
+        dt {
+          font-family: "Poppins-Bold";
+        }
+        dd {
+          font-family: "Poppins-Light";
+          margin-left: 10px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &_total {
+    table {
+      tr {
+        td {
+          width: 160px;
+        }
+      }
+    }
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    .policies-price {
+      font-size: 1.3rem;
+      font-family: "Poppins-Bold";
+      padding-left: 2.5rem;
+      &::before {
+        font-family: "Poppins-Medium";
+      }
+    }
+  }
+}
+.acc-policies-list {
+  .delete-icon {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.8rem;
+    z-index: 99;
+    .icon-delete {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      background-size: 100%;
+      vertical-align: middle;
+      background: url(../../img/delete-icon2.svg) no-repeat;
+    }
+  }
+}
+.renew-policy-list {
+  .list-con {
+    background-color: $primary;
+    width: 100%;
+    margin: 10px 0 0 0;
+    padding: 5px 15px;
+    color: $textwhite;
+    font-family: "Poppins-SemiBold";
+    font-size: 0.775rem;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    i {
+      font-size: 24px;
+    }
+  }
+  .list-con.collapsed {
+    border-radius: 8px;
+  }
+  .list-dropdown {
+    position: relative;
+    background-color: $primary;
+    border-radius: 0 0 6px 6px;
+    top: -45px;
+    margin: 5px 21.5px;
+    padding: 20px 25px;
+    ul {
+      margin-bottom: 0;
+      padding: 0;
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #82d4e3;
+        display: flex;
+        justify-content: space-between;
+        &:last-child {
+          border-bottom: 0;
+        }
+        .conformation-checkbox {
+          justify-content: unset;
+          .customcheck {
+            margin-bottom: 0;
+            color: $textwhite;
+            font-size: 0.85rem;
+          }
+          .customcheck input:checked ~ .checkmark {
+            background-color: #4fce80;
+          }
+          .customcheck .checkmark:after {
+            left: 5.5px;
+            top: 3px;
+            width: 4.5px;
+            height: 9px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+          }
+          .checkmark {
+            background-color: #c6c6c6;
+          }
+        }
+        a {
+          color: $textwhite;
+          font-size: 0.85rem;
+        }
+        .renew-policy-price-dropdown-list {
+          color: #f0f0f0;
+          font-size: 0.875rem;
+          &::before {
+            content: "SAR";
+            color: #c8ecf2;
+            font-family: "Poppins-SemiBold";
+          }
+        }
+      }
+    }
+  }
+  .acc-policies-list.active {
+    .delete-icon {
+      bottom: 3.5rem;
+    }
+  }
+}
+@include breakpoint(ipad-max) {
+  .renew-policy {
+    .card {
+      background-color: transparent;
+    }
+  }
+  .renew-policy-select-plan {
+    .card {
+      background-color: transparent;
+    }
+    .renew-policy-mobile-tab {
+      #m-add-comprehensive {
+        table {
+          border: 1px solid #e1e1e1;
+          border-top-width: 0;
+          border-left-width: 0;
+          border-right-width: 0;
+          border-bottom-color: 0px;
+          border-bottom-style: none;
+
+          thead {
+            tr {
+              border: 0;
+              th {
+                padding: 1rem 0;
+                color: $primary;
+                font-family: "Poppins-SemiBold";
+                border: 1px solid #e1e1e1;
+                border-top: 0;
+                &:first-child {
+                  border-left: 0;
+                }
+                &:last-child {
+                  border-right: 0;
+                }
+              }
+            }
+          }
+          tbody {
+            tr {
+              &:hover,
+              &.active {
+                background-color: #eaf7ff;
+              }
+              td {
+                font-family: "Poppins-Bold";
+                font-size: 1.1rem;
+                vertical-align: middle;
+                padding: 0.5rem;
+                position: relative;
+                &:first-child {
+                  border-left: 0;
+                  border-radius: 15px 0 0 15px;
+                }
+                &:last-child {
+                  border-right: 0;
+                  border-radius: 0 15px 15px 0;
+                }
+                a {
+                  font-family: inherit;
+                }
+                .price {
+                  font-family: "Poppins-Bold";
+                  &::before {
+                    content: "SAR ";
+                    font-size: 0.875rem;
+                    font-family: "Poppins-Medium";
+                    color: #b5b5b3;
+                  }
+                }
+                span.price-valid {
+                  font-family: "Poppins-Regular";
+                  font-size: 0.775rem;
+                  color: #c48e8b;
+                }
+                .range-action {
+                  display: flex;
+                  flex-direction: column;
+                  position: absolute;
+                  top: 8px;
+                  right: 5%;
+                  a {
+                    height: 20px;
+                    i {
+                      font-size: 30px;
+                    }
+                  }
+                }
+              }
+              &:last-child {
+                border-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .renew-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+    // mobile popup
+    .dp-modal {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      overflow: unset;
+      background-color: $t-white;
+      padding: 10% 0 0 0;
+      transition: 0.5s ease-in all;
+      .modal-contents {
+        position: relative;
+        width: 100%;
+        background-color: $textwhite;
+        margin: auto;
+        padding: 20px 20px 5px 20px;
+        border: 0;
+        border-radius: 15px;
+        transition: 0.5s ease-in all;
+        p {
+          text-align: left;
+          font-size: 1.2rem;
+        }
+        .details-list-info {
+          text-align: left;
+          border: 1px solid $primary;
+          border-radius: 12px;
+          background-color: #eafbff;
+          &_wrap {
+            // border: 1px solid $primary;
+            padding: 10px 15px;
+            &:nth-child(1) {
+              border-right: 1px solid $primary;
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(2) {
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(3) {
+              border-right: 1px solid $primary;
+            }
+            &:nth-child(4) {
+              background-color: $primary;
+              border-radius: 0 0 12px 0;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 0.775rem;
+            margin-bottom: 0.25rem;
+          }
+          span {
+            font-size: 0.775rem;
+          }
+          .price {
+            font-family: "Poppins-SemiBold";
+            font-size: 1.4rem;
+
+            &::before {
+              content: "SAR ";
+              font-size: 0.975rem;
+              font-family: "Poppins-Medium";
+              color: #a3a3a3;
+            }
+          }
+          &_1 {
+            border: 0;
+            span {
+              color: #1fad35;
+              font-size: 0.875rem;
+            }
+          }
+          &_2 {
+            border: 0;
+            p {
+              margin-bottom: 0;
+            }
+            span {
+              color: $black;
+              font-family: "Poppins-Regular";
+              font-size: 0.875rem;
+            }
+          }
+          &_3 {
+            border: 0;
+            position: relative;
+            p {
+              text-align: center;
+              font-family: "Poppins-Bold";
+              color: #707070;
+            }
+            .range-action {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              position: absolute;
+              top: 8px;
+              right: 5%;
+              a {
+                color: #707070;
+                height: 18px;
+                i {
+                  font-size: 32px;
+                }
+              }
+            }
+          }
+          &_4 {
+            color: $textwhite;
+            .price {
+              &::before {
+                color: $textwhite;
+              }
+            }
+            span {
+              font-size: 0.675rem;
+              color: #cecece;
+            }
+          }
+        }
+      }
+      .m-details-close {
+        color: $primary;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        background-color: $textwhite;
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        border: solid #dfdfdf;
+        border-width: thin;
+        @include for-dflex();
+        border-radius: 50%;
+        &:hover,
+        &:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .renew-policy-select-plan-cover {
+    .card {
+      background-color: transparent;
+    }
+    .renew-policy-list {
+      .list-dropdown {
+        width: auto;
+        margin: 5px 21.5px;
+      }
+    }
+    .renew-review-wrap {
+      &_r {
+        padding: 1rem 0;
+        table {
+          width: 100%;
+          tr {
+            td {
+              b {
+                padding-left: 0;
+              }
+            }
+          }
+        }
+      }
+      &_total {
+        // border-radius: 0 0 5px 5px;
+        // background: linear-gradient(0deg, white, #ededed 100%) no-repeat;
+        table {
+          width: 100%;
+        }
+      }
+    }
+    .renew-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+@include breakpoint(mobile-max) {
+  .renew-policy-stepwizard {
+    #progressbar {
+      margin-bottom: 15px;
+      li {
+        margin: 0;
+        font-size: 0.75rem;
+        span {
+          visibility: hidden;
+        }
+      }
+      li.open {
+        span {
+          visibility: visible;
+          color: $secondary;
+        }
+      }
+    }
+  }
+  .renew-policy {
+    .card {
+      background-color: transparent;
+    }
+    .renew-policy-wrap {
+      background-color: transparent;
+      &_title {
+        &_des {
+          font-family: "Poppins-SemiBold";
+          font-size: 18px;
+          padding: 0 20px;
+        }
+      }
+      &_inner {
+        &_no {
+          color: $black;
+          font-size: 22px;
+          font-family: "Poppins-SemiBold";
+        }
+        #otp-verification {
+          .col-1 {
+            width: 4.5rem;
+            .form-control {
+              height: 3.5rem;
+              border-radius: 18px;
+            }
+          }
+        }
+      }
+    }
+    .renew-policy-wrap_title,
+    .renew-policy-wrap_inner {
+      .container {
+        padding: 0;
+      }
+    }
+    &-wrap_total_count {
+      background: $primary-bg;
+      padding: 20px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+    }
+  }
+  .renew-policy-wrap_inner {
+    .policies-slider {
+      padding: 0;
+      .owl-nav {
+        display: none;
+      }
+    }
+  }
+  .renew-policy-select-plan {
+    .card {
+      background-color: transparent;
+    }
+    .renew-policy-mobile-tab {
+      #m-add-comprehensive {
+        table {
+          border: 1px solid #e1e1e1;
+          border-top-width: 0;
+          border-left-width: 0;
+          border-right-width: 0;
+          border-bottom-color: 0px;
+          border-bottom-style: none;
+
+          thead {
+            tr {
+              border: 0;
+              th {
+                padding: 1rem 0;
+                color: $primary;
+                font-family: "Poppins-SemiBold";
+                border: 1px solid #e1e1e1;
+                border-top: 0;
+                &:first-child {
+                  border-left: 0;
+                }
+                &:last-child {
+                  border-right: 0;
+                }
+              }
+            }
+          }
+          tbody {
+            tr {
+              &:hover,
+              &.active {
+                background-color: #eaf7ff;
+              }
+              td {
+                font-family: "Poppins-Bold";
+                font-size: 1.1rem;
+                vertical-align: middle;
+                padding: 0.5rem;
+                position: relative;
+                &:first-child {
+                  border-left: 0;
+                  border-radius: 15px 0 0 15px;
+                }
+                &:last-child {
+                  border-right: 0;
+                  border-radius: 0 15px 15px 0;
+                  text-align: left;
+                }
+                a {
+                  font-family: inherit;
+                }
+
+                .price {
+                  font-family: "Poppins-Bold";
+                  &::before {
+                    content: "SAR ";
+                    font-size: 0.875rem;
+                    font-family: "Poppins-Medium";
+                    color: #b5b5b3;
+                  }
+                }
+                span.price-valid {
+                  font-family: "Poppins-Regular";
+                  font-size: 0.775rem;
+                  color: #c48e8b;
+                }
+                .range-action {
+                  display: flex;
+                  flex-direction: column;
+                  position: absolute;
+                  top: 8px;
+                  right: 0;
+                  a {
+                    height: 20px;
+                    i {
+                      font-size: 30px;
+                    }
+                  }
+                }
+              }
+              &:last-child {
+                border-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .renew-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+    .m-datepickerInput {
+      background-image: url(../../img/date-icon-2.svg);
+      background-repeat: no-repeat;
+      background-position-x: 97%;
+      background-position-y: 7px;
+      background-size: 7%;
+      cursor: pointer;
+    }
+    // mobile popup
+    .dp-modal {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      overflow: unset;
+      background-color: $t-white;
+      padding: 10% 0 0 0;
+      transition: 0.5s ease-in all;
+      .modal-contents {
+        position: relative;
+        width: 100%;
+        background-color: $textwhite;
+        margin: auto;
+        padding: 20px 20px 5px 20px;
+        border: 0;
+        border-radius: 15px;
+        transition: 0.5s ease-in all;
+        p {
+          text-align: left;
+          font-size: 1.2rem;
+        }
+        .details-list-info {
+          text-align: left;
+          border: 1px solid $primary;
+          border-radius: 12px;
+          background-color: #eafbff;
+          &_wrap {
+            // border: 1px solid $primary;
+            padding: 10px 15px;
+            &:nth-child(1) {
+              border-right: 1px solid $primary;
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(2) {
+              border-bottom: 1px solid $primary;
+            }
+            &:nth-child(3) {
+              border-right: 1px solid $primary;
+            }
+            &:nth-child(4) {
+              background-color: $primary;
+              border-radius: 0 0 12px 0;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 0.775rem;
+            margin-bottom: 0.25rem;
+          }
+          span {
+            font-size: 0.775rem;
+          }
+          .price {
+            font-family: "Poppins-SemiBold";
+            font-size: 1.4rem;
+
+            &::before {
+              content: "SAR ";
+              font-size: 0.975rem;
+              font-family: "Poppins-Medium";
+              color: #a3a3a3;
+            }
+          }
+          &_1 {
+            border: 0;
+            span {
+              color: #1fad35;
+              font-size: 0.875rem;
+            }
+          }
+          &_2 {
+            border: 0;
+            p {
+              margin-bottom: 0;
+            }
+            span {
+              color: $black;
+              font-family: "Poppins-Regular";
+              font-size: 0.875rem;
+            }
+          }
+          &_3 {
+            border: 0;
+            position: relative;
+            p {
+              text-align: center;
+              font-family: "Poppins-Bold";
+              color: #707070;
+            }
+            .range-action {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              position: absolute;
+              top: 8px;
+              right: 0;
+              a {
+                color: #707070;
+                height: 18px;
+                i {
+                  font-size: 32px;
+                }
+              }
+            }
+          }
+          &_4 {
+            color: $textwhite;
+            .price {
+              &::before {
+                color: $textwhite;
+              }
+            }
+            span {
+              font-size: 0.675rem;
+              color: #cecece;
+            }
+          }
+        }
+      }
+      .m-details-close {
+        color: $primary;
+        float: right;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        background-color: $textwhite;
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        border: solid #dfdfdf;
+        border-width: thin;
+        @include for-dflex();
+        border-radius: 50%;
+        &:hover,
+        &:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .renew-policy-select-plan-cover {
+    .card {
+      background-color: transparent;
+    }
+    .renew-policy-list {
+      .list-dropdown {
+        width: auto;
+        margin: 5px 21.5px;
+      }
+    }
+    .renew-review-wrap {
+      &_l {
+        padding: 30px 0;
+      }
+      &_r {
+        padding: 1rem 0;
+        table {
+          width: 100%;
+          tr {
+            td {
+              b {
+                padding-left: 0;
+              }
+            }
+          }
+        }
+      }
+      &_total {
+        border-radius: 0 0 5px 5px;
+        background: linear-gradient(0deg, white, #ededed 100%) no-repeat;
+        table {
+          width: 100%;
+        }
+      }
+    }
+    .renew-policy-total-summary {
+      background: $primary-bg;
+      padding: 45px 20px 20px 20px;
+      position: sticky;
+      z-index: 9999;
+      bottom: 0;
+      .total-summary {
+        &_l {
+          p {
+            font-family: "Poppins-Regular";
+            color: #707070;
+          }
+          &_total {
+            color: #707070;
+            span {
+              font-family: "Poppins-Bold";
+              font-size: inherit;
+              vertical-align: inherit;
+              color: inherit;
+            }
+          }
+        }
+        &_r {
+          p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            font-family: "Poppins-SemiBold";
+            font-size: 1rem;
+            color: #b2b2b2;
+          }
+          .btn-main {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+  }
+  .renew-policy-payment {
+    .card {
+      background-color: $textwhite;
+    }
+    .pay-wrap {
+      h6 {
+        text-align: left;
+        font-size: 0.775rem;
+      }
+      .pay-wrap-container {
+        width: 100%;
+        p {
+          font-size: 0.87rem;
+        }
+        .pay-wrap-container__button {
+          padding: 0 10px;
+          width: 50%;
+        }
+      }
+    }
+    .btn-main {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      margin: -20px 0;
+    }
+  }
+  .renew-policy-confirmation {
+    .renew-policy-wrap {
+      padding: 4rem 0;
+      background: $textwhite;
+    }
+  }
+}
+
+@include breakpoint(custom-small-mobile-max) {
+  .renew-policy-select-plan {
+    .renew-policy-mobile-tab {
+      .wazen-tab {
+        li {
+          a {
+            width: 140px;
+            padding: 10px 0px;
+          }
+        }
+      }
+      #m-add-comprehensive {
+        table {
+          thead {
+            tr {
+              th {
+                font-size: 0.8rem;
+              }
+            }
+          }
+          tbody {
+            tr {
+              td {
+                font-size: 0.8rem;
+                span.price-valid {
+                  font-size: 0.675rem;
+                }
+                .range-action {
+                  a {
+                    height: 16px;
+                    i {
+                      font-size: 22px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .renew-policy-total-summary {
+      .total-summary_r {
+        p {
+          font-size: 0.7rem;
+        }
+      }
+      .total-summary_l {
+        p {
+          font-size: 00.752rem;
+        }
+      }
+      .total-summary_l_total {
+        font-size: 1rem;
+      }
+    }
+    .dp-modal {
+      .modal-contents {
+        .details-list-info {
+          p {
+            font-size: 0.675rem;
+          }
+          .price {
+            font-size: 1rem;
+          }
+          &_wrap {
+            padding: 8px 5px;
+          }
+          &_1 {
+            span {
+              font-size: 0.775rem;
+            }
+          }
+          &_3 {
+            .range-action {
+              a {
+                i {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .renew-policy-payment {
+    .pay-wrap {
+      .pay-wrap-container {
+        p {
+          font-size: 0.675rem;
+        }
+        .pay-wrap-container__button {
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+  .renew-policy-select-plan-cover {
+    .renew-policy-total-summary {
+      .total-summary {
+        &_l {
+          &_total {
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+}

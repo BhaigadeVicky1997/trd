@@ -1,0 +1,52 @@
+<div class="row get-quote-thank-you-wrap">
+  <div class="col-lg-10 col-sm-12 mx-auto">
+    <div class="card get-quote-wrap text-center  mb-4">
+      <div class="get-quote-wrap_title">
+        <h4 class="mb-3 fw-6 d-none d-lg-block">Thank You!</h4>
+        <p class="my-4 fs-sb text-dark d-block d-lg-none">Successfully purchased the policy</p>
+
+        <div class="my-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="106" height="106" viewBox="0 0 106 106">
+            <g id="noun_done_1382561" transform="translate(-10 -9)">
+              <g id="Group_104" data-name="Group 104" transform="translate(10 9)">
+                <path id="Path_640" data-name="Path 640"
+                  d="M10,62a53.072,53.072,0,0,0,53,53h0a53.072,53.072,0,0,0,53-53h0A53.072,53.072,0,0,0,63,9h0A53.072,53.072,0,0,0,10,62Zm25.983-2.585a5.775,5.775,0,0,1,8.273,0l7.627,7.627a2.812,2.812,0,0,0,3.878,0L65.4,57.4,81.744,41.059a5.85,5.85,0,1,1,8.273,8.273L57.959,81.39a5.775,5.775,0,0,1-8.273,0l-13.7-13.7A5.775,5.775,0,0,1,35.983,59.415Z"
+                  transform="translate(-10 -9)" fill="#06aecc"></path>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <p class="my-4 fs-sb text-dark d-none d-lg-block">Successfully purchased the policy</p>
+        <p class="my-4 fs-sb text-dark d-block d-lg-none">Thank You!</p>
+        <p class="mb-0  textlight fs-s mx-5">
+          We will send you a payment <br>
+          Confirmation and the cover note by your registered email
+        </p>
+        <p class="my-4 textlight fs-s">Confirmation No <b class="text-dark"> #abc12345 </b></p>
+      </div>
+      <div class="d-flex justify-content-center py-4 d-none d-md-block">
+        <button type="submit" class="btn-main  mx-lg-2 mb-3 px-5" (click)="getInvoice()">
+          <i class="icon gq-icon-download"></i>
+          Download PDF
+        </button>
+        <button class="btn-main px-5" [routerLink]="[ '/wazen/profile/my-policy' ]">
+          <i class="icon gq-icon-right"></i>
+          My policy
+        </button>
+
+      </div>
+    </div>
+    <!-- btn for mobile -->
+    <div class=" d-block d-md-none mb-4">
+      <button class="btn-main  mx-lg-2 mb-3 px-5 m-w-100">
+        <i class="icon gq-icon-download"></i>
+        Download PDF
+      </button>
+      <button class="btn-main px-5  m-w-100" [routerLink]="[ '/wazen/profile/my-policy' ]">
+        <i class="icon gq-icon-right"></i>
+        My policy
+      </button>
+
+    </div>
+  </div>
+</div>

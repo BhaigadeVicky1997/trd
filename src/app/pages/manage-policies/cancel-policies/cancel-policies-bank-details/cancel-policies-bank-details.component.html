@@ -1,0 +1,101 @@
+<!-- main -->
+<div class="container mt-8">
+  <div class="cancel-policy-stepwizard">
+      <ul id="progressbar">
+          <li class="open checked">Vehicle Details</li>
+          <li class="open checked">Review & Confirm</li>
+          <li class="open checked">Bank Details</li>
+      </ul>
+  </div>
+  <div class="row " >
+      <div class="col-lg-11 col-sm-12 mx-auto" *ngIf="displayBank == true">
+          <div class="card cancel-policy-bank-info  text-center mb-5">
+              <div class="row m-lg-4 p-lg-4 br-5">
+                  <h4 class="text-center mb-3 fw-6 d-none d-lg-block">Add your bank details to continue</h4>
+                  <form class="py-lg-3 px-lg-5 py-md-3 px-md-5">
+                      <div class="form-row d-lg-flex d-md-flex ">
+                          <div class="form-group  col-12 col-md-6 col-sm-12">
+                              <input type="text" class="form-control" placeholder="Abdullah">
+                          </div>
+                          <div class="form-group  col-12 col-md-6 col-sm-12">
+                              <select class="form-control">
+                                  <option selected="">Bank Name</option>
+                                  <option value="lreom">lreom</option>
+                                  <option value="lreom">lreom</option>
+                                  <option value="lreom">lreom</option>
+                                  <option value="lreom">lreom</option>
+                                  <option value="lreom">lreom</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-row d-lg-flex d-md-flex ">
+                          <div class="form-group  col-12 col-md-6">
+                              <input type="text" class="form-control"
+                                  placeholder="IBAN SA   0000  0000   0000  0000">
+                          </div>
+                          <div class="form-group col-12  col-md-6">
+                              <input type="text" class="form-control" placeholder="SWIFT Code">
+                          </div>
+
+                      </div>
+                      <div class="conformation-checkbox pt-lg-5 pt-4">
+                          <label class="customcheck">
+                              <input type="checkbox" c="">
+                              <span class="checkmark"></span>
+                          </label>
+                          <div class="conformation-checkbox-text">
+                              <span class="td-u">I agree the terms and conditions</span>
+
+                          </div>
+                      </div>
+                      <div class="cancel-policy-alert mb-5">
+                          <p>Wazen is not responsible for any refund payment
+                          </p>
+                      </div>
+                      <div class="d-flex justify-content-center pt-2 cancel-policy-bank-info_total">
+                          <button type="submit" class="btn-main px-5" (click)="showVerifyOTP()">Continue</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="row cancel-policy-otp" *ngIf="displayVerification==true">
+    <div class="col-lg-10 col-sm-12 mx-auto">
+        <div class="card cancel-policy-wrap text-center mb-5">
+            <div class="cancel-policy-wrap_title">
+                <h4 class="mb-3 fw-6 d-none d-lg-block">OTP Verification</h4>
+                <p class="fw-5 textlight fs-s renew-policy-wrap_title_des">Enter the OTP sent to your registered
+                    mobile number</p>
+            </div>
+            <div class="cancel-policy-wrap_inner">
+                <p class="fw-6 mb-2">+966 ** *** 0000</p>
+                <form id="otp-verification">
+                    <div class="row g-3 my-3 justify-content-center">
+                        <div class="col-1">
+                            <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                                required="" autocomplete="off">
+                        </div>
+                        <div class="col-1">
+                            <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                                required="" autocomplete="off">
+                        </div>
+                        <div class="col-1">
+                            <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                                required="" autocomplete="off">
+                        </div>
+                        <div class="col-1">
+                            <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                                required="" autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+                <p class="m-4 fw-5 fs-s textlight  ">Didn’t you receive the OTP? <a class="textprimary"
+                        href="#">Resend OTP</a></p>
+                <button type="submit" class="btn-main m-w-100" (click)="verifyotp()">Verify OTP</button>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

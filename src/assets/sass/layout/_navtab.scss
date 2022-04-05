@@ -1,0 +1,41 @@
+.wazen-tab {
+  border: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background: #e8e8e8;
+  margin: 0 auto;
+  border-radius: 28px;
+  .nav-link.active {
+    color: $links;
+    background-color: $primary;
+    border: 0;
+    border-radius: 28px;
+  }
+  .nav-link {
+    border: 0;
+    &:focus {
+      border: 0;
+    }
+    &:hover {
+      border: 0;
+    }
+  }
+}
+
+ul.nav.wazen-tab {
+  li {
+    a {
+      font-family: "Poppins-Bold";
+      color: #8b8f93;
+      font-size: 0.8rem;
+      padding: 10px 30px;
+      -webkit-transition: unset;
+      -o-transition: unset;
+      transition: unset;
+    }
+  }
+}

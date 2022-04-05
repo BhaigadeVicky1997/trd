@@ -1,0 +1,342 @@
+<div class="container mt-8">
+  <div class="card card-1 mb-5">
+      <div class="user-profile text-center">
+          <img src="assets/img/user.svg" class="user-ava" alt="">
+          <p class="user-name"><h3>Hi Mohammed</h3>
+      </div>
+      <div class="profile-container">
+          <ul class="nav nav-tabs mb-4" id="profile-wrap" role="tablist">
+              <li class="nav-item " role="presentation">
+                  <a class="nav-link active " id="policies-tab" data-bs-toggle="tab" href="#profile-policies"
+                      role="tab" aria-controls="profile-policies" aria-selected="true">My Policies</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link " id="transactions-tab" data-bs-toggle="tab" href="#profile-transactions"
+                      role="tab" aria-controls="transactions" aria-selected="false">My Transactions</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="account-tab" data-bs-toggle="tab" href="#profile-account" role="tab"
+                      aria-controls="account" aria-selected="false">My Account</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="claim-tab" data-bs-toggle="tab" href="#claim-tracking" role="tab"
+                      aria-controls="claim" aria-selected="false">Claim Tracking</a>
+              </li>
+          </ul>
+          <div class="hw-50"></div>
+          <div class="card tab-content tab-container" id="myTabContent">
+              <div class="tab-pane fade  show active" id="profile-policies" role="tabpanel"
+                  aria-labelledby="policies-tab">
+                  <div class="container">
+                      <div class="row m-lg-4">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4" *ngFor="let policy of policies" >
+                              <div class="acc-policies-list"
+                              [routerLink]="['/wazen/policy-details', policy.id]">
+                                  <div class="d-flex align-items-center policies-car">
+                                      <div class="policies-carname">
+                                          <span>{{policy.vehicleMake}} </span>
+                                          <p class="mb-0">{{policy.vehicleModel}}</p>
+                                      </div>
+                                      <div class="policies-carnum">
+                                          <span>{{policy.vehicleNumber}}</span>
+                                      </div>
+                                  </div>
+                                  <table class="table table-sm table-borderless">
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Type:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">{{policy.policyType}}</b></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Expiry Date:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">{{policy.expiryDate | date:'shortDate'}}</b></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                              <div class="acc-policies-list">
+                                  <div class="d-flex align-items-center policies-car">
+                                      <div class="policies-carname">
+                                          <span>Mitsubishi </span>
+                                          <p class="mb-0">Pajero</p>
+                                      </div>
+                                      <div class="policies-carnum">
+                                          <span>4321</span>
+                                          <img src="./assets/img/ksa.svg" alt="">
+                                          <span>HXB</span>
+                                      </div>
+                                  </div>
+                                  <table class="table table-sm table-borderless">
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Type:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">Third Party Liability</b></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Expiry Date:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">01/01/2021</b></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div> -->
+                          <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                              <div class="acc-policies-list">
+                                  <div class="d-flex align-items-center policies-car">
+                                      <div class="policies-carname">
+                                          <span>Mitsubishi </span>
+                                          <p class="mb-0">Pajero</p>
+                                      </div>
+                                      <div class="policies-carnum">
+                                          <span>4321</span>
+                                          <img src="./assets/img/ksa.svg" alt="">
+                                          <span>HXB</span>
+                                      </div>
+                                  </div>
+                                  <table class="table table-sm table-borderless">
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Type:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">Third Party Liability</b></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Expiry Date:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">01/01/2021</b></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                              <div class="acc-policies-list">
+                                  <div class="d-flex align-items-center policies-car">
+                                      <div class="policies-carname">
+                                          <span>Mitsubishi </span>
+                                          <p class="mb-0">Pajero</p>
+                                      </div>
+                                      <div class="policies-carnum">
+                                          <span>4321</span>
+                                          <img src="./assets/img/ksa.svg" alt="">
+                                          <span>HXB</span>
+                                      </div>
+                                  </div>
+                                  <table class="table table-sm table-borderless">
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Type:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">Third Party Liability</b></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Expiry Date:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">01/01/2021</b></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                              <div class="acc-policies-list">
+                                  <div class="d-flex align-items-center policies-car">
+                                      <div class="policies-carname">
+                                          <span>Mitsubishi </span>
+                                          <p class="mb-0">Pajero</p>
+                                      </div>
+                                      <div class="policies-carnum">
+                                          <span>4321</span>
+                                          <img src="./assets/img/ksa.svg" alt="">
+                                          <span>HXB</span>
+                                      </div>
+                                  </div>
+                                  <table class="table table-sm table-borderless">
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Type:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">Third Party Liability</b></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <p class="fs-xs  mb-0">Policy Expiry Date:</p>
+                                              </td>
+                                              <td><b class="fs-xs ">01/01/2021</b></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="tab-pane fade " id="profile-transactions" role="tabpanel"
+                  aria-labelledby="transactions-tab">
+                  <div class="container">
+                      <div class="row justify-content-md-center date-range mt-3">
+                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 position-relative mb-lg-5  mb-2">
+                              <input type="text" class="form-control" id="datepickerRange"
+                                  name="transactions-dates" placeholder="01/01/2020 - 01/05/2021">
+                          </div>
+                      </div>
+                      <div class="row px-lg-5">
+                          <div class="transaction-wrap p-lg-5 bg-sec br-5">
+                              <div class="transaction-list">
+                                  <div class="transaction-filter">
+                                      <div class="filter-item">
+                                          <p>Date</p>
+                                      </div>
+                                      <div class="filter-item ml-2">
+                                          <p>Transaction Type</p>
+                                      </div>
+                                      <div class="filter-item">
+                                          <p>Status</p>
+                                      </div>
+
+                                  </div>
+                                  <div class="transaction-item">
+                                      <p class="m-0">01/01/2020</p>
+                                      <div class="transaction-view text-center">
+                                          <h6>123XXXXXXX</h6>
+                                          <p class="mb-0 ">Upgrading policy</p>
+                                          <p class="mb-0 "> TPL to Comprehens</p>
+                                      </div>
+                                      <div class="badge-pending">Pending</div>
+                                  </div>
+                                  <div class="transaction-item">
+                                      <p class="m-0">01/01/2020</p>
+                                      <div class="transaction-view text-center">
+                                          <h6>123XXXXXXX</h6>
+                                          <p class="mb-0 ">Cancel policy</p>
+                                          <p class="mb-0 "> Ref: #123XXXXXXXX</p>
+                                      </div>
+                                      <div class="transaction-link">
+                                          <div class="mb-0 badge-complete">Completed</div>
+                                          <a href="#">Download Invoice</a>
+                                      </div>
+                                  </div>
+                                  <div class="transaction-item">
+                                      <p class="m-0">01/01/2020</p>
+                                      <div class="transaction-view text-center">
+                                          <h6>123XXXXXXX</h6>
+                                          <p class="mb-0 ">Claim Submission</p>
+                                          <p class="mb-0 "> Ref: #123XXXXXXXX</p>
+                                      </div>
+                                      <div class="badge-reject">Rejected</div>
+                                  </div>
+
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+              <div class="tab-pane fade " id="profile-account" role="tabpanel" aria-labelledby="account-tab">
+                  <div class="container">
+                      <div class="row justify-content-md-center account-wrap">
+                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 position-relative mb-4">
+                              <div class="account-action">
+                                  <div class="account-action-item">
+                                      <ul>
+                                          <li>
+                                              <a href="./edit-account.html">
+                                                  <i class='icon-account edit-profile '></i>
+                                                  <span>Edit Profile</span>
+                                                  <i class='bx bx-chevron-right'></i>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="./password-change.html">
+                                                  <i class='icon-account password-change'></i>
+                                                  <span>Password Change</span>
+                                                  <i class='bx bx-chevron-right'></i>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="./change-language.html">
+                                                  <i class='icon-account language-per'></i>
+                                                  <span>Language Preference</span>
+                                                  <i class='bx bx-chevron-right'></i>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="./newsletter-sub.html">
+                                                  <i class='icon-account newsletter-sub'></i>
+                                                  <span>Newsletter Subscription</span>
+                                                  <i class='bx bx-chevron-right'></i>
+                                              </a>
+                                          </li>
+                                          <li>
+                                              <a href="./delete-account.html">
+                                                  <i class='icon-account delete-acc'></i>
+                                                  <span>Delete Account</span>
+                                                  <i class='bx bx-chevron-right'></i>
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="tab-pane fade" id="claim-tracking" role="tabpanel" aria-labelledby="claim-tab">
+                  <div class="container">
+                      <div class="row px-lg-5">
+                          <div class="transaction-wrap my-lg-4 p-lg-5 bg-sec">
+                              <div class="transaction-list">
+
+                                  <div class="transaction-item">
+                                      <p class="m-0">05/04/2021</p>
+                                      <div class="transaction-view text-center">
+                                          <p class="mb-0 ">Case No# <b>ABC38275XME85 </b></p>
+                                          <p class="mb-0 ">Claim No# <b>ABC746352274</b></p>
+                                      </div>
+                                      <div class="badge-pending">Pending</div>
+                                  </div>
+                                  <div class="transaction-item">
+                                      <p class="m-0">03/02/2021</p>
+                                      <div class="transaction-view text-center">
+                                          <p class="mb-0 ">Case No# <b>ABC38275XME85 </b></p>
+                                          <p class="mb-0 ">Claim No# <b>ABC746352274</b></p>
+                                      </div>
+                                      <div class="transaction-link">
+                                          <div class="badge-complete">Completed</div>
+                                      </div>
+                                  </div>
+                                  <div class="transaction-item">
+                                      <p class="m-0">01/02/2021</p>
+                                      <div class="transaction-view text-center">
+                                          <p class="mb-0 ">Case No# <b>ABC38275XME85 </b></p>
+                                          <p class="mb-0 ">Claim No# <b>ABC746352274</b></p>
+                                      </div>
+                                      <div class="badge-reject">Rejected</div>
+                                  </div>
+
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

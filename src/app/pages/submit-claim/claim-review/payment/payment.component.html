@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-lg-11 col-sm-12 mx-auto">
+    <div class="card payment-wrap claim-pay-wrap text-center mb-5">
+      <div class="bg-sec my-lg-2 mx-lg-3 br-5 m-lg-2 p-xl-4 py-lg-3 px-lg-1">
+        <h6 class="d-none d-lg-block">Select your payment method</h6>
+        <div class="row mx-xl-5 my-xl-4 justify-content-center">
+          <div class="wazen-payment-list-wrap ">
+            <p class="wazen-payment-list-wrap_flex mb-0 py-lg-4">
+              <a href="#" class="btn apple-btn">
+                <i class="btn-icon-apple"></i>
+                <span> Pay with Apple</span>
+              </a>
+              <a href="#" class="btn stc-btn">
+                <i class="btn-icon-stc"></i>
+                <span>Pay with STC</span>
+              </a>
+              <a href="#" class="btn sadad-btn">
+                <i class="btn-icon btn-icon-sadad"></i>
+                <span>Pay with SADAD</span>
+              </a>
+              <a href="#" class="btn mada-btn">
+                <i class="btn-icon btn-icon-mada"></i>
+                <span> Pay with mada</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-sec my-lg-2 mx-lg-4 br-5 px-4 p-lg-4">
+        <h6 class="my-lg-4">Enter your card details</h6>
+        <div class="row justify-content-center">
+          <div class="col-xl-5 col-lg-7 col-md-7 col-sm-12 p-0 my-4">
+            <div id="paypage">
+              <div class="form-card">
+                <div class="col-md-12">
+                  <div class="input-container">
+                    <input type="text" name="cardno" id="cr_no" placeholder="Card number" minlength="19" maxlength="19">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-container">
+                    <input type="text" name="cardname" placeholder="Name" minlength="19" maxlength="19">
+                  </div>
+                </div>
+                <div class="row justify-content-between">
+                  <div class="col-md-3 col-4">
+                    <div class="input-container">
+                      <input type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5" maxlength="5">
+                    </div>
+                  </div>
+                  <div class=" col-md-3 col-4">
+                    <div class="input-container">
+                      <input type="password" name="cvcpwd" placeholder="CVV" class="placeicon" minlength="3"
+                        maxlength="3">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="conformation-checkbox justify-content-start my-2">
+                    <label class="customcheck">
+
+                      <input type="checkbox" c="">
+                      <span class="checkmark"></span>
+                    </label>
+                    <div class="conformation-checkbox-text ">
+                      <span>Save card details</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="conformation-checkbox my-4">
+              <label class="customcheck">
+                <input type="checkbox" c="">
+                <span class="checkmark"></span>
+              </label>
+              <div class="conformation-checkbox-text td-u">
+                <span>Legal agreement</span>
+              </div>
+            </div>
+            <button (click)="onContinue()" class="btn-main m-w-100">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

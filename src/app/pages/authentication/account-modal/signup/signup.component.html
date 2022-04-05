@@ -1,0 +1,242 @@
+<div class="container">
+  <div class="row justify-content-center" [ngClass]="formType ? 'account-wrap' : 'text-center'">
+    <div [ngClass]="
+        formType
+          ? 'col-xs-12 col-sm-12 col-md-12 col-lg-5 position-relative mb-4'
+          : 'col-11 col-lg-9 col-xl-8 mx-auto text-center'
+      ">
+      <p class="mb-0 py-4" *ngIf="formType">Edit your profile</p>
+      <form [formGroup]="customerSignup" (ngSubmit)="onSignup()">
+        <div class="form-row d-flex"
+          [class.mb-3]="!customerSignup.controls.firstName.dirty || !customerSignup.controls.firstName.errors">
+          <div class="form-group col-md-2 col-3">
+            <select class="form-control" formControlName="salutation">
+              <option value="Mr.">
+                {{ "auth.tabs.signup.input.mr" | translate }}
+              </option>
+              <option value="Mrs.">
+                {{ "auth.tabs.signup.input.mrs" | translate }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-md-10 col-9">
+            <input type="text" class="form-control" placeholder="First name" formControlName="firstName"
+              setValidatorClass />
+          </div>
+        </div>
+        <div class="errors" [class.mb-3]="customerSignup.controls.firstName.errors" *ngIf="
+            customerSignup.controls.firstName.dirty &&
+            customerSignup.controls.firstName.errors
+          ">
+          <div class="
+              invalid-feedback
+              animate__animated animate__slideInDown animate__faster"
+            *ngIf="customerSignup.controls.firstName.errors.required">
+            First name is required.
+          </div>
+          <div class="
+          invalid-feedback
+          animate__animated animate__slideInDown animate__faster"
+            *ngIf="customerSignup.controls.firstName.errors.pattern">
+            Name should contain only alphabets.
+          </div>
+        </div>
+        <div class="mb-3">
+          <input setValidatorClass type="text" class="form-control" placeholder="Last name"
+            formControlName="lastName" />
+          <div class="errors" [class.mb-3]="customerSignup.controls.lastName.errors" *ngIf="
+            customerSignup.controls.lastName.dirty &&
+            customerSignup.controls.lastName.errors
+          ">
+            <div class="
+              invalid-feedback
+              animate__animated animate__slideInDown animate__faster"
+              *ngIf="customerSignup.controls.lastName.errors.required">
+              Last name is required.
+            </div>
+            <div class="
+            invalid-feedback
+            animate__animated animate__slideInDown animate__faster"
+              *ngIf="customerSignup.controls.lastName.errors.pattern">
+              Name should contain only alphabets.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input setValidatorClass type="text" class="form-control" placeholder="National ID / Iqama / Company CR"
+            formControlName="nationalID" maxlength="10">
+          <div class="errors" [class.mb-3]="customerSignup.controls.nationalID.errors" *ngIf="
+          customerSignup.controls.nationalID.dirty &&
+          customerSignup.controls.nationalID.errors
+        ">
+            <div class="
+        invalid-feedback
+        animate__animated animate__slideInDown animate__faster" *ngIf="customerSignup.controls.nationalID.errors.required">
+              Number is required.
+            </div>
+            <div class="
+        invalid-feedback
+        animate__animated animate__slideInDown animate__faster" *ngIf="customerSignup.controls.nationalID.errors.pattern">
+              Should be of 10 digit and only starts with 1,2 or 7.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <input setValidatorClass type="text" class="form-control" placeholder="Enter your email"
+            formControlName="email" name="email" />
+          <div class="errors" [class.mb-3]="customerSignup.controls.email.errors" *ngIf="
+          customerSignup.controls.email.dirty &&
+          customerSignup.controls.email.errors
+        ">
+            <div class="
+            invalid-feedback
+            animate__animated animate__slideInDown animate__faster"
+              *ngIf="customerSignup.controls.email.errors.required">
+              Email address is required.
+            </div>
+            <div class="
+              invalid-feedback
+              animate__animated animate__slideInDown animate__faster"
+              *ngIf="customerSignup.controls.email.errors.pattern">
+              Enter valid email address.
+            </div>
+          </div>
+          <div class="
+          invalid-feedback
+          animate__animated animate__slideInDown animate__faster" *ngIf="isEmailExist">
+            Email Id already Exists.
+          </div>
+        </div>
+        <div class="form-row d-flex"
+          [class.mb-3]="!customerSignup.controls.contact.dirty || !customerSignup.controls.contact.errors">
+          <div class="form-group col-md-2 col-3">
+            <select class="form-control">
+              <option selected="">+91</option>
+              <!-- <option>+96</option> -->
+            </select>
+          </div>
+          <div class="form-group col-md-10 col-9">
+            <input setValidatorClass type="text" class="form-control" placeholder="00 0000 000 0000"
+              formControlName="contact" name="contact" />
+          </div>
+        </div>
+        <div class="errors" [class.mb-3]="customerSignup.controls.contact.errors" *ngIf="
+        customerSignup.controls.contact.dirty &&
+        customerSignup.controls.contact.errors
+      ">
+          <div class="
+          invalid-feedback
+          animate__animated animate__slideInDown animate__faster"
+            *ngIf="customerSignup.controls.contact.errors.required">
+            Contact number is required.
+          </div>
+          <div class="
+          invalid-feedback
+          animate__animated animate__slideInDown animate__faster"
+            *ngIf="customerSignup.controls.contact.errors.pattern">
+            Enter valid contact number.
+          </div>
+        </div>
+        <div class="
+        invalid-feedback
+        animate__animated animate__slideInDown animate__faster" *ngIf="isMobileExist">
+          Mobile No. already Exists.
+        </div>
+        <div class="mb-3 position-relative">
+          <input setValidatorClass passwordToggle type="password" id="loginPassword" class="form-control"
+            placeholder="Enter your password" formControlName="password" confirmPassword="confirmPassword"
+            reverse="true" />
+          <div class="errors" [class.mb-3]="customerSignup.controls.password.errors" *ngIf="
+          customerSignup.controls.password.dirty &&
+          customerSignup.controls.password.errors
+        ">
+            <div class="
+            invalid-feedback
+            animate__animated animate__slideInDown animate__faster"
+              *ngIf="customerSignup.controls.password.errors.required">
+              Password is required.
+            </div>
+            <div class="
+            invalid-feedback
+            animate__animated animate__slideInDown animate__faster"
+              *ngIf="customerSignup.controls.password.errors.pattern">
+              Password must be of a minimum 8 characters with uppercase, lowercase, numbers & special
+              characters.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 position-relative">
+          <input setValidatorClass passwordToggle type="password" id="conpassword" class="form-control"
+            placeholder="Confirm your password" formControlName="confirmPassword" confirmPassword="password" />
+          <div class="errors" [class.mb-3]="customerSignup.controls.confirmPassword.errors" *ngIf="
+          customerSignup.controls.confirmPassword.dirty &&
+          customerSignup.controls.confirmPassword.errors
+        ">
+            <div class="
+            invalid-feedback
+            animate__animated animate__slideInDown animate__faster
+          " *ngIf="customerSignup.controls.confirmPassword.errors.confirmPassword">
+              Password does not match.
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="!formType; else editProfileAction">
+          <div class="conformation-checkbox">
+            <label class="customcheck">
+              {{ "auth.tabs.signup.input.customcheck" | translate }}
+              <input type="checkbox" formControlName="terms" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="
+            invalid-feedback
+            animate__animated animate__slideInDown animate__faster
+          " *ngIf="customerSignup.hasError('required', 'terms')">
+            Please agree T&C.
+          </div>
+
+          <div class="d-flex justify-content-center py-4">
+            <button class="btn-main mt-3" [disabled]="isSubmitted" (click)="onSignup()">
+              <span *ngIf="isSubmitted" class="spinner-border spinner-border-sm" role="status"
+                aria-hidden="true"></span>
+              {{
+              isSubmitted
+              ? ("pleaseWait" | translate)
+              : ("auth.tabs.signup.input.jointoWazen" | translate)
+              }}
+            </button>
+          </div>
+        </ng-container>
+        <ng-template #editProfileAction>
+          <div class="d-flex justify-content-center py-4">
+            <button type="submit" class="btn-outline mx-2" [routerLink]="['/wazen/profile/my-account']">
+              Cancel
+            </button>
+            <button type="submit" class="btn-main" (click)="OnEditProfile()">
+              {{
+              isSubmitted ? ("pleaseWait" | translate) : ("save" | translate)
+              }}
+            </button>
+          </div>
+        </ng-template>
+      </form>
+      <ng-container *ngIf="!formType">
+        <div class="d-flex align-items-center my-3">
+          <hr class="flex-grow-1" />
+          <span class="mx-3 text-2">{{
+            "auth.tabs.signup.input.orloginwith" | translate
+            }}</span>
+          <hr class="flex-grow-1" />
+        </div>
+        <app-social-login></app-social-login>
+        <p class="join-now-label text-2" (click)="changeTabToSignin()">
+          {{ "auth.tabs.signup.input.alreadyhaveanaccount" | translate
+          }}<a href="javascript:void(0)"> {{ "auth.tabs.signup.input.logIn" | translate }} </a>
+        </p>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<button #signInButton style="display: none" data-bs-dismiss="modal">
+  Sign In
+</button>

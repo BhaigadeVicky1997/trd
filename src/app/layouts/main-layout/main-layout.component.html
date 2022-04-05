@@ -1,0 +1,19 @@
+<!--<div class="wrapper">
+  <div class="sidebar" data-color="red">-->
+<!-- <app-sidebar></app-sidebar>-->
+<!--</div>
+<div class="main-panel">-->
+<!--<app-navbar></app-navbar>-->
+<!-- <app-footer></app-footer> -->
+<!--</div>
+</div>-->
+<app-navbar></app-navbar>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>
+<app-sidebar></app-sidebar>
+<a id="back-to-top"><i class="bx bx-chevron-up"></i></a>
+<ngx-spinner bdColor="rgb(84 83 83 / 79%)"
+  template="<div class='page-load' id='page_loader'><div class='pre-content'><div class='logo-pre'><img src='./assets/img/logo.png' alt='Logo' class='img-fluid' /></div></div></div>">
+</ngx-spinner>

@@ -1,0 +1,97 @@
+<div class="row ">
+  <div class="col-lg-11 col-sm-12 mx-auto">
+    <div class="own-damage-claim">
+      <div class="card claim-wrap  mb-3 pt-lg-5 pb-lg-3 px-lg-5">
+        <h5 class="fs-b">Type of Damage</h5>
+        <div class="claim-wrap_type-damage mt-lg-4 mt-2" [formGroup]="damageTypeForm">
+          <div class="form-check form-check-inline" *ngFor="let damage of typeofDamage; let i = index"
+            formArrayName="typeofDamage">
+            <input class="form-check-input" type="checkbox" [formControlName]="i" [value]="damage">
+            <label class="form-check-label">{{damage}}</label>
+          </div>
+          <div class="w-100">
+            <textarea name="" class="w-100 p-3 mt-lg-3 mt-1 br-5" id="" cols="30" rows="4"
+              placeholder="Other details"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="card claim-wrap  mb-3 pt-lg-5 pb-lg-3 px-lg-5" [formGroup]="bodilyInjuredForm">
+        <h5 class="fs-b">Bodily Injured</h5>
+        <div class="claim-wrap-toggle">
+          <label class='claim-wrap-toggle-label'>
+            <input type='checkbox' formControlName="isBodilyInjured" />
+            <span class='back'>
+              <span class='toggle'></span>
+              <span class='label yes'>Yes</span>
+              <span class='label no'>No</span>
+            </span>
+          </label>
+        </div>
+        <div class="claim-wrap_bodily-injured my-lg-3">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="option1" [disabled]="!isBodilyInjured"
+              formControlName="BIInsuredDriver">
+            <label class="form-check-label">Insured Driver</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="option1" [disabled]="!isBodilyInjured"
+              formControlName="BIOtherVehicle">
+            <label class="form-check-label">Other Vehicle Driver</label>
+          </div>
+          <div class="form-check form-check-inline number-of-passengers_wrap">
+            <form class="number-of-passengers">
+              <input type="number" id="number-of-passengers" placeholder="Number of Passengers"
+                formControlName="BINumberofPassenger" [disabled]="!isBodilyInjured" />
+              <div class="value-btn-wrap">
+                <div class="value-button" [ngClass]="{'o-5': !isBodilyInjured}" id="increase" appIncrementDecrement
+                  value="Increase Value">+</div>
+                <div class="value-button" [ngClass]="{'o-5': !isBodilyInjured}" id="decrease" appIncrementDecrement
+                  value="Decrease Value">-</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card claim-wrap  mb-3 pt-lg-5 pb-lg-3 px-lg-5" [formGroup]="deathForm">
+        <h5 class="fs-b">Death</h5>
+        <div class="claim-wrap-toggle">
+          <label class='claim-wrap-toggle-label'>
+            <input type='checkbox' formControlName="isDeath" />
+            <span class='back'>
+              <span class='toggle'></span>
+              <span class='label yes'>Yes</span>
+              <span class='label no'>No</span>
+            </span>
+          </label>
+        </div>
+        <div class="claim-wrap_death my-lg-3">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="option1" [disabled]="!isDeath"
+              formControlName="DInsuredDriver">
+            <label class="form-check-label">Insured Driver</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="option1" [disabled]="!isDeath"
+              formControlName="DOtherVehicle">
+            <label class="form-check-label">Other Vehicle Driver</label>
+          </div>
+          <div class="form-check form-check-inline number-of-passengers_wrap">
+            <form class="number-of-passengers">
+              <input type="number" id="number-of-passengers" placeholder="Number of Passengers"
+                formControlName="DNumberofPassenger" [disabled]="!isDeath" />
+              <div class="value-btn-wrap">
+                <div class="value-button" [ngClass]="{'o-5': !isDeath}" id="increase" appIncrementDecrement
+                  value="Increase Value">+</div>
+                <div class="value-button" [ngClass]="{'o-5': !isDeath}" id="decrease" appIncrementDecrement
+                  value="Decrease Value">-</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center my-5">
+      <button [routerLink]="[ '/wazen/claim/third/reference/verifyOTP' ]" class="btn-main px-5 m-w-100">Next</button>
+    </div>
+  </div>
+</div>

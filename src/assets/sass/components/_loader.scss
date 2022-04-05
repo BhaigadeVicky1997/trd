@@ -1,0 +1,57 @@
+
+// loader
+.page-load,
+.page-load .pre-text- span {
+  display: block;
+}
+
+.page-load {
+  position: fixed;
+  z-index: 99999999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $white;
+}
+.page-load .pre-content {
+  top: 50%;
+  position: relative;
+  right: 0;
+  left: 0;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.page-load .pre-text- {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  width: 50%;
+  margin: 0 auto;
+}
+.logo-pre {
+  background: $primary-bg;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 0 0 0 transparent;
+  animation: loader 2s infinite;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+@keyframes loader {
+  0% {
+    box-shadow: 0 0 0 0 rgba(230, 230, 230, 0.27);
+  }
+
+  70% {
+    box-shadow: 0 0 0 30px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}

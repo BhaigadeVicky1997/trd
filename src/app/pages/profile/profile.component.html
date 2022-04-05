@@ -1,0 +1,50 @@
+<div class="container mt-8">
+  <div class="card card-1 mb-5">
+    <div class="user-profile text-center">
+      <img src="assets/img/user.svg" class="user-ava" alt="" />
+      <p class="user-name">Hi {{ user }}</p>
+    </div>
+    <div class="profile-container">
+      <ul class="nav nav-tabs mb-4" id="profile-wrap" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="policies-tab"
+            [routerLink]="['/wazen/profile/my-policy']"
+            routerLinkActive="active"
+            >{{ "profile.userBlock.input.myPolicies" | translate }}</a
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="transactions-tab"
+            [routerLink]="['/wazen/profile/my-transactions']"
+            routerLinkActive="active"
+            >{{ "profile.userBlock.input.myTransactions" | translate }}</a
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="account-tab"
+            [routerLink]="['/wazen/profile/my-account']"
+            routerLinkActive="active"
+            >{{ "profile.userBlock.input.myAccount" | translate }}</a
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <a
+            class="nav-link"
+            id="claim-tab"
+            [routerLink]="['/wazen/profile/my-claims']"
+            routerLinkActive="active"
+            >{{ "profile.userBlock.input.claimTracking" | translate }}</a
+          >
+        </li>
+      </ul>
+      <div class="hw-50"></div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

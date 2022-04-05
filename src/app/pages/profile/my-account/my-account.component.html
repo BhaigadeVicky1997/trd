@@ -1,0 +1,51 @@
+  <div class="container">
+    <div class="row justify-content-md-center account-wrap">
+      <div class="
+        col-xs-12 col-sm-12 col-md-12 col-lg-4
+        position-relative
+        mb-4
+      ">
+        <div class="account-action">
+          <div class="account-action-item">
+            <ul>
+              <li (click)="onTabSelect('wazen/profile/my-account/edit-profile')">
+                <a href="javascript:void(0)">
+                  <i class="icon-account edit-profile"></i>
+                  <span>{{ "profile.myAccountBlock.input.editProfile" | translate }}</span>
+                  <i class="bx bx-chevron-right"></i>
+                </a>
+              </li>
+              <li (click)="onTabSelect('wazen/profile/my-account/change-password')">
+                <a href="javascript:void(0)">
+                  <i class="icon-account password-change"></i>
+                  <span>{{ "profile.myAccountBlock.input.passwordChange" | translate }}</span>
+                  <i class="bx bx-chevron-right"></i>
+                </a>
+              </li>
+              <li (click)="onTabSelect('wazen/profile/my-account/change-language')">
+                <a href="javascript:void(0)">
+                  <i class="icon-account language-per"></i>
+                  <span>{{ "profile.myAccountBlock.input.languagePreference" | translate }}</span>
+                  <i class="bx bx-chevron-right"></i>
+                </a>
+              </li>
+              <li (click)="onTabSelect('wazen/profile/my-account/news-subscription')">
+                <a href="javascript:void(0)">
+                  <i class="icon-account newsletter-sub"></i>
+                  <span>{{ "profile.myAccountBlock.input.newsletterSubscription" | translate }}</span>
+                  <i class="bx bx-chevron-right"></i>
+                </a>
+              </li>
+              <li (click)="onTabSelect('wazen/profile/my-account/delete-account')">
+                <a href="javascript:void(0)">
+                  <i class="icon-account delete-acc"></i>
+                  <span>{{ "profile.myAccountBlock.input.deleteAccount" | translate }}</span>
+                  <i class="bx bx-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

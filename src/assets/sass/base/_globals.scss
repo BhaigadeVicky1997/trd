@@ -1,0 +1,268 @@
+.info-bg {
+  background-color: $primary-bg;
+  margin: 0 30px;
+}
+.bg-sec {
+  background: $white;
+}
+.text-sec {
+  color: $secondary;
+}
+.text-fade {
+  color: #a3a3a3;
+}
+.text-color-1 {
+  color: #676767 !important;
+}
+.text-color-2 {
+  color: #8b8f93;
+}
+.text-color-3 {
+  color: #626971;
+}
+.text-color-4{
+  color: $textlight;
+}
+.textlight {
+  color: $textlight !important;
+}
+.textprimary {
+  color: $primary;
+}
+.fw-6 {
+  font-weight: 600;
+}
+.fw-5 {
+  font-weight: 500;
+}
+.fs-xs {
+  font-size: 0.75rem;
+}
+.fs-s {
+  font-size: 0.875rem;
+}
+.fs-m {
+  font-size: 1rem;
+}
+.br-5 {
+  border-radius: 5px;
+}
+.td-u {
+  text-decoration: underline;
+}
+.fs-r {
+  font-family: "Poppins-Regular";
+}
+.fs-l {
+  font-family: "Poppins-Light";
+}
+.fs-sb {
+  font-family: "Poppins-SemiBold";
+}
+.fs-b {
+  font-family: "Poppins-Bold";
+}
+.fs-m {
+  font-family: "Poppins-Medium";
+}
+.z-9999 {
+  z-index: 9999;
+}
+.o-5 {
+  opacity: 0.5;
+}
+
+a {
+  color: $secondary;
+  text-decoration: none;
+  transition: 300ms all ease-in;
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+  }
+}
+ul {
+  list-style: none;
+}
+section.main {
+  max-width: 80px;
+}
+.card {
+  border: 0;
+  background-color: $card;
+  border-radius: 8px;
+  padding: 25px 10px;
+}
+.card-1 {
+  border-radius: 3px;
+  padding: 25px 0 !important;
+}
+
+section {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+section h4 {
+  font-family: "Poppins-Bold";
+  font-size: 1.8rem;
+  text-align: center;
+  color: $secondary;
+  margin-bottom: 40px;
+}
+@include breakpoint(mobile-max) {
+  section {
+    padding: 2em 0;
+  }
+  section h4 {
+    font-size: 1.5rem;
+  }
+}
+// badge
+.badge-complete {
+  background: $primary;
+  @include for-badge();
+}
+.badge-pending {
+  background: #e28554;
+  @include for-badge();
+}
+.badge-reject {
+  background: #ce4f4f;
+  @include for-badge();
+}
+.hw-50 {
+  height: 25px;
+  width: 100%;
+  background-color: $primary-bg;
+}
+// form
+.form-control {
+  border: 0;
+  padding: 0.7rem 0.75rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: #788491;
+  &:focus {
+    // border: 1px solid rgba(2, 59, 109, 0.3);
+    outline: 0;
+    box-shadow: 0 0 10px rgba(2, 59, 109, 0.15) !important;
+  }
+}
+.form-control::-webkit-input-placeholder,
+.form-control::placeholder {
+  color: #788491;
+  font-size: 12px;
+}
+// opacity
+.opacity-50 {
+  opacity: 0.5;
+}
+.pacity-100 {
+  opacity: 1;
+}
+.w-95 {
+  width: 95% !important;
+}
+// icon
+.icon-bg {
+  background: url(../../img/sidebarin.svg) no-repeat;
+}
+.icon-claim {
+  background: url(../../img/claim.svg) no-repeat;
+}
+.icon-account {
+  background: url(../../img/account.svg) no-repeat;
+}
+.py-100 {
+  padding: 100px 0;
+}
+.py-150 {
+  padding: 150px 0;
+}
+.px-100 {
+  padding: 0 100px;
+}
+.my-100 {
+  margin: 100px 0;
+}
+.mx-100 {
+  margin: 0 100px;
+}
+.mt-8 {
+  margin-top: 8rem;
+}
+.text-left{
+  text-align: left;
+}
+
+// button icon
+.gq-icon-download {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin: 0 10px 0 0;
+  background-position: 0 21.5%;
+  background: url(../../img/gq-icon-download.svg) no-repeat;
+  background-size: 75%;
+  display: inline-block;
+}
+.gq-icon-right {
+  width: 25px;
+  height: 20px;
+  vertical-align: middle;
+  margin: 0 10px 0 0;
+  background-position: 0 21.5%;
+  background: url(../../img/gq-icon-right.svg) no-repeat;
+  background-size: 70%;
+  display: inline-block;
+}
+.table>:not(:first-child) {
+    border-top:0;
+}
+@include breakpoint(ipad-max){
+  .m-text-center {
+    text-align: center;
+  }
+  .mt-8 {
+    margin-top: 1rem;
+  }
+  .card {
+    padding: 0;
+  }
+  .card-1 {
+    padding: 0 !important;
+    background-color: $white;
+  }
+  .m-w-100{
+    width: 100%;
+  }
+  .m-br-5{
+    border-radius: 5px !important;
+  }
+}
+
+@include breakpoint(mobile-max) {
+  .m-text-center {
+    text-align: center;
+  }
+  .mt-8 {
+    margin-top: 1rem;
+  }
+  .card {
+    padding: 0;
+  }
+  .card-1 {
+    padding: 0 !important;
+    background-color: $white;
+  }
+  .m-w-100{
+    width: 100%;
+  }
+  .m-br-5{
+    border-radius: 5px !important;
+  }
+  .owl-stage{
+    padding-left: 0 !important;
+  }
+}

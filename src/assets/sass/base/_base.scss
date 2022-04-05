@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  // font-family: "poppins";
+  font-family: "Poppins-Medium";
+
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+*:focus {
+  outline: 0 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+html {
+  overflow-x: hidden;
+}
+body {
+  @include scrollbar-style;
+  background: $primary-bg;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: $secondary;
+}
+

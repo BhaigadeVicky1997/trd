@@ -1,0 +1,142 @@
+.wrap-accordian {
+  width: 65%;
+  margin: 0 auto;
+}
+.wrap-panel {
+  margin-bottom: 20px;
+  background-color: $white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 36px #0000000a;
+  box-shadow: 0px 0px 36px #0000000a;
+}
+.wrap-toggle {
+  text-decoration: none;
+  color: $secondary;
+  font-size: 13px;
+  padding: 5px 30px;
+  line-height: 20px;
+  border: 0;
+  margin-bottom: -1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.wrap-toggle i {
+  font-size: 24px;
+}
+.wrap-ans {
+  display: none;
+  width: 90%;
+  background: none;
+  padding: 0px 20px 12px 30px;
+  border: 0;
+  border-top: none;
+  border-bottom: none;
+}
+.wrap-ans p {
+  font-family: "Poppins-Light";
+  margin: 0;
+  padding-bottom: 0px;
+  text-align: justify;
+  letter-spacing: 0px;
+  color: $secondary;
+}
+.wrap-panel .wrap-question {
+  font-family: "Poppins-Medium";
+  text-align: left;
+  font-size: 1.2rem;
+  letter-spacing: 0px;
+  color: $secondary;
+  margin: 15px 0 !important;
+  font-weight: 500;
+}
+@media screen and (max-width: 767px) {
+  .wrap-accordian {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.faq-wrap {
+  padding: 40px 0;
+  h4 {
+    font-family: "Poppins-Bold";
+    font-size: 1.2rem;
+  }
+  .new-acc {
+    width: 85%;
+    margin: 0 auto;
+    .nested-accordion {
+      cursor: pointer;
+      margin: 1.5rem 0;
+    }
+    h3.nested-heading {
+      font-family: "Poppins-SemiBold";
+      font-size: 1.2rem;
+    }
+    .comment .nested-accordion h3 {
+      font-size: 0.975rem;
+      color: $primary;
+      border-top: 1px solid #d5d5d5;
+      padding-top: 20px;
+    }
+    .nested-accordion h3 {
+      position: relative;
+      font-size: 1rem;
+      border-top: 1px solid #d5d5d5;
+      padding-top: 20px;
+    }
+    .nested-accordion h3:before {
+      content: "+";
+      position: absolute;
+      right: 0;
+      color: $secondary;
+      font-family: "Poppins-Medium";
+      font-size: 1.3rem;
+    }
+    .nested-accordion h3.selected:before {
+      content: "-";
+    }
+  }
+}
+
+@include breakpoint(ipad-max) {
+}
+
+@include breakpoint(mobile-max) {
+  .faq-wrap {
+    padding: 25px 0 0 0;
+    margin: 15px;
+    border-radius: 10px;
+    .new-acc {
+      .nested-accordion {
+        h3 {
+          padding-right: 10px;
+          font-size: 0.875rem;
+          display: flex;
+          align-items: center;
+        }
+      }
+      .comment {
+        font-size: 0.875rem;
+        color: #75797E;
+        .nested-accordion {
+          h3 {
+            font-size: 0.775rem;
+            padding-right: 30px;
+          }
+        }
+      }
+    }
+  }
+}

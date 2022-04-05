@@ -1,0 +1,87 @@
+<div class="row add-remove-bank-details">
+  <div class="col-lg-12 col-sm-12 mx-auto">
+      <div class="card mb-5 p-lg-4">
+          <div class="col-12">
+              <div class="bank-details-wrap">
+                  <div class="row bg-sec m-lg-4 p-lg-5 br-5 m-0 p-3">
+                      <table class="table table-borderless">
+                          <tbody>
+                              <tr>
+                                  <td>Policy Number</td>
+                                  <td><b>123456xxx</b></td>
+                              </tr>
+                              <tr>
+                                  <td>Insurance Company</td>
+                                  <td><b>Tawinia</b></td>
+                              </tr>
+                              <tr>
+                                  <td>Expires on</td>
+                                  <td><b>12/10/2020</b></td>
+                              </tr>
+                              <tr>
+                                  <td>Effective Date</td>
+                                  <td><b>12/10/2021</b></td>
+                              </tr>
+                              <tr>
+                                  <td>Policy type</td>
+                                  <td><b>Comprehensive</b></td>
+                              </tr>
+                              <tr>
+                                  <td>No. Of Vehicles</td>
+                                  <td><b>4</b></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="row m-lg-4 p-lg-4 br-5">
+                      <h4 class="text-center mb-lg-3 fw-6">Add your bank details to continue</h4>
+                      <form class="py-lg-3 px-3">
+                          <div class="form-row d-md-flex ">
+                              <div class="form-group col-md-6 col-sm-12">
+                                  <input type="text" class="form-control" placeholder="Abdullah">
+                              </div>
+                              <div class="form-group col-md-6 col-sm-12">
+                                  <select class="form-control">
+                                      <option selected="">Bank Name</option>
+                                      <option value="lreom">lreom</option>
+                                      <option value="lreom">lreom</option>
+                                      <option value="lreom">lreom</option>
+                                      <option value="lreom">lreom</option>
+                                      <option value="lreom">lreom</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="form-row d-md-flex ">
+                              <div class="form-group col-md-6">
+                                  <input type="text" class="form-control"
+                                      placeholder="IBAN SA   0000  0000   0000  0000">
+                              </div>
+                              <div class="form-group custom-file col-md-6">
+                                  <!-- <input type="file" class="form-control" placeholder="Upload Your Bank Card"> -->
+                                  <label for="files" class="form-control">Upload Your Bank Card </label>
+                                  <input id="files" style="visibility:hidden;" type="file">
+                              </div>
+                          </div>
+                          <div class="conformation-checkbox">
+                              <label class="customcheck">
+
+                                  <input type="checkbox" c>
+                                  <span class="checkmark"></span>
+                              </label>
+                              <div class="conformation-checkbox-text">
+                                  <span>I agree the terms and conditions</span>
+                                  <p class="mt-1 mb-0 text-center">Wazen is not responsible for any refund
+                                      payment
+                                  </p>
+                              </div>
+                          </div>
+                          <div class="d-flex justify-content-center pt-5">
+                              <button type="submit" class="btn-main " (click)="getReviewConfirm()">Continue</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+// Deduction popup
+.deduction-modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    overflow: unset;
+    background-color: #f5f8fbbd;
+    padding-top: 8%;
+    transition: 0.5s ease-in all;
+    .modal-contents {
+      position: relative;
+      width: 35%;
+      margin-left: auto;
+      border-radius: 5px;
+      transition: 0.5s ease-in all;
+      .deduction-modal_title {
+        display: flex;
+        background: $primary;
+        justify-content: space-between;
+        padding: 10px 2rem;
+        align-items: center;
+        color: $textwhite;
+        border-radius: 5px 5px 0 0;
+        p {
+          font-family: "Poppins-Bold";
+        }
+        .deduction-details-close {
+          i {
+            font-size: 1.8rem;
+          }
+          &:hover,
+          &:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+          }
+        }
+      }
+      .deduction-modal_des {
+        background-color: $textwhite;
+        border: 1px solid #e8e8e8;
+        border-top: 0;
+        border-radius: 0 0 5px 5px;
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            border-bottom: 1px solid #e8e8e8;
+            padding: 10px 0;
+            &:last-child {
+              border: 0;
+            }
+            span {
+              color: #cccccc;
+              font-family: "Poppins-SemiBold";
+              &::before {
+                content: "SAR ";
+                font-size: 0.875rem;
+                font-family: "Poppins-Regular";
+              }
+            }
+            &.active {
+              span {
+                font-family: "Poppins-Bold";
+                font-size: 1.2rem;
+                color: #000;
+              }
+            }
+            &:hover {
+              cursor: pointer;
+              background-color: #f8fafc;
+            }
+          }
+        }
+      }
+    }
+  }

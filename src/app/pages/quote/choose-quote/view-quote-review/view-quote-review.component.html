@@ -1,0 +1,373 @@
+<div class="row get-quote-select-plan-cover" *ngIf="!showTermsPopup">
+  <div class="col-lg-12 col-sm-12 mx-auto">
+    <div class="card p-lg-5">
+      <div class="get-quote-wrap_title d-none d-lg-block">
+        <div class="container">
+          <div class="d-flex justify-content-between mb-4 ">
+            <p class="mb-0 fw-5 fs-s">Please fill the vehicle details of the selected plate</p>
+          </div>
+        </div>
+      </div>
+      <div class="get-quote-wrap_inner" *ngIf="vehicles.length">
+        <div class="container p-0 p-xl-3">
+          <div class="row">
+            <div class="policies-slider owl-carousel owl-theme owl-loaded owl-drag">
+              <div class="owl-stage-outer">
+                <div class="owl-stage"
+                  style="transform: translate3d(0px, 0px, 0px); transition: all 0.25s ease 0s; width: 2324px;">
+                  <div class="owl-item" style="width: 377.333px; margin-right: 10px;"
+                    *ngFor="let policy of vehicles let i = index;">
+                    <div class="item w-100">
+                      <div class="quote-policy-list">
+                        <div class="acc-policies-list"
+                          [ngClass]="{'active': selectedIndex == i,'saved': selectedIndex > i}">
+                          <div class="d-flex align-items-center policies-car">
+                            <div class="policies-carname">
+                              <span>{{ policy.vehicleMake }} </span>
+                              <p class="mb-0">{{ policy.vehicleModel }}</p>
+                            </div>
+                            <div class="policies-carnum">
+                              <span>{{ policy.vehicleNumber.split('-')[0] }}</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="22.774" height="32.25"
+                                viewBox="0 0 22.774 32.25">
+                                <g id="Group_581" data-name="Group 581" transform="translate(0 0)">
+                                  <g id="Group_580" data-name="Group 580" transform="translate(0 0)">
+                                    <path id="Path_651" data-name="Path 651"
+                                      d="M-196.366,280.956a.559.559,0,0,1,.054.651c0-.093.054-.186-.054-.232-.054,0-.054.047-.054.093a.233.233,0,0,0-.107-.186,2.01,2.01,0,0,0-.107.79c-.107-.046,0-.232-.107-.186-.161.046-.054.279,0,.418a2.039,2.039,0,0,1-.107-2,4.448,4.448,0,0,1,.967-1.023c.054-.046.161-.186,0-.186-.161-.046-.269.093-.322.232l-.107-.093c-.054.139-.161.279-.215.418,0-.046,0-.186-.054-.186-.161.047-.161.279-.215.418,0-.046,0-.186-.054-.139-.161.093-.161.325-.215.511,0-.047.054-.186-.054-.186-.161.046-.107.232-.107.372a.158.158,0,0,0-.054-.093c-.161.139-.107.325-.107.465-.107-.046-.054-.186-.107-.186-.161.139-.107.325-.161.511-.054-.093.054-.232-.054-.325a1.343,1.343,0,0,0-.161.418c-.054-.139.054-.279-.054-.372-.107.139,0,.325-.054.465a1.854,1.854,0,0,1,.054-1.208,3.4,3.4,0,0,1,.376-.558,2.715,2.715,0,0,1,.591-.465c.322-.233.752-.279,1.021-.558-.107-.093-.268.046-.376-.047l-.107.093c0-.046,0-.093-.054-.093a.3.3,0,0,0-.215.093c0-.046,0-.093-.054-.093-.107,0-.161.093-.215.139a.157.157,0,0,0-.053-.093c-.054.046-.215.046-.215.186l-.107-.093a.233.233,0,0,0-.107.186c0-.047,0-.093-.054-.093a.233.233,0,0,0-.107.186l-.054-.047a.6.6,0,0,0-.107.279.157.157,0,0,0-.054-.093c-.107.093-.054.232-.107.325a.982.982,0,0,1,.752-1.208,2.616,2.616,0,0,1,1.88-.046.157.157,0,0,0,.054-.093c-.054-.14-.215-.418-.43-.232a.157.157,0,0,1,.054-.139c-.107-.139-.269.046-.376,0l.054-.047c-.107-.139-.215.047-.322,0l.054-.046c0-.046-.054-.046-.107-.046-.054.046-.215.046-.215.186,0-.046.054-.186-.054-.186-.161.046-.215.232-.322.325a.362.362,0,0,1,.215-.465,1.9,1.9,0,0,1,1.5-.186,1.187,1.187,0,0,1,.645.558,2.086,2.086,0,0,0,.215-.6.157.157,0,0,0,.054.139c.108-.186.054-.418.161-.6.108.186.054.418.161.6a.156.156,0,0,0,.054-.139,2.089,2.089,0,0,0,.215.6,1.231,1.231,0,0,1,.859-.6c.591-.093,1.557.046,1.5.7-.107-.093-.161-.279-.322-.325-.107,0-.054.139-.054.186,0-.139-.161-.139-.215-.186a.063.063,0,0,0-.107.046c0,.046.054.046.054.093-.107-.047-.215-.139-.322-.047.054,0,.054.047.054.093a.849.849,0,0,0-.322-.093c-.108.047.054.139,0,.186-.054-.093-.161-.046-.215-.046-.108.093-.322.372-.269.372a3.217,3.217,0,0,1,1.987.046,1.372,1.372,0,0,1,.645.418,1.308,1.308,0,0,1,.108.79c-.108-.093,0-.232-.108-.325a.157.157,0,0,0-.054.093c0-.186-.161-.279-.269-.418-.054,0-.054.046-.054.093a.233.233,0,0,0-.108-.186l-.107.093c0-.139-.161-.139-.215-.186a.157.157,0,0,0-.054.093l-.161-.139c-.107,0-.161.093-.269,0-.054-.046-.108,0-.108.093l-.107-.093c-.107.093-.268-.046-.376.047.483.372,1.182.511,1.611,1.022a1.845,1.845,0,0,1,.43,1.766c-.054-.139.054-.325-.054-.465-.108.093,0,.232-.054.372a1.35,1.35,0,0,0-.161-.418c-.107.093-.054.232-.054.325-.054-.186,0-.372-.161-.511-.054,0,0,.139-.107.186,0-.139.054-.325-.107-.465a.158.158,0,0,0-.054.093c0-.139.054-.325-.107-.372-.108,0-.054.139-.054.186-.054-.186-.054-.418-.215-.511-.054-.046-.054.093-.054.139-.054-.139-.054-.372-.215-.418-.054,0-.054.14-.054.186-.054-.139-.161-.279-.215-.418l-.107.093a.457.457,0,0,0-.322-.279c-.054,0-.054.093-.054.139.322.372.752.651,1.021,1.023a2.087,2.087,0,0,1-.108,2.092c.054-.139.161-.372,0-.418-.107-.047,0,.139-.107.186a2.013,2.013,0,0,0-.107-.79.233.233,0,0,0-.108.186c0-.046,0-.093-.054-.093-.108.047-.054.139-.054.232a.925.925,0,0,1,.107-.744.6.6,0,0,0-.107-.279.233.233,0,0,0-.107.186c-.054-.186,0-.418-.108-.6-.107.046-.054.139-.054.186-.107-.139.054-.325-.107-.418-.054,0,0,.139-.107.186,0-.139.054-.325-.107-.418-.054,0-.054.139-.054.186,0-.139-.054-.372-.215-.418-.054,0,0,.14-.054.186h-.108c0-.046,0-.093-.054-.093s-.107,0-.107.047c.054.139.269.139.322.279,0,.139.161.186.161.325a.22.22,0,0,0-.322-.046c.269.093.537.232.484.511,0-.093-.107-.186-.215-.232-.054,0-.161,0-.161.046.215.186.43.372.376.651a.253.253,0,0,0-.161-.232.2.2,0,0,0-.108.046,1.062,1.062,0,0,1,.215.883c0-.093.054-.232-.054-.186-.108,0-.054.139-.054.232l-.054-.047c-.107.139.054.232,0,.372s-.054.232-.107.372c-.054-.139.054-.325-.054-.465a1.294,1.294,0,0,0-.108.651c0-.046,0-.093-.054-.093-.107.047,0,.186-.107.232a6.033,6.033,0,0,0-.107-.976c.054,0,.107,0,.107-.046,0-.093.054-.279-.054-.279-.108-.046,0,.186-.108.232,0-.186,0-.372-.161-.418-.107-.047.054.139-.107.186-.215.047-.108-.139-.215-.232a27.555,27.555,0,0,0,0,4.7c0,.232.161.465.107.7a.361.361,0,0,0-.054.325.684.684,0,0,0,.161.419c.054.186-.161.372-.108.558a4.748,4.748,0,0,0,.591.976h-2.148c.215-.372.591-.7.537-1.115,0-.139-.107-.279-.054-.418.269-.372.054-.7.107-1.116a.6.6,0,0,0,.107-.279,35.026,35.026,0,0,0,0-4.748c-.107.047-.054.139-.054.186-.054.093-.215.046-.269-.047.054,0,.054-.046.054-.093-.107-.14-.107.046-.161.046a.436.436,0,0,0-.054.372c-.108-.046,0-.279-.108-.232-.107,0-.053.186-.053.279,0,.046.053.046.107.046a6.026,6.026,0,0,0-.107.976c-.108-.046,0-.186-.108-.232-.054,0-.054.047-.054.093a1.3,1.3,0,0,0-.107-.651c-.107.139,0,.325-.054.465-.054-.139-.054-.232-.107-.372s.107-.232,0-.372l-.054.047c0-.093.054-.232-.054-.232-.107-.047-.054.093-.054.186a.828.828,0,0,1,.215-.836c.054-.047,0-.093-.054-.093-.161,0-.161.139-.215.232-.054-.279.161-.465.376-.651,0-.046-.107-.046-.161-.046-.107.046-.215.139-.215.232-.054-.279.215-.418.483-.511a.22.22,0,0,0-.322.046,1.228,1.228,0,0,1,.43-.465.3.3,0,0,0-.215-.093c.107-.046,0-.139.107-.186,0-.046-.054-.046-.107-.046a.551.551,0,0,0-.269.465c0-.046,0-.186-.054-.186-.161.093-.108.279-.108.418-.107-.046,0-.186-.107-.186-.161.093,0,.279-.107.418,0-.046.054-.139-.054-.186-.107.186-.054.418-.107.6a.233.233,0,0,0-.107-.186c-.054.139-.161.232-.054.372Z"
+                                      transform="translate(205.443 -276.68)" fill="#565a5f"></path>
+                                    <path id="Path_652" data-name="Path 652"
+                                      d="M-248.43,373.25a16.3,16.3,0,0,1,4.781,2.231,15.08,15.08,0,0,1,11.333-2.556c-3.814.093-7.788.976-10.581,3.3l2.256,1.813c.215-.279.215-.651.484-.93a1.321,1.321,0,0,1,1.074-.372.733.733,0,0,1,.645.837c-.161.558-.859.7-1.45.372-.107-.047-.268.279-.161.418a1.991,1.991,0,0,0,1.074.651.934.934,0,0,1,1.4,0,.591.591,0,0,1-.269.93,3.338,3.338,0,0,1-2.9-.79c-.484.651-1.773,1.348-2.525.511a.576.576,0,0,1-.107-.511.842.842,0,0,1,.967-.558.737.737,0,0,1,.537.279c.107.139-.054.372.161.325.161,0,.43-.233.376-.279a9.173,9.173,0,0,0-2.363-2,12.786,12.786,0,0,0-2.363,1.952c-.107.139.215.325.376.325.215,0,.107-.418.376-.511a1.2,1.2,0,0,1,.806-.046.762.762,0,0,1,.483.79c-.107.465-.7.651-1.182.6a2.188,2.188,0,0,1-1.45-.883,4.063,4.063,0,0,1-2.632.929.783.783,0,0,1-.537-.325.685.685,0,0,1,.269-.976.944.944,0,0,1,1.128.232,1.991,1.991,0,0,0,1.074-.651c.107-.139-.054-.465-.215-.418a1.518,1.518,0,0,1-.913.139.763.763,0,0,1-.483-.79.833.833,0,0,1,1.021-.558,1.964,1.964,0,0,1,.7.372c.268.279.268.651.483.93l2.256-1.813c-2.793-2.324-6.768-3.207-10.581-3.3a16.134,16.134,0,0,1,6.66.325Z"
+                                      transform="translate(255.09 -361.948)" fill="#565a5f"></path>
+                                  </g>
+                                  <text id="KSA" transform="translate(1 28.25)" fill="#565a5f" font-size="10"
+                                    font-family="Poppins-Bold, Poppins" font-weight="700">
+                                    <tspan x="0" y="0">KSA</tspan>
+                                  </text>
+                                </g>
+                              </svg>
+                              <span>{{policy.vehicleNumber.split('-')[1]}}</span>
+                            </div>
+                          </div>
+                          <table class="table table-sm table-borderless">
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <p class="fs-xs fw-5 mb-0">Policy Type:</p>
+                                </td>
+                                <td>
+                                  <b class="fs-xs ">{{ policy.policyDetails.product }} </b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <p class="fs-xs fw-5 mb-0">
+                                    Policy Expiry
+                                    Date:
+                                  </p>
+                                </td>
+                                <td><b class="fs-xs ">{{ policy.expiryDate | date: "shortDate" }}</b></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="delete-icon" (click)="removeVehicle(i)">
+                            <a href="javascript:void(0)" class="trigger-btn" data-toggle="modal">
+                              <i class="icon-delete"></i>
+                            </a>
+                          </div>
+                          <div class="position-relative list-wrap" *ngIf="selectedIndex === i">
+                            <div class="list-con collapsed" data-bs-toggle="collapse"
+                              [class.inactive]="vehicles[selectedIndex].valid"
+                              [attr.href]="vehicles[selectedIndex].valid ? 'javascript:void(0)': '#list-collapse-1'"
+                              aria-expanded="false">
+                              <span>Add Additional Coverage </span>
+                              <i class="bx bx-chevron-down"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="list-dropdown collapse" id="list-collapse-1" *ngIf="selectedIndex === i">
+                          <ul>
+                            <li
+                              *ngFor="let charges of vehicles[selectedIndex].policyDetails.premium.additionalCovers;let i = index">
+                              <div class="conformation-checkbox">
+                                <label class="customcheck">
+                                  {{charges.featureDesc}}
+                                  <input type="checkbox" [checked]="charges.checked"
+                                    (change)="onAdditionalChargesChange(i)">
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                              <div class="renew-policy-price-dropdown-list">
+                                {{charges.featureAmount}}
+                              </div>
+                            </li>
+                            <!-- <li>
+                              <div class="conformation-checkbox">
+                                <label class="customcheck">
+                                  Rent a Vehicle
+                                  <input type="checkbox">
+                                  <span class="checkmark"></span>
+                                </label>
+                              </div>
+                              <div class="renew-policy-price-dropdown-list">
+                                100
+                              </div>
+                            </li> -->
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="owl-nav">
+                <button type="button" role="presentation" class="owl-prev">
+                  <div class="nav-btn prev-slide"><i class="bx bx-chevron-left"></i></div>
+                </button>
+                <button type="button" role="presentation" class="owl-next">
+                  <div class="nav-btn next-slide"><i class="bx bx-chevron-right"></i></div>
+                </button>
+              </div>
+              <div class="owl-dots disabled"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mt-3 mb-5 pt-lg-5" *ngIf="vehicleSelectedID">
+      <div class="quote-review-wrap">
+        <div class="row bg-sec mx-lg-4 mb-lg-3 py-lg-5 px-lg-5 br-5 m-0 pt-3 pb-md-3">
+          <div class="col-lg-5 col-md-6" *ngIf="selectedVehicle.policyDetails.product == 'Comprehensive'">
+            <app-file-upload-wrapper [reset]="selectedIndex" (onChange)="onChange($event)" [files]="files">
+            </app-file-upload-wrapper>
+          </div>
+          <div class="offset-lg-1 col-md-6">
+            <div class="quote-review-wrap_r">
+              <table cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td>Vehicle:</td>
+                    <td><b>{{selectedVehicle.vehicleModel}}</b></td>
+                  </tr>
+                  <tr>
+                    <td>Insurance Company:</td>
+                    <td><b>{{selectedVehicle.policyDetails.companyName}}</b></td>
+                  </tr>
+                  <tr>
+                    <td>Policy type</td>
+                    <td><b>{{selectedVehicle.policyDetails.product}}</b></td>
+                  </tr>
+                  <tr>
+                    <td>Effective Date</td>
+                    <td><b>{{selectedVehicle.startDate | date: 'shortDate'}}</b></td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+              <table cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td>Premium</td>
+                    <td>
+                      <div class="policies-price"> {{selectedVehicle.policyDetails.premium.totalPremium}} </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row flex-column m-0" *ngIf="selectedVehicle.valid">
+                <div class="col-sm-12 col-lg-10 add-additional-list-con_sec my-4">
+                  <p class="mb-0 fs-b fs-s textlight">Additional Coverage</p>
+                  <div class="d-flex justify-content-between align-items-center my-3 px-3"
+                    *ngFor="let additionalCharge of selectedVehicle.policyDetails.premium.additionalCovers">
+                    <ng-container *ngIf="additionalCharge.checked; else uncheckedCharges">
+                      <p class="mb-0"> <i class="add-additional-check"></i>
+                        {{additionalCharge.featureDesc}}</p>
+                      <p class="mb-0">SAR {{additionalCharge.featureAmount}}</p>
+                    </ng-container>
+                    <ng-template #uncheckedCharges>
+                      <p class=" mb-0 text-color-2"> <i class="add-additional-uncheck"></i>
+                        {{additionalCharge.featureDesc}} (SAR {{additionalCharge.featureAmount}})</p>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <table cellspacing="0" class="mb-4" *ngIf="!selectedVehicle.valid">
+                <tbody>
+                  <tr
+                    *ngFor="let additionalCharge of selectedVehicle.policyDetails.premium.additionalCovers; let i = index">
+                    <td *ngIf="additionalCharge.checked">
+                      <dl>
+                        <dt *ngIf="i == 0">Additional Coverage</dt>
+                        <dd>{{additionalCharge.featureDesc}}</dd>
+                      </dl>
+                    </td>
+                    <td *ngIf="additionalCharge.checked">
+                      <div class="policies-price"> {{additionalCharge.featureAmount}} </div>
+                    </td>
+                  </tr>
+                  <tr *ngFor="let serviceCharge of serviceCharges; let i = index">
+                    <td>
+                      <dl>
+                        <dt *ngIf="i == 0">Service Charges</dt>
+                        <dd>{{serviceCharge.name}}</dd>
+                      </dl>
+                    </td>
+                    <td>
+                      <div class="policies-price"> {{serviceCharge.value}} </div>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <td>
+                      <dl>
+                        <dd class="p-0">Wazen</dd>
+                      </dl>
+                    </td>
+                    <td>
+                      <div class="policies-price"> 8</div>
+                    </td>
+                  </tr> -->
+                  <tr>
+                    <td class="fs-m">VAT</td>
+                    <td>
+                      <div class="policies-price"> {{vat}}</div>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+              <button *ngIf="vehicles[selectedIndex].save && !vehicles[selectedIndex].valid" class="btn-main my-3"
+                id="add-additional-popup-btn" (click)="openAdditionalPopup()">+ Confirm Additional
+                Coverage</button>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 p-0"
+            [ngClass]="selectedVehicle.policyDetails.product === 'Comprehensive' ? 'offset-md-6' : 'offset-md-1'">
+            <div class="get-quote-wrap_total my-lg-3 p-3">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="text-fade">Total</div>
+                    </td>
+                    <td>
+                      <div class="policies-price"> {{totalAmount || selectedVehicle.totalAmount | number:'1.2-2'}}</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row bg-sec mx-lg-4 py-lg-4 px-lg-5 br-5 get-quote-total-summary ">
+        <div class="d-flex justify-content-between align-items-center text-center total-summary">
+          <div class="total-summary_l">
+            <p class="mb-0">Grand Total:</p>
+            <div class="total-summary_l_total">
+              <span>SAR</span> {{ grandTotal+totalAmount | number:'1.2-2' }}
+            </div>
+          </div>
+          <!-- <div class="total-summary_r">
+            <p class="">2/4 Vehicles completed</p>
+            <button class="btn-main px-5" disabled>Check Out </button>
+          </div> -->
+
+          <div class="total-summary_r" *ngIf="vehicles.length">
+            <p class="">{{compeletedVehicles}}/{{vehicles.length}} Vehicles completed</p>
+            <button type="submit" class="btn-main px-5 m-w-100 mx-3" *ngIf="selectedItem != 0"
+              (click)="goToPreviousVehicle()">Previous</button>
+            <button class="btn-main px-5" *ngIf="!this.selectedVehicle.save"
+              [disabled]="(isSubmitted || (!isImageSaved && selectedVehicle.policyDetails.product == 'Comprehensive'))"
+              (click)="saveQuoteResponse()">
+              <span *ngIf="isSubmitted" class="spinner-border spinner-border-sm" role="status"
+                aria-hidden="true"></span>
+              {{
+                isSubmitted
+                  ? ("pleaseWait" | translate)
+                  : 'Save'
+              }}
+            </button>
+            <button class="btn-main px-5" *ngIf="this.selectedVehicle.save" [disabled]="!this.selectedVehicle.valid"
+              (click)="onNextPolicy()">
+              <span *ngIf="isSubmitted" class="spinner-border spinner-border-sm" role="status"
+                aria-hidden="true"></span>
+              {{selectedIndex == vehicles.length - 1 ? 'Check Out' : 'Next'}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="add-additional-popup" class="add-additional-modal" #additionalModal>
+        <div class="modal-contents">
+          <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 position-relative py-lg-5">
+              <h4 class="text-center fs-b mb-4 text-dark">Add Additional Coverage</h4>
+              <p class="mb-0 text-center textlight">Vehicle: <span class="fs-sb text-dark">Mitsubishi
+                  Pajero</span></p>
+              <div class="row  flex-column ">
+                <div class="col-sm-12 col-lg-4 add-additional-list-con mx-auto my-3 my-lg-4">
+                  <div class="d-flex justify-content-between align-items-center my-2 my-lg-3"
+                    *ngFor="let additionalCharge of vehicles[selectedIndex].policyDetails.premium.additionalCovers">
+                    <p class="mb-0"> <i
+                        [ngClass]="additionalCharge.checked ? 'add-additional-check': 'add-additional-uncheck'"></i>
+                      {{additionalCharge.featureDesc}}</p>
+                    <p class="mb-0">SAR {{additionalCharge.featureAmount}}</p>
+                  </div>
+                  <!-- <div class="d-flex justify-content-between align-items-center my-2 my-lg-3">
+                    <p class=" mb-0 text-color-2"> <i class="add-additional-uncheck"></i>
+                      Rent a
+                      car (SAR 200)</p>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center my-2 my-lg-3">
+                    <p class="mb-0"> <i class="add-additional-check"></i> GCC cover</p>
+                    <p class="mb-0">SAR 100</p>
+                  </div> -->
+                </div>
+              </div>
+              <div class="d-flex justify-content-center ">
+                <button type="submit" class="btn-outline px-lg-5  mx-2 bg-transparent"
+                  (click)="closeAdditionalPopup()">Decline</button>
+                <button type="submit" class="btn-main px-lg-5" (click)="saveVehicle()">Accept</button>
+              </div>
+            </div>
+          </div>
+          <div class="add-additional-close" (click)="closeAdditionalPopup()">
+            <i class="bx bx-x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row upgrade-policy-previous-policy-wrap" *ngIf="showTermsPopup">
+  <div class="col-lg-10 col-sm-12 mx-auto">
+      <div class="card upgrade-policy-wrap text-center mb-lg-5">
+          <div class="upgrade-policy-wrap_title mb-2">
+              <p class="fw-5  text-color-1">Do you want to proceed cancelling your previous Policy?</p>
+          </div>
+          <div class="upgrade-policy-wrap_inner">
+              <div class="upgrade-policy-previous-policy">
+                  <div class="conformation-checkbox pt-lg-5">
+                      <label class="customcheck">
+                          <input type="checkbox" [(ngModel)]="isTermsAccepted">
+                          <span class="checkmark"></span>
+                      </label>
+                      <div class="conformation-checkbox-text">
+                          <span class="td-u">I agree the terms and conditions</span>
+                      </div>
+                  </div>
+                  <div class="upgrade-policy-alert mt-1 mb-lg-5">
+                      <p>Wazen is not responsible for any refund payment
+                      </p>
+                  </div>
+                  <button class="btn-main px-5" [disabled]="!isTermsAccepted" (click)="checkoutPolicies()">Yes</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div hidden id="form-div" *ngIf="inputFields">
+  <form method="post" id="redirectFormdata" action="https://paytest.directpay.sa/SmartRoutePaymentWeb/SRPayMsgHandler"
+    name="f1" [innerHTML]="inputFields  | safeUrl : 'html'"></form>
+</div>

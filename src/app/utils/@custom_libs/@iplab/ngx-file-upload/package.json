@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      "@iplab/ngx-file-upload@3.3.3",
+      "F:\\WPLUS\\WazenClient\\ClientApp"
+    ]
+  ],
+  "_from": "@iplab/ngx-file-upload@3.3.3",
+  "_id": "@iplab/ngx-file-upload@3.3.3",
+  "_inBundle": false,
+  "_integrity": "sha512-WUIaTO1YJ5m6e+jTJvZKkxI5kMELkrmCaS/t5LOHMHi9frQAlNLpvxSTUqeA0zi6iTc68CzrKTG2zMRzz/IlOA==",
+  "_location": "/@iplab/ngx-file-upload",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@iplab/ngx-file-upload@3.3.3",
+    "name": "@iplab/ngx-file-upload",
+    "escapedName": "@iplab%2fngx-file-upload",
+    "scope": "@iplab",
+    "rawSpec": "3.3.3",
+    "saveSpec": null,
+    "fetchSpec": "3.3.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@iplab/ngx-file-upload/-/ngx-file-upload-3.3.3.tgz",
+  "_spec": "3.3.3",
+  "_where": "F:\\WPLUS\\WazenClient\\ClientApp",
+  "author": {
+    "name": "Ivan Pintar"
+  },
+  "bugs": {
+    "url": "https://github.com/pIvan/file-upload/issues"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "description": "> Angular module used for file upload.",
+  "es2020": "fesm2020/iplab-ngx-file-upload.mjs",
+  "esm2020": "esm2020/iplab-ngx-file-upload.mjs",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./iplab-ngx-file-upload.d.ts",
+      "esm2020": "./esm2020/iplab-ngx-file-upload.mjs",
+      "es2020": "./fesm2020/iplab-ngx-file-upload.mjs",
+      "es2015": "./fesm2015/iplab-ngx-file-upload.mjs",
+      "node": "./fesm2015/iplab-ngx-file-upload.mjs",
+      "default": "./fesm2020/iplab-ngx-file-upload.mjs"
+    }
+  },
+  "fesm2015": "fesm2015/iplab-ngx-file-upload.mjs",
+  "fesm2020": "fesm2020/iplab-ngx-file-upload.mjs",
+  "homepage": "https://github.com/pIvan/file-upload",
+  "keywords": [
+    "file-upload",
+    "drag & drop",
+    "drag and drop",
+    "file upload",
+    "forms",
+    "angular",
+    "ng-rxjs",
+    "rxjs 6",
+    "angular form",
+    "JavaScript",
+    "TypeScript"
+  ],
+  "license": "MIT",
+  "module": "fesm2015/iplab-ngx-file-upload.mjs",
+  "name": "@iplab/ngx-file-upload",
+  "peerDependencies": {
+    "@angular/common": "^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/core": "^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/animations": "^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "rxjs": "^6.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pIvan/file-upload.git"
+  },
+  "sideEffects": false,
+  "typings": "iplab-ngx-file-upload.d.ts",
+  "version": "3.3.3"
+}

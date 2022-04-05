@@ -1,0 +1,38 @@
+<div class="row renew-policy">
+  <div class="col-lg-10 col-sm-12 mx-auto">
+      <div class="card renew-policy-wrap text-center mb-5">
+          <div class="renew-policy-wrap_title">
+              <h4 class="mb-3 fw-6 d-none d-lg-block">OTP Verification</h4>
+              <p class="fw-5 textlight fs-s renew-policy-wrap_title_des">Enter the OTP sent to your registered
+                  mobile number</p>
+          </div>
+          <div class="renew-policy-wrap_inner">
+              <p class="fw-6 mb-2 renew-policy-wrap_inner_no">+966 ** *** 0000</p>
+              <form id="otp-verification">
+                  <div class="row g-3 my-3 justify-content-center">
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                      <div class="col-1">
+                          <input type="text" class="form-control text-center text-6 py-2" maxlength="1"
+                              required="" autocomplete="off">
+                      </div>
+                  </div>
+              </form>
+              <p class="m-4 fw-5 fs-s textlight  ">Didn’t you receive the OTP? <a class="textprimary"
+                      href="#">Resend OTP</a></p>
+              <button type="submit" class="btn-main m-w-100" (click)="verifyOtp()">Verify OTP</button>
+          </div>
+
+      </div>
+  </div>
+</div>

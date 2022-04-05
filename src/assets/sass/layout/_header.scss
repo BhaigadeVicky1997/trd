@@ -1,0 +1,234 @@
+/* Desktop Header */
+header {
+  position: fixed;
+  padding: 14px 0;
+  background: $white;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+#header.active {
+  box-shadow: 0px 0px 36px #0000000a;
+  -webkit-transition: 0.3s all ease-in;
+  -o-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+#navbarToggle {
+  padding: 0 30px;
+}
+.navbar-nav.left-nav .header-logo img {
+  width: 120px;
+}
+.navbar-nav.left-nav {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.navbar-nav.left-nav .menu-link {
+  padding: 0 30px;
+  cursor: pointer;
+}
+.navbar-nav.left-nav .nav-item a {
+  color: $primary;
+  padding-left: 26px;
+  font-weight: 600;
+  // font-size: 0.9rem;
+  &::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    border-radius: 5px;
+    background: $primary;
+    transition: width .4s;
+  }
+  &:hover{
+    &::after{
+      width: 100%;
+    }
+  }
+}
+.navbar-nav.right-nav .nav-item a {
+  color: $secondary;
+  padding-right: 25px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  &::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    border-radius: 5px;
+    background: $secondary;
+    transition: width .4s;
+  }
+  &:hover{
+    &::after{
+      width: 100%;
+    }
+  }
+}
+.arabic-lang {
+  display: flex;
+  align-items: center;
+  img {
+    height: 20px;
+    width: 20px;
+  }
+  a.nav-link {
+    font-family: "GE-SS";
+  }
+}
+.navbar-nav.right-nav .nav-item .nav-link i {
+  color: #c4c4c4;
+  padding-right: 10px;
+}
+
+/*-----------Changes 27-09-2021---------------*/
+
+ul.navbar-nav.right-nav .nav-link {
+  font-size: 17px;
+  font-family: "Poppins-SemiBold";
+}
+
+ul.navbar-nav.left-nav .nav-link {
+  font-size: 17px;
+  font-family: "Poppins-SemiBold";
+}
+
+// tablets header
+@include breakpoint(ipad-max) {
+  header {
+    position: relative;
+    padding: 10px 0;
+    background-color: unset;
+    .navbar {
+      padding: 0;
+      #navbarToggle {
+        padding: 0 15px;
+        display: block;
+      }
+    }
+    .navbar-nav.left-nav {
+      flex-direction: inherit;
+      justify-content: space-between;
+      background: $button;
+      border-radius: 10px;
+      padding: 15px 20px;
+      .nav-item {
+        display: none;
+      }
+      .header-logo {
+        img {
+          width: 100px;
+        }
+      }
+
+      .menu-link {
+        padding: 0 5px;
+        cursor: pointer;
+        svg {
+          filter: brightness(1000%);
+        }
+      }
+    }
+    .navbar-nav.right-nav {
+      display: none;
+    }
+    .m-breadcrumbs {
+      padding: 0 15px;
+      color: $white;
+      &_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: $button;
+        padding: 20px 15px 15px 20px;
+        border-radius: 0 0 10px 10px;
+        margin-top: -10px;
+        i {
+          font-size: 1.6rem;
+        }
+        &_title {
+          font-family: "Poppins-Bold";
+          font-size: 1rem;
+        }
+        &_sign {
+          font-family: "Poppins-Bold";
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+/* Mobile Header */
+@include breakpoint(mobile-max) {
+  header {
+    position: relative;
+    padding: 10px 0;
+    background-color: unset;
+    .navbar {
+      padding: 0;
+      #navbarToggle {
+        padding: 0 15px;
+        display: block;
+      }
+    }
+    .navbar-nav.left-nav {
+      flex-direction: inherit;
+      justify-content: space-between;
+      background: $button;
+      border-radius: 10px;
+      padding: 15px 20px;
+      .nav-item {
+        display: none;
+      }
+      .header-logo img {
+        width: 100px;
+      }
+
+      .menu-link {
+        padding: 0 5px;
+        cursor: pointer;
+        svg {
+          filter: brightness(1000%);
+        }
+      }
+    }
+    .navbar-nav.right-nav {
+      display: none;
+    }
+    .m-breadcrumbs {
+      padding: 0 15px;
+      color: $white;
+      &_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: $button;
+        padding: 20px 15px 15px 20px;
+        border-radius: 0 0 10px 10px;
+        margin-top: -10px;
+        i {
+          font-size: 1.6rem;
+        }
+        &_title {
+          font-family: "Poppins-Bold";
+          font-size: 1rem;
+        }
+        &_sign {
+          font-family: "Poppins-Bold";
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+@include breakpoint(custom-small-mobile-max) {
+  header {
+    .m-breadcrumbs_wrap_title {
+      font-size: 0.7rem;
+    }
+  }
+}

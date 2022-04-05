@@ -1,0 +1,193 @@
+{
+  "pleaseWait": "ارجوك انتظر",
+  "save": "حفظ",
+  "auth": {
+    "header": "الدخول",
+    "tabs": {
+      "signin": {
+        "title": "Sign In",
+        "input": {
+          "signInbtn": "Sign In",
+          "forgotPassword?": "Forgot Password?",
+          "orloginwith": "Or login with",
+          "newtoWazen?": "New to Wazen?",
+          "joinWazenNow": "انضم لفريق وازن",
+          "enterYourEmail": "Enter Your Email",
+          "enterYourPassword": "Enter Your Password"
+        }
+      },
+      "signup": {
+        "title": "التسجيل/ مشترك جديد ",
+        "input": {
+          "mr": "Mr",
+          "mrs": "Mrs",
+          "customcheck": "By creating an account, I agree to Wazen’s. Terms & Conditions and Privacy Policy",
+          "jointoWazen": "انضم لفريق وازن",
+          "orloginwith": "Or login with",
+          "alreadyhaveanaccount": "Already have an account?",
+          "logIn": "الدخول",
+          "firstname": "First name",
+          "lastname": "اسم العائلة",
+          "enterYourEmail": "Enter Your Email",
+          "nationalIdInput": "رقم الهوية الوطنية / الإقامة / او رقم ال ",
+          "enterYourPassword": "Enter Your Password",
+          "confirmyourpassword": "Confirm your password"
+        }
+      },
+      "forgotPassword": {
+        "title": "Forgot Password?",
+        "input": {
+          "sendbtn": "إرسال",
+          "newtoWazen": "New to Wazen?",
+          "signUp": "التسجيل/ مشترك جديد ",
+          "enterYourEmail": "Enter Your Email"
+        }
+      },
+      "emailhasbeensend": {
+        "title": "Email has been send",
+        "input": {
+          "noteinput": "يرجى التحقق من صندوق البريد الإكتروني والظغط على الرابط لتغيير كلمة المرور",
+          "enterVerificationCode": "Enter Verification Code",
+          "dontreceivethelink": " Don’t receive the link? ",
+          "resend": "Resend",
+          "submit": "تقديم "
+        }
+      },
+      "createNewPassword": {
+        "title": "Create New Password",
+        "input": {
+          "noteemailaddress": " Your New Password Must be Different from Previously Used Password",
+          "enterNewPassword": "Enter New Password",
+          "confirmpassword": "Confirm  Password",
+          "submit": "تقديم "
+        }
+      }
+    },
+    "verifyEmail": {
+      "title": "Email has been send",
+      "input": {
+        "noteinput": "Please Check the Inbox",
+        "enterVerificationCode": "Enter Verification Code",
+        "dontreceivethelink": " Don’t receive the link? ",
+        "resend": "Resend",
+        "submit": "تقديم "
+      }
+    }
+  },
+
+  "navbar": {
+    "login/signup": "الدخول/التسجيل فى الموقع"
+  },
+
+  "dashboard": {
+    "autoInsuranceBlock": {
+      "title": "",
+      "input": {
+        "nationalIdInput": "رقم الهوية الوطنية / الإقامة / او رقم ال ",
+        "DOBinput": "تاريخ الميلاد / تاريخ انتهاء السجل التجاري",
+        "getaQuote": "طلب  تسعيرة",
+        "alreadyhaveanInsurance?": "هل لديك تأمين ساري؟"
+      },
+      "managePolicySpan": "إدارة  الوثيقة ",
+      "dropdownInput": {
+        "cancelPolicyspan": "Cancel Policy",
+        "upgradeReplacePolicySpan": "Upgrade / Replace Policy",
+        "add/DeleteFeaturesSpan": "Add/Delete Features",
+        "renewPolicySpan": "Renew Policy"
+      },
+      "submitClaim": "تقديم مطالبة",
+      "dropdownInputsubmitClaim": {
+        "cancelPolicyspan": "Cancel Policy",
+        "upgradeReplacePolicySpan": "Upgrade / Replace Policy",
+        "add/DeleteFeaturesSpan": "Add/Delete Features",
+        "renewPolicySpan": "Renew Policy"
+      },
+      "myOrdersSpan": "My Orders",
+      "getyourautoinsurancein3easyteps": "احصل على تأمين المركبات في ٣ خطوات ",
+      "steps": {
+        "completeourshortform": "أكمل بيانات النموذج",
+        "getmatchedwithtop-ratedproviders": "قارن بين افضل مقدمي الخدمات",
+        "compareandchoosetherightpolicyforyou": "قارن واختار افضل وثيقة مناسبة لك"
+      },
+      "Submityourclaim": "قدم مطالبه",
+      "SubmityourclaimBlock": {
+        "para1": "اذا واجهت أيه صعوبات اثناء تقديم مطالبه  ،فإن فريق المطالبات لدينا  سيساعدك  في أي وقت لتقديم مطالبه بشكل صحيح.ما عليك سوى إبلاغنا بما حدث وسنقدم لك كل المساعدة الممكنة.",
+        "para2": "اظغط هنا لخدمة الملاحق والإلغاء.",
+        "para3": "لتقديم مطالبه الرجاء تعبئة النموذج أو يمكنك الإتصال على الرقم المجاني لوازن",
+        "para4": "وسيقوم مسئول خدمه العملاء إرشادك لكيفية تقديم مطالبه",
+        "SubmitaClaimBtn": "تقديم مطالبة"
+      },
+      "OurPartners": "Our Partners",
+      "frequentlyAskedQuestions": "اسئلة شائعة",
+      "frequentlyAskedQuestionsBlock": {
+        "beforePurchasing": "Before Purchasing",
+        "duringPurchased": "آثناء الشراء",
+        "afterPurchasing": "After Purchasing"
+      }
+    }
+  },
+  "profile": {
+    "userBlock": {
+      "user": "Hi Mohammed",
+      "input": {
+        "myPolicies": "وثائقي",
+        "myTransactions": "العمليات المنفذة ",
+        "myAccount": "My Account",
+        "claimTracking": "Claim Tracking"
+      }
+    },
+    "mitsubishiBlock": {
+      "title": "Mitsubishi",
+      "input": {
+        "pajero": "Pajero",
+        "hxb": "HXB",
+        "policyType": "نوع الوثيقة ",
+        "thirdPartyLiability": "المسؤلية تجاه  الغير",
+        "policyExpiryDate": "تاريخ انتهاء الوثيقة :",
+        "date": "01/01/2021"
+      }
+    },
+    "mytrasactionBlock": {
+      "input": {
+        "date": "Date",
+        "transactionType": "Transaction Type",
+        "status": "Status"
+      }
+    },
+    "myAccountBlock": {
+      "input": {
+        "editProfile": "Edit Profile",
+        "passwordChange": "Password Change",
+        "languagePreference": "الغة المفضلة",
+        "newsletterSubscription": "الآشتراك في النشرة الدورية",
+        "deleteAccount": "Delete Account"
+      },
+      "tabslanguagePreference": {
+        "title": "الغة المفضلة",
+        "input": {
+          "arabic": "العربية",
+          "english": "الإنجليزية",
+          "cancel": "إلغاء",
+          "save": "حفظ"
+        }
+      },
+      "tabsnewsletter": {
+        "title": "الآشتراك في النشرة الدورية",
+        "input": {
+          "yes": "نعم",
+          "no": "لا",
+          "cancel": "إلغاء",
+          "save": "حفظ"
+        }
+      },
+      "tabDeleteAccount": {
+        "title": "Are you sure?",
+        "input": {
+          "note": "Do you really want to delete your account?",
+          "cancel": "إلغاء",
+          "save": "حفظ"
+        }
+      }
+    }
+  }
+}

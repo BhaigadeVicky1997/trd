@@ -1,0 +1,320 @@
+.contact-wrap {
+  padding: 40px 60px;
+  margin-top: -100px;
+  margin-bottom: 50px;
+  z-index: 9;
+  p.title {
+    font-size: 1.6rem;
+    font-family: "Poppins-Bold";
+    margin-bottom: 1.8rem;
+  }
+  .company-tabs {
+    .nav-tabs {
+      border: 0;
+      .nav-link {
+        color: $secondary;
+        border-radius: 8px;
+        transition: inherit;
+        border: 0;
+        font-family: "Poppins-SemiBold";
+        &:hover,
+        &:focus,
+        &:active {
+          border: 0;
+        }
+      }
+      .nav-item.show .nav-link,
+      .nav-link.active {
+        color: $textwhite;
+        background-color: $primary;
+        border-color: unset;
+        padding: 6px 24px;
+        font-family: "Poppins-SemiBold";
+      }
+    }
+  }
+}
+// comapny tab
+#company-contact {
+  p.description {
+    font-size: 0.875rem;
+  }
+  form {
+    .form-group {
+      padding: 10px 20px 10px 0;
+    }
+    .form-control {
+      border: 0;
+      padding: 0.7rem 0.75rem;
+      border-radius: 5px;
+      font-size: 0.775rem;
+      border: 1px solid transparent;
+    }
+    select.form-control {
+      color: #788491;
+      cursor: pointer;
+      height: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url(../../img/down.png);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 1rem;
+    }
+  }
+  .contact-details-wrap {
+    background-color: $primary-bg;
+    padding: 24px 30px;
+    border-radius: 8px;
+    &_title {
+      display: flex;
+      align-items: center;
+      p {
+        color: $primary;
+        margin-left: 15px;
+      }
+    }
+    hr {
+      background-color: #dce4e5;
+      margin: 0.775rem 0;
+      height: 2px;
+    }
+    &_info {
+      div {
+        display: flex;
+        align-items: center;
+        span {
+          padding-left: 15px;
+          font-weight: 500;
+          font-size: 0.875rem;
+        }
+        &:not(:last-child) {
+          margin-bottom: 0.3rem;
+        }
+      }
+    }
+  }
+}
+// about us
+.comany-about-us {
+  background-image: url(../../img/about-bg.png);
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom center;
+  margin-top: 85px;
+  filter: grayscale(100%);
+}
+#comapany-info,
+#company-partners {
+  .testimonials-slider {
+    .owl-stage-outer {
+      background-color: $primary-bg;
+      border-radius: 8px;
+      padding: 50px 0;
+    }
+    .owl-dots {
+      margin-top: 2rem;
+    }
+    .testimoial-description {
+      i.icon-up,
+      i.icon-down {
+        background-image: url(../../img/testimoial.svg);
+        width: 20px;
+        height: 25px;
+        display: inline-block;
+        vertical-align: middle;
+        background-position: 0 31%;
+      }
+      .testimoial-name {
+        width: 160%;
+        border-bottom: 2px solid #cccccc;
+        line-height: 0.1em;
+        margin: 0 0;
+        span {
+          background: $primary-bg;
+          padding-right: 1rem;
+        }
+      }
+    }
+  }
+  .client-wrap {
+    // .col-lg-2,
+    // .col-md-2 {
+    //   width: 20%;
+    // }
+    .client-icon {
+      border: 1px solid #d8d8d8;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 8px;
+      &:hover {
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+      }
+      img {
+        // width: 120px;
+        max-width: 100%;
+      }
+    }
+  }
+  .terms-lists-wrap {
+    ul,
+    ol {
+      position: relative;
+      list-style: none;
+      padding: 0;
+    }
+    ul ul,
+    ol ol {
+      margin: 0;
+    }
+    ul li,
+    ol li {
+      margin: 1.5rem 0;
+    }
+    ul li:before,
+    ol li:before {
+      position: absolute;
+      left: 0;
+      font-family: "Poppins-SemiBold";
+      color: #333;
+      padding: 0 10px;
+    }
+    ol {
+      counter-reset: listitem;
+    }
+    ol li:before {
+      counter-increment: listitem;
+      content: counters(listitem, ":") "";
+    }
+    ol ol li {
+      font-family: "Poppins-Light";
+      padding-left: 2.8rem;
+    }
+    .list::before {
+      @include for-dflex();
+      background-color: $primary;
+      color: $white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+    .list p {
+      font-family: "Poppins-SemiBold";
+      padding: 5px 0 0 45px;
+      // padding-top: 5px;
+      // padding-left: 45px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@include breakpoint(ipad-max) {
+  .comany-about-us {
+    margin-top: 0;
+    background-position: 70%;
+    height: 320px;
+    border-radius: 10px;
+  }
+  .contact-wrap {
+    padding: 40px 30px;
+  }
+  #company-partners {
+    .client-wrap {
+      margin: 20px 0;
+      .client-icon {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  // footer {
+  //   display: none;
+  // }
+}
+@include breakpoint(mobile-max) {
+  .terms-conditions-wrap,
+  .company-about-us,
+  .contact-us-wrap {
+    .row {
+      margin: 0;
+    }
+  }
+  .comany-about-us {
+    margin-top: 0;
+    background-position: 70%;
+    height: 320px;
+    border-radius: 10px;
+  }
+  .company-tabs {
+    ul {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      justify-content: flex-start;
+      overflow-x: auto;
+      overflow-y: hidden;
+      li {
+        a {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .contact-wrap {
+    margin-top: -10px;
+    padding: 30px 20px;
+    border-radius: 0 0 10px 10px;
+    p.title {
+      font-size: 1.1rem;
+    }
+  }
+  #comapany-info,
+  #company-partners {
+    .testimonials-slider {
+      .owl-stage-outer {
+        padding: 30px 0;
+        .m-testimonials-slider-wrap {
+          padding: 0 5px;
+          .testimoial-description {
+            h5 {
+              font-size: 1.1rem;
+            }
+          }
+          .testimoial-name {
+            p {
+              font-family: "Poppins-SemiBold";
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+  #company-partners {
+    .client-wrap {
+      margin: 20px 0;
+      .client-icon {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .contact-us-wrap {
+    iframe {
+      height: 300px;
+      border-radius: 10px;
+    }
+    #company-contact {
+      form {
+        .form-group {
+          padding: 10px 0 10px 0;
+        }
+      }
+      .contact-details-wrap{
+        margin-bottom: 15px;
+      }
+    }
+  }
+  // footer {
+  //   display: none;
+  // }
+}

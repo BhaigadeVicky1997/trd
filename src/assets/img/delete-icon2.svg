@@ -1,0 +1,50 @@
+  <svg xmlns="http://www.w3.org/2000/svg" width="27"
+                                                                        height="27" viewBox="0 0 27 27">
+                                                                        <g id="Group_965" data-name="Group 965"
+                                                                            transform="translate(-681.885 -540.885)">
+                                                                            <circle id="Ellipse_42"
+                                                                                data-name="Ellipse 42" cx="13.5"
+                                                                                cy="13.5" r="13.5"
+                                                                                transform="translate(681.885 540.885)"
+                                                                                fill="#cce1e6"></circle>
+                                                                            <g id="Group_923" data-name="Group 923"
+                                                                                transform="translate(689.438 548.309)">
+                                                                                <g id="Icon_feather-trash-2"
+                                                                                    data-name="Icon feather-trash-2"
+                                                                                    transform="translate(0 0)">
+                                                                                    <path id="Path_705"
+                                                                                        data-name="Path 705"
+                                                                                        d="M4.5,9H16.509"
+                                                                                        transform="translate(-4.5 -6.331)"
+                                                                                        fill="none" stroke="#707070"
+                                                                                        stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="1"></path>
+                                                                                    <path id="Path_706"
+                                                                                        data-name="Path 706"
+                                                                                        d="M16.84,5.669v9.34a1.334,1.334,0,0,1-1.334,1.334H8.834A1.334,1.334,0,0,1,7.5,15.009V5.669m2,0V4.334A1.334,1.334,0,0,1,10.836,3H13.5a1.334,1.334,0,0,1,1.334,1.334V5.669"
+                                                                                        transform="translate(-6.166 -3)"
+                                                                                        fill="none" stroke="#707070"
+                                                                                        stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="1"></path>
+                                                                                    <path id="Path_707"
+                                                                                        data-name="Path 707"
+                                                                                        d="M15,16.5v4"
+                                                                                        transform="translate(-10.33 -10.496)"
+                                                                                        fill="none" stroke="#707070"
+                                                                                        stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="1"></path>
+                                                                                    <path id="Path_708"
+                                                                                        data-name="Path 708"
+                                                                                        d="M21,16.5v4"
+                                                                                        transform="translate(-13.661 -10.496)"
+                                                                                        fill="none" stroke="#707070"
+                                                                                        stroke-linecap="round"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="1"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </svg>

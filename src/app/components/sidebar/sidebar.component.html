@@ -1,0 +1,110 @@
+<div class="modal left fade" id="siderbarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <i class='bx bx-chevron-left' data-bs-dismiss="modal" aria-label="Close"></i> -->
+        <a href="#" data-bs-dismiss="modal" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16.154" height="16.309" viewBox="0 0 14.154 25.309">
+            <g id="Group_72" data-name="Group 72" transform="translate(-35.44 -64.562)">
+              <path id="Path_776" data-name="Path 776" d="M58.473,112.094,47.94,122.627,58.473,133.16"
+                transform="translate(-11 -45.411)" fill="none" stroke="#707070" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="3" />
+            </g>
+          </svg>
+        </a>
+        <img src="assets/img/logo.png" alt="" />
+      </div>
+      <div class="modal-body">
+        <div class="sidebar-account">
+          <div>
+            <img src="assets/img/user.png" alt="" />
+          </div>
+          <div class="user-card-info">
+            <p class="">Hi {{ user || "Guest" }}</p>
+            <div *ngIf="user">
+              <a data-bs-dismiss="modal" [routerLink]="['/wazen/profile']" class="btn-main account-profile-sing-out">My
+                Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-navigation">
+          <ul>
+            <li [routerLink]="['/wazen/quotes']">
+              <a href="javascript:void(0)">
+                <i class="icon-bg get-quote"></i>
+                <span> Get a Quote</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon-bg manage-policy"></i>
+                <span>Manage Policy</span>
+                <em class="bx bx-plus"></em>
+              </a>
+              <ul>
+                <li><a href="#">Cancel Policy</a></li>
+                <li><a href="#">Upgrade / Replace Policy</a></li>
+                <li><a href="#">Add/Delete Features</a></li>
+                <li><a href="#">Renew Policy</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon-bg submit-clamin"></i>
+                <span> Submit Claim</span>
+                <em class="bx bx-plus"></em>
+              </a>
+              <ul>
+                <li><a href="#">Own Damage</a></li>
+                <li><a href="#">Third Party</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon-bg we-offer"></i>
+                <span>What We offer?</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon-bg who-we"></i>
+                <span>Who We Are?</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon-bg more-info"></i>
+                <span>More info</span>
+              </a>
+            </li>
+            <!-- <li>
+                <a href="#">
+                    <i class='icon-bg notifiations'></i>
+                    <span>Notifiations</span>
+                </a>
+            </li> -->
+            <li>
+              <a href="faq.html">
+                <i class="icon-bg faq"></i>
+                <span>FAQs</span>
+              </a>
+            </li>
+            <li data-bs-toggle="modal" data-bs-target="#account-popup">
+              <!-- <a href="#"> -->
+              <a href="javascript:void(0)" data-bs-dismiss="modal">
+                <i class="icon-bg join"></i>
+                <span>Join Wazen</span>
+              </a>
+            </li>
+            <li *ngIf="user" (click)="onSignout()">
+              <a href="javascript:void(0)" data-bs-dismiss="modal">
+                <i class="icon-bg sign-out"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

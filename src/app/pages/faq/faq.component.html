@@ -1,0 +1,23 @@
+<div class="container" [ngClass]="{'mt-8': url.includes('/faq')}">
+  <div class="row justify-content-center m-0">
+    <div class="col-lg-10 bg-sec mb-5 faq-wrap ">
+      <div class="new-acc">
+        <h4 *ngIf="url.includes('/faq')">FAQ’s</h4>
+        <div class='nested-accordion' *ngFor="let faq of Faqs; let i = index">
+          <h3 class="nested-heading border-0">{{faq.module}}</h3>
+          <div class='comment inner'>
+            <div class='nested-accordion' *ngFor="let f of faq.faqs">
+              <!-- <div class='comment inner'> -->
+                <div class='nested-accordion'>
+                  <h3>{{f.question}}</h3>
+                  <div class='comment fs-l fs-s mt-3'>{{f.answer}}</div>
+                </div>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

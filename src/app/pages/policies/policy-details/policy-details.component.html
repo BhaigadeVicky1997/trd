@@ -1,0 +1,211 @@
+<!-- main -->
+<div class="container policies-details-wrap mt-8">
+  <div class="card p-lg-5">
+    <div class="row m-2">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <div class="policies-list">
+          <!-- <span class="badge-reject policies-status">Expiring Soon</span> -->
+          <div class="d-flex align-items-center policies-car" *ngIf="policy">
+            <div class="policies-carname">
+              <span>{{ policy["vehicleMake"] }} </span>
+              <p class="mb-0">{{ policy["vehicleModel"] }}</p>
+            </div>
+            <div class="policies-carnum">
+              <span>{{ policy["vehicleNumber"] || '4321' }}</span>
+              <img src="./assets/img/ksa.svg" alt="">
+              <span>HXB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-5" *ngIf="policy">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 info-bg br-5">
+        <div class="singal-policies-info singal-policies-info_1">
+          <table cellspacing="0">
+            <tbody>
+              <tr>
+                <th>Policy Number:</th>
+                <td>
+                  <span>{{ policy["policyNo"] || '1232222' }}</span>
+                </td>
+              </tr>
+              <tr>
+                <th>Insurance Company:</th>
+                <td>
+                  <span> {{ policy["insuranceCompanyName"] || 'ACIG' }} </span>
+                </td>
+              </tr>
+              <tr>
+                <th>Policy type:</th>
+                <td>
+                  <span>{{ policy["policyType"] || 'Comprehensive' }}</span>
+                </td>
+              </tr>
+              <tr>
+                <th>Effective date:</th>
+                <td>
+                  <span>{{
+                    (policy["effectiveCancellationDate"] | date: "shortDate") || '25/12/2020'
+                  }}</span>
+                  <span>{{
+                    (policy["effectiveCancellationDate"] | date: "shortDate") || '25/12/2020'
+                  }}</span>
+                </td>
+              </tr>
+              <tr>
+                <th>Expiry Date:</th>
+                <td>
+                  <!-- <span>{{ (policy["expiryDate"] | date: "shortDate") || '24/12/2021' }}</span> -->
+                  <span>{{ '13/02/2023' }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 info-bg br-5">
+        <div class="singal-policies-info singal-policies-info_2">
+          <table cellspacing="0">
+            <tbody>
+              <tr>
+                <th>Premium</th>
+                <td>
+                  <div class="policies-price">
+                    {{ policy["premiumAmount"] || '1500' }}
+                  </div>
+                </td>
+              </tr>
+              <tr *ngIf="additionalCoverages.length">
+                <th>
+                  <dl>
+                    <dt>Additional Coverage</dt>
+                    <dd *ngFor="let additionalCover of additionalCoverages">{{additionalCover.featureDesc}}</dd>
+                  </dl>
+                </th>
+                <td>
+                  <div class="policies-price" *ngFor="let additionalCover of additionalCoverages">
+                    {{additionalCover.featureAmount}}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <dl>
+                    <dt>Service Charges</dt>
+                    <dd>Twinia (Non refundable)</dd>
+                  </dl>
+                </th>
+                <td>
+                  <div class="policies-price"> 25</div>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <dl>
+                    <dd class="p-0">Wazen</dd>
+                  </dl>
+                </th>
+                <td>
+                  <div class="policies-price">
+                    {{ policy["serviceChargeAmount"] || ' 8' }}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>VAT</th>
+                <td>
+                  <div class="policies-price">{{ policy["vat"] || ' 50' }}</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-lg-4" *ngIf="policy">
+    <div class="policies-info-total">
+      <p>Grand Total:</p>
+      <div class="policies-price">
+        {{ grandTotal | number:'1.2-2'}}
+      </div>
+    </div>
+  </div>
+  <div class="text-center policies-action">
+    <button type="submit" class="btn-main" data-bs-toggle="modal" data-bs-target="#policies-actions">
+      Quick Actions <i class="bx bx-chevron-right"></i>
+    </button>
+  </div>
+</div>
+<div class="modal fade" id="policies-actions" tabindex="-1" aria-labelledby="policies-actions-Label" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="claim-selection">
+          <div class="container-filud">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 list-wrap">
+                <div class="list-con collapsed" data-bs-toggle="collapse" href="#list-collapse-1" aria-expanded="false">
+                  <img src="./assets/img/policy.svg" alt="" />
+                  <span>Manage Policy</span>
+                  <i class="bx bx-chevron-down"></i>
+                </div>
+                <div class="list-dropdown collapse" id="list-collapse-1">
+                  <ul>
+                    <li>
+                      <a href="wazen/manage-policies/cancel-policies-tabs/vehicle-list"> <span> Cancel Policy</span></a>
+                    </li>
+                    <li>
+                      <a href="wazen/manage-policies/upgrade-policies-tabs/vehicles/vehicle-list"> <span>Upgrade /
+                          Replace Policy</span></a>
+                    </li>
+                    <li>
+                      <a href="wazen/manage-policies/add-delete-tabs/vehicles/vehicle-list"> <span>Add/Delete
+                          Features</span></a>
+                    </li>
+                    <li>
+                      <a href="wazen/manage-policies/renew-policies-tabs/vehicle/vehicle-list"> <span> Renew
+                          Policy</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 list-wrap">
+                <div class="list-con" data-bs-toggle="collapse" href="#list-collapse-2">
+                  <img src="./assets/img/claim.svg" alt="" />
+                  <span>Submit Claim</span>
+                  <i class="bx bx-chevron-down"></i>
+                </div>
+                <div class="collapse list-dropdown" id="list-collapse-2">
+                  <ul>
+                    <li>
+                      <a href=""> <span> Cancel Policy</span></a>
+                    </li>
+                    <li>
+                      <a href=""> <span>Upgrade / Replace Policy</span></a>
+                    </li>
+                    <li>
+                      <a href=""> <span>Add/Delete Features</span></a>
+                    </li>
+                    <li>
+                      <a href=""> <span> Renew Policy</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 list-wrap">
+                <div class="list-con" data-bs-toggle="collapse" href="#list-collapse-3">
+                  <img src="./assets/img/orders.svg" alt="" />
+                  <span>My Orders</span>
+                  <i class="invisible bx bx-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

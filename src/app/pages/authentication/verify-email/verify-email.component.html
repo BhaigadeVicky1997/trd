@@ -1,0 +1,74 @@
+<div class="modal-dialog modal-lg modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-body">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="profile-container">
+        <div class="card tab-content">
+          <div class="tab-pane fade show active" id="login-contanier" role="tabpanel" aria-labelledby="login-tab">
+            <div class="container my-auto py-3">
+              <div class="row">
+                <div class="col-11 col-lg-9 col-xl-8 mx-auto text-center">
+                  <div class="mb-4">
+                    <svg id="Group_588" data-name="Group 588" xmlns="http://www.w3.org/2000/svg" width="80.311"
+                      height="80.292" viewBox="0 0 113.311 114.292">
+                      <path id="Path_640" data-name="Path 640"
+                        d="M10,66.146c0,31.5,25.426,57.146,56.655,57.146h0c31.23,0,56.655-25.646,56.655-57.146h0C123.311,34.646,97.885,9,66.655,9h0C35.426,9,10,34.646,10,66.146Zm27.775-2.788a6.136,6.136,0,0,1,8.844,0l8.153,8.223a2.987,2.987,0,0,0,4.146,0l10.309-10.4L86.692,43.567a6.136,6.136,0,0,1,8.844,0,6.264,6.264,0,0,1,0,8.92L61.266,87.053a6.136,6.136,0,0,1-8.844,0L37.775,72.279A6.265,6.265,0,0,1,37.775,63.359Z"
+                        transform="translate(-10 -9)" fill="#06aecc" />
+                    </svg>
+                  </div>
+                  <h4 class="text-sec fw-6">
+                    {{ "auth.verifyEmail.title" | translate }}
+                  </h4>
+                  <p class="text-2 my-4">
+                    {{ "auth.verifyEmail.input.noteinput" | translate }}
+                  </p>
+                  <form class="pb-3" [formGroup]="otpForm">
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Enter Verification Code"
+                        formControlName="verifycode" id="verifycode" setValidatorClass />
+                      <div class="errors" [class.mb-3]="otpForm.controls.verifycode.errors" *ngIf="
+        otpForm.controls.verifycode.dirty &&
+        otpForm.controls.verifycode.errors
+      ">
+                        <div class="
+          invalid-feedback
+          animate__animated animate__slideInDown animate__faster" *ngIf="otpForm.controls.verifycode.errors.required">
+                          Enter Verification Code is required.
+                        </div>
+                        <div class="
+            invalid-feedback
+            animate__animated animate__slideInDown animate__faster" *ngIf="otpForm.controls.verifycode.errors.pattern">
+                          Enter valid verifycode .
+                        </div>
+                      </div>
+                    </div>
+                    <p class="join-now-label text-2 mt-4">
+                      {{
+                      "auth.verifyEmail.input.dontreceivethelink" | translate
+                      }}
+                      <a (click)="verfiyEmail()">
+                        {{ "auth.verifyEmail.input.resend" | translate }}
+                      </a>
+                    </p>
+                    <button class="btn-main mt-3" [disabled]="isSubmitted" (click)="verifyOTP()">
+                      <span *ngIf="isSubmitted" class="spinner-border spinner-border-sm" role="status"
+                        aria-hidden="true"></span>
+                      {{
+                      isSubmitted
+                      ? ("pleaseWait" | translate)
+                      : ("auth.verifyEmail.input.submit" | translate)
+                      }}
+                    </button>
+                    <button #verfiyCodeButton style="display: none" data-bs-dismiss="modal" data-bs-toggle="modal"
+                      data-bs-target="#create-password-popup">
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

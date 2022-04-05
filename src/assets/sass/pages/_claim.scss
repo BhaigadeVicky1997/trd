@@ -1,0 +1,690 @@
+.claim-stepwizard {
+  #progressbar {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+
+    li {
+      list-style-type: none;
+      color: #c4c4c4;
+      font-size: 0.85rem;
+      text-align: center;
+      width: fit-content;
+      float: left;
+      position: relative;
+      margin: 0 1rem;
+      &:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 2.5rem;
+        line-height: 2.5rem;
+        font-weight: 600;
+        display: block;
+        font-size: 1rem;
+        color: $textwhite;
+        background: #c4c4c4;
+        border-radius: 50%;
+        margin: 0 auto 0.752rem auto;
+      }
+      &:first-child:after {
+        content: none;
+      }
+    }
+    li.checked {
+      &::before {
+        content: "\eca4" !important;
+        font-family: boxicons !important;
+        font-size: 1.5rem;
+      }
+    }
+    li.open {
+      color: $primary;
+      &:before,
+      &:after {
+        background: $primary;
+        color: white;
+      }
+    }
+  }
+}
+.claim-wrap {
+  .py-100 {
+    padding: 100px 0;
+  }
+  form {
+    .form-group {
+      padding: 10px 20px 10px 0;
+    }
+    select.form-control {
+      color: #788491;
+      cursor: pointer;
+      height: auto;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url(../../img/down.png);
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 1rem;
+      // background-size: auto;
+    }
+    #claimdatepickerInput {
+      background-image: url(../../img/date-icon-2.svg);
+      background-repeat: no-repeat;
+      background-position-x: 97%;
+      background-position-y: 9px;
+      background-size: 5%;
+      cursor: pointer;
+    }
+  }
+}
+.own-damage-claim {
+  h5 {
+    font-size: 1.1rem;
+  }
+  .form-check-input {
+    background-color: #d1d1d1;
+    border: 0;
+  }
+  table {
+    width: 500px;
+    td {
+      font-family: "Poppins-Regular";
+      font-size: 0.875rem;
+      width: 150px;
+      padding: 0.25rem 0;
+      color: $textlight;
+
+      b {
+        color: $secondary;
+        font-weight: 500;
+      }
+    }
+  }
+  .damage-list {
+    ul {
+      display: flex;
+      padding: 0;
+      li + li:before {
+        content: " | ";
+        padding: 0 14px;
+      }
+    }
+  }
+  .form-check-label {
+    font-family: "Poppins-Regular" !important;
+    font-size: 0.9rem;
+  }
+  .form-check-input:checked {
+    background-color: $primary !important;
+    border-color: $primary !important ;
+  }
+  textarea {
+    font-size: 0.75rem;
+    color: #a7acb1;
+    &::-webkit-input-placeholder,
+    &::placeholder {
+      color: #a7acb1;
+    }
+  }
+  .number-of-passengers {
+    position: relative;
+    .value-btn-wrap {
+      position: absolute;
+      display: flex;
+      top: 7px;
+      right: 10px;
+      align-items: center;
+      justify-content: center;
+      .value-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 10px;
+        width: 27px;
+        height: 27px;
+        text-align: center;
+        background: $primary;
+        color: $textwhite;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-weight: bold;
+      }
+    }
+
+    .value-button:hover {
+      cursor: pointer;
+    }
+
+    form #decrease {
+      margin-right: -4px;
+      border-radius: 8px 0 0 8px;
+    }
+
+    form #increase {
+      margin-left: -4px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    form #input-wrap {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    input#number-of-passengers {
+      border: none;
+      margin: 0px;
+      height: 40px;
+      width: 310px;
+      padding: 0 1rem;
+      color: #a7acb1;
+      font-size: 0.75rem;
+      border-radius: 6px;
+      &::-webkit-input-placeholder,
+      &::placeholder {
+        color: #a7acb1;
+      }
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  .claim-wrap-toggle {
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    display: block;
+    width: 120px;
+    height: 30px;
+    border-radius: 999px;
+    input[type="checkbox"] {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      + {
+        .back {
+          position: absolute;
+          width: 100%;
+          border-radius: 999px;
+          height: 100%;
+          background: #e8e8e8;
+          transition: background 150ms linear;
+          .toggle {
+            display: block;
+            position: absolute;
+            content: " ";
+            background: $primary;
+            width: 50%;
+            border-radius: 9999px;
+            height: 100%;
+            transition: margin 150ms linear;
+          }
+          .label.off {
+            color: #8b8f93;
+          }
+        }
+      }
+      &:checked {
+        + {
+          .back {
+            background: #e8e8e8;
+            .toggle {
+              margin-left: 60px;
+              border-radius: 999px;
+            }
+            .label.yes {
+              color: $textwhite;
+            }
+            .label.no {
+              color: #8b8f93;
+            }
+          }
+        }
+      }
+    }
+    .label {
+      display: block;
+      font-family: "Poppins-Bold";
+      position: absolute;
+      width: 50%;
+      line-height: 30px;
+      border-radius: 999px;
+      text-align: center;
+      font-size: 0.775rem;
+      color: $textwhite;
+    }
+    .label.no {
+      left: 0px;
+    }
+    .label.yes {
+      right: 0px;
+      color: #8b8f93;
+    }
+  }
+}
+.claim-otp-wrap {
+  padding: 8rem 0;
+  &_title {
+  }
+  &_inner {
+    .col-1 {
+      width: 4rem;
+      padding: 0 0.2rem;
+      .form-control {
+        height: 3rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+.claim-thank-wrap {
+  span {
+    background-color: #eef4ff;
+    cursor: pointer;
+  }
+  p {
+    font-size: 0.65rem;
+  }
+}
+.claim-thank-wrap_sec {
+  margin: 1.8rem;
+  padding-bottom: 1.6rem;
+  padding-top: 0.5rem;
+  background-color: $primary-bg;
+}
+@include breakpoint(ipad-max) {
+  .claim-wrap {
+    .py-100 {
+      padding: 40px 25px;
+    }
+    form {
+      .form-group {
+        padding: 5px 0 5px 0;
+      }
+      #claimdatepickerInput {
+        background-image: url(../../img/date-icon-2.svg);
+        background-position-y: 7px;
+        background-size: 4%;
+        cursor: pointer;
+      }
+      .claim-submission-btn-wrap {
+        position: fixed;
+        width: 90%;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+  .own-damage-claim {
+    .claim-wrap {
+      background-color: $textwhite;
+      padding: 15px;
+      h5 {
+        font-size: 0.875rem;
+      }
+      &_type-damage {
+        display: flex;
+        flex-wrap: wrap;
+        .form-check-inline {
+          width: 50%;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+      &_bodily-injured,
+      &_death {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        .form-check-inline {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .number-of-passengers_wrap {
+          margin: 5px 0 0 0;
+          padding: 0;
+          .number-of-passengers {
+            input {
+              background: #faf8f8;
+              height: 50px !important;
+              width: 100% !important;
+            }
+            .value-btn-wrap {
+              top: 12px;
+            }
+          }
+        }
+      }
+    }
+    .claim-wrap-toggle {
+      right: 10px;
+      top: -8px;
+    }
+    textarea {
+      background: #faf8f8;
+      height: 4rem;
+    }
+  }
+  .claim-wrap-details-wrap {
+    .claim-wrap {
+      padding: 20px 5px 10px 25px;
+      table {
+        width: auto;
+      }
+      .damage-list {
+        ul {
+          display: flex;
+          padding: 0;
+          li {
+            padding-right: 15px;
+            font-family: "Poppins-Regular";
+          }
+          li + li:before {
+            content: unset;
+          }
+        }
+      }
+      border-radius: 0;
+      border-bottom: 1px solid #a7a7a7;
+      &:first-child {
+        border-radius: 8px 8px 0 0;
+      }
+      &:last-child {
+        border: 0;
+        border-radius: 0 0 8px 8px;
+      }
+    }
+  }
+  .claim-pay-wrap {
+    background-color: $white;
+    .wazen-payment-list-wrap {
+      padding: 25px 10px;
+    }
+    #paypage {
+      .form-card {
+        padding: 10px 15px;
+      }
+    }
+  }
+  .claim-thank-wrap_con {
+    background-color: $white;
+    padding: 30px 0;
+    margin-bottom: 100px;
+    .claim-thank-wrap {
+      span {
+        color: #000;
+        font-size: 20px;
+      }
+    }
+    .claim-thank-wrap_sec {
+      margin: 30px 0 0 0;
+      border-top: 1px solid #ccc;
+      background-color: $white;
+      padding: 30px 20px;
+    }
+    .claim-thank-wrap_btn {
+      button {
+        position: absolute;
+        bottom: -75px;
+        width: 100%;
+      }
+    }
+  }
+}
+@include breakpoint(mobile-max) {
+  .claim-stepwizard {
+    #progressbar {
+      li {
+        font-size: 0.75rem;
+        margin: 0 0.5rem;
+        &::before {
+          width: 2rem;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+  .claim-wrap {
+    h4.claim-m-title {
+      font-size: 16px;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    .py-100 {
+      padding: 20px 15px;
+    }
+    form {
+      .form-group {
+        padding: 5px 0 5px 0;
+      }
+      #claimdatepickerInput {
+        background-image: url(../../img/date-icon-2.svg);
+        background-position-y: 7px;
+        background-size: 8%;
+        cursor: pointer;
+      }
+      .claim-submission-btn-wrap {
+        position: fixed;
+        width: 90%;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+  .own-damage-claim {
+    .claim-wrap {
+      background-color: $textwhite;
+      padding: 15px 15px;
+      h5 {
+        font-size: 0.875rem;
+      }
+      &_type-damage {
+        display: flex;
+        flex-wrap: wrap;
+        .form-check-inline {
+          width: 50%;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+      &_bodily-injured,
+      &_death {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        .form-check-inline {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .number-of-passengers_wrap {
+          margin: 5px 0 0 0;
+          padding: 0;
+          .number-of-passengers {
+            input {
+              background: #faf8f8;
+              height: 50px !important;
+              width: 100% !important;
+            }
+            .value-btn-wrap {
+              top: 12px;
+            }
+          }
+        }
+      }
+    }
+    .claim-wrap-toggle {
+      right: 10px;
+      top: -8px;
+    }
+    textarea {
+      background: #faf8f8;
+      height: 4rem;
+    }
+  }
+  .claim-otp-wrap {
+    padding: 4rem 0;
+    background-color: transparent;
+    &_title {
+      &_des {
+        font-size: 1rem;
+        padding: 0 50px;
+      }
+    }
+    &_inner {
+      .col-1 {
+        width: 4.5rem;
+        padding: 0 0.2rem;
+        .form-control {
+          height: 3.5rem;
+          font-size: 1.3rem;
+          border-radius: 15px;
+        }
+      }
+      button {
+        position: fixed;
+        bottom: 15px;
+        width: 90%;
+        left: 0;
+        margin: 0 auto;
+        right: 0;
+      }
+    }
+  }
+  .claim-wrap-processing {
+    .py-100 {
+      padding: 50px 0;
+    }
+    background-color: $textwhite;
+    margin: 50px 0px;
+    h4 {
+      font-size: 1.1rem;
+    }
+  }
+  .claim-wrap-details-wrap {
+    .claim-wrap {
+      padding: 20px 5px 10px 25px;
+      table {
+        width: auto;
+      }
+      .damage-list {
+        ul {
+          display: flex;
+          padding: 0;
+          li {
+            padding-right: 15px;
+            font-family: "Poppins-Regular";
+          }
+          li + li:before {
+            content: unset;
+          }
+        }
+      }
+      border-radius: 0;
+      border-bottom: 1px solid #a7a7a7;
+      &:first-child {
+        border-radius: 8px 8px 0 0;
+      }
+      &:last-child {
+        border: 0;
+        border-radius: 0 0 8px 8px;
+      }
+    }
+  }
+  .claim-pay-wrap {
+    background-color: $white;
+    .wazen-payment-list-wrap {
+      padding: 25px 10px;
+    }
+    h6 {
+      margin: 0;
+      text-align: left;
+    }
+    #paypage {
+      .form-card {
+        padding: 10px 15px;
+      }
+    }
+  }
+  .claim-thank-wrap_con {
+    background-color: $white;
+    padding: 30px 0;
+    margin-bottom: 100px;
+    .claim-thank-wrap {
+      span {
+        color: #000;
+        font-size: 20px;
+      }
+    }
+    .claim-thank-wrap_sec {
+      margin: 30px 0 0 0;
+      border-top: 1px solid #ccc;
+      background-color: $white;
+      padding: 30px 20px;
+    }
+    .claim-thank-wrap_btn {
+      button {
+        position: absolute;
+        bottom: -75px;
+        width: 100%;
+      }
+    }
+  }
+}
+@include breakpoint(custom-small-mobile-max) {
+  .claim-stepwizard {
+    #progressbar {
+      li {
+        font-size: 0.6rem;
+        margin: 0 0.4rem;
+        &::before {
+          width: 2rem;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+  .claim-otp-wrap {
+    padding: 2.5rem 0;
+    &_title {
+      &_des {
+        font-size: 0.75rem;
+        padding: 0 10px;
+      }
+    }
+    &_inner {
+      .col-1 {
+        width: 3.5rem;
+        padding: 0 0.2rem;
+        .form-control {
+          height: 3rem;
+          font-size: 1.3rem;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+  .claim-wrap-processing {
+    margin: 25px 0px;
+    .py-100 {
+      padding: 50px 0;
+    }
+    p {
+      font-size: 0.75rem;
+    }
+  }
+}

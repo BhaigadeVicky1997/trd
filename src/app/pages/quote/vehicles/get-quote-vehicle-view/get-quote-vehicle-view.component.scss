@@ -1,0 +1,60 @@
+#vehicle-details {
+  .vehicle-details-wrap-1 {
+    form {
+      .form-group {
+        padding: 15px 40px 10px 0;
+      }
+      select.form-control {
+        color: #788491;
+        cursor: pointer;
+        height: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url(../../../../../assets/img/down.png);
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: 1.2rem;
+      }
+    }
+  }
+  .driver-details-checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+
+@media (max-width: 991px) {
+  #vehicle-details {
+    .vehicle-details-wrap-1 {
+      background-color: #e2effa;
+      margin: 0;
+      padding: 0 5px 20px 5px;
+      border-radius: 0 0 15px 15px;
+      margin-bottom: 20px;
+      form {
+        .form-group {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #vehicle-details {
+    .vehicle-details-wrap-1 {
+      background-color: #e2effa;
+      margin: 0;
+      padding: 0 5px 20px 5px;
+      border-radius: 0 0 15px 15px;
+      margin-bottom: 20px;
+      form {
+        .form-group {
+          padding: 5px 0 !important;
+        }
+      }
+    }
+  }
+}

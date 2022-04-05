@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="85" height="35" viewBox="0 0 85 35">
+  <g id="Group_1073" data-name="Group 1073" transform="translate(-288 -334)">
+    <g id="Group_1007" data-name="Group 1007" transform="translate(-343.806 -206.807)">
+      <circle id="Ellipse_42" data-name="Ellipse 42" cx="17.5" cy="17.5" r="17.5" transform="translate(681.806 540.806)" fill="#e2e2e2"/>
+      <g id="Group_923" data-name="Group 923" transform="translate(691.632 550.465)">
+        <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(0 0)">
+          <path id="Path_705" data-name="Path 705" d="M4.5,9H20" transform="translate(-4.5 -5.556)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <path id="Path_706" data-name="Path 706" d="M19.553,6.444V18.5a1.722,1.722,0,0,1-1.722,1.722H9.222A1.722,1.722,0,0,1,7.5,18.5V6.444m2.583,0V4.722A1.722,1.722,0,0,1,11.8,3h3.444a1.722,1.722,0,0,1,1.722,1.722V6.444" transform="translate(-5.778 -3)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <path id="Path_707" data-name="Path 707" d="M15,16.5v5.166" transform="translate(-8.973 -8.751)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <path id="Path_708" data-name="Path 708" d="M21,16.5v5.166" transform="translate(-11.529 -8.751)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_1009" data-name="Group 1009" transform="translate(-393.806 -206.807)">
+      <circle id="Ellipse_42-2" data-name="Ellipse 42" cx="17.5" cy="17.5" r="17.5" transform="translate(681.806 540.806)" fill="#e2e2e2"/>
+      <path id="Icon_feather-edit-2" data-name="Icon feather-edit-2" d="M13.93,3.861a2.061,2.061,0,1,1,2.915,2.915L7.008,16.612,3,17.705,4.093,13.7Z" transform="translate(689.082 547.825)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

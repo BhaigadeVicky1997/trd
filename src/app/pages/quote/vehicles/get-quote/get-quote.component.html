@@ -1,0 +1,87 @@
+<div class="row get-quote-intro">
+  <div class="col-lg-10 col-sm-12 mx-auto">
+    <div class="card get-quote-wrap text-center mb-lg-5">
+      <div class="get-quote-wrap_title">
+        <h4 class="mb-4 fw-6">Auto Insurance</h4>
+      </div>
+      <div class="get-quote-wrap_inner">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <form [formGroup]="getQuoteForm">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="nationalId" name="nationalId"
+                  placeholder="National ID / Iqama / 700 Number" formControlName="nationalId">
+              </div>
+              <div class="position-relative mb-4 datepicker">
+                <input class="form-control" [owlDateTime]="dt2" placeholder="DOB/CR Expiry Date"
+                formControlName="dateOfBirth" [max]="maxDate" (dateTimeChange)="onDateChange($event)" />
+                <span [owlDateTimeTrigger]="dt2"><i class="bx bx-calendar"></i></span>
+                <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+              </div>
+              <button class="btn-main" (click)="getQuoteVerification()">
+                {{
+                isSubmitted
+                ? ("pleaseWait" | translate)
+                : ("dashboard.autoInsuranceBlock.input.getaQuote" | translate)
+                }}
+              </button>
+            </form>
+          </div>
+
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-xl-7 col-lg-10">
+            <div class="claim-selection">
+              <p class="fs-b">Already have an Insurance?</p>
+              <div class="container-filud">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 list-wrap">
+                    <div class="list-con collapsed" data-bs-toggle="collapse" href="#list-collapse-1"
+                      aria-expanded="false">
+                      <img src="../assets/img/policy.svg" alt="">
+                      <span>Manage Policy</span>
+                      <i class="bx bx-chevron-down"></i>
+                    </div>
+                    <div class="list-dropdown collapse" id="list-collapse-1">
+                      <ul>
+                        <li> <a href=""> <span> Cancel Policy</span></a></li>
+                        <li> <a href=""> <span>Upgrade / Replace Policy</span></a></li>
+                        <li> <a href=""> <span>Add/Delete Features</span></a></li>
+                        <li> <a href=""> <span> Renew Policy</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 list-wrap">
+                    <div class="list-con" data-bs-toggle="collapse" href="#list-collapse-2">
+
+                      <img src="../assets/img/claim.svg" alt="">
+                      <span>Submit Claim</span>
+                      <i class="bx bx-chevron-down"></i>
+                    </div>
+                    <div class="collapse list-dropdown" id="list-collapse-2">
+                      <ul>
+                        <li> <a href=""> <span> Cancel Policy</span></a></li>
+                        <li> <a href=""> <span>Upgrade / Replace Policy</span></a></li>
+                        <li> <a href=""> <span>Add/Delete Features</span></a></li>
+                        <li> <a href=""> <span> Renew Policy</span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 list-wrap">
+                    <div class="list-con" data-bs-toggle="collapse" href="#list-collapse-3">
+
+                      <img src="../assets/img/orders.svg" alt="">
+                      <span>My Orders</span>
+                      <i class="bx bx-chevron-down invisible"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

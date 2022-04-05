@@ -1,0 +1,121 @@
+<header id="header">
+  <nav class="navbar navbar-expand-lg">
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarToggle"
+    >
+      <ul class="navbar-nav left-nav">
+        <div
+          class="menu-link"
+          data-bs-toggle="modal"
+          data-bs-target="#siderbarModal"
+        >
+          <!-- <div></div>
+          <div></div>
+          <div></div> -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="25"
+            height="25"
+            viewBox="0 0 34 31"
+          >
+            <defs>
+              <clipPath id="clip-path">
+                <rect width="34" height="31" fill="none" />
+              </clipPath>
+            </defs>
+            <g
+              id="Repeat_Grid_1"
+              data-name="Repeat Grid 1"
+              clip-path="url(#clip-path)"
+            >
+              <g transform="translate(-54 -100)">
+                <rect
+                  id="Rectangle_16"
+                  data-name="Rectangle 16"
+                  width="34"
+                  height="5"
+                  rx="2.5"
+                  transform="translate(54 100)"
+                  fill="#c4c4c4"
+                />
+              </g>
+              <g transform="translate(-54 -89)">
+                <rect
+                  id="Rectangle_16-2"
+                  data-name="Rectangle 16"
+                  width="34"
+                  height="5"
+                  rx="2.5"
+                  transform="translate(54 100)"
+                  fill="#c4c4c4"
+                />
+              </g>
+              <g transform="translate(-54 -78)">
+                <rect
+                  id="Rectangle_16-3"
+                  data-name="Rectangle 16"
+                  width="34"
+                  height="5"
+                  rx="2.5"
+                  transform="translate(54 100)"
+                  fill="#c4c4c4"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="header-logo">
+          <a href="#"> <img src="assets/img/logo.png" alt="" /> </a>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Auto Insurance</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav right-nav">
+        <li
+          class="nav-item"
+          data-bs-toggle="modal"
+          data-bs-target="#account-popup"
+          *ngIf="!user"
+        >
+          <a class="nav-link" href="javascirpt:void(0)">{{
+            "navbar.login/signup" | translate
+          }}</a>
+        </li>
+        <li class="nav-item arabic-lang">
+          <!-- <img src="./assets/img/world.png" alt=""> -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22.148"
+            height="22.148"
+            viewBox="0 0 22.148 22.148"
+          >
+            <g
+              id="Group_844"
+              data-name="Group 844"
+              transform="translate(-4.75 -4.75)"
+            >
+              <path
+                id="Path_715"
+                data-name="Path 715"
+                d="M23.111,9.033a9.965,9.965,0,0,0-4.263-2.7h0a9.46,9.46,0,0,1,2.185,3.5A12.129,12.129,0,0,0,23.111,9.033Zm.577.677a12.591,12.591,0,0,1-2.371.937,17.377,17.377,0,0,1,.745,4.746h3.714A9.914,9.914,0,0,0,23.688,9.709Zm2.088,6.546H22.062a17.362,17.362,0,0,1-.75,4.764,12.471,12.471,0,0,1,2.358.944A9.914,9.914,0,0,0,25.776,16.256ZM23.09,22.638a12,12,0,0,0-2.063-.8,9.449,9.449,0,0,1-2.179,3.478A9.961,9.961,0,0,0,23.09,22.638ZM8.516,22.593A9.966,9.966,0,0,0,12.8,25.318h0a9.476,9.476,0,0,1-2.192-3.513A12.268,12.268,0,0,0,8.516,22.593Zm-.575-.679a12.726,12.726,0,0,1,2.385-.93,17.39,17.39,0,0,1-.739-4.729H5.872A9.914,9.914,0,0,0,7.941,21.914ZM5.872,15.393H9.587a17.377,17.377,0,0,1,.745-4.746A12.591,12.591,0,0,1,7.96,9.709,9.914,9.914,0,0,0,5.872,15.393Zm2.665-6.36a12.129,12.129,0,0,0,2.078.794,9.46,9.46,0,0,1,2.185-3.5A9.965,9.965,0,0,0,8.538,9.033Zm6.855,16.72V21.14a19.637,19.637,0,0,0-3.941.452C12.359,23.927,13.792,25.509,15.393,25.752Zm-4.229-4.983a20.492,20.492,0,0,1,4.229-.493V16.256H10.45A16.493,16.493,0,0,0,11.164,20.769Zm-.714-5.377h4.942V11.371h0a20.419,20.419,0,0,1-4.224-.506,16.479,16.479,0,0,0-.718,4.528Zm1.007-5.35a19.571,19.571,0,0,0,3.935.465V5.9C13.8,6.139,12.364,7.715,11.457,10.042Zm4.8-4.146v4.611a19.571,19.571,0,0,0,3.935-.465C19.284,7.715,17.853,6.139,16.256,5.9Zm4.224,4.969a20.419,20.419,0,0,1-4.224.506v4.022H21.2A16.479,16.479,0,0,0,20.48,10.865Zm.718,5.391H16.256v4.023a20.333,20.333,0,0,1,4.22.519,16.477,16.477,0,0,0,.723-4.542ZM20.186,21.62a19.485,19.485,0,0,0-3.93-.477v4.61C17.85,25.51,19.278,23.94,20.186,21.62Zm-4.361,5.028A10.824,10.824,0,1,1,26.648,15.824,10.824,10.824,0,0,1,15.824,26.648Z"
+                fill="#c4c4c4"
+                stroke="#c4c4c4"
+                stroke-width="0.5"
+              />
+            </g>
+          </svg>
+          <a
+            class="nav-link"
+            style="font-family: GE-SS"
+            href="javascirpt:void(0)"
+            (click)="changeLanguage()"
+            >{{ language }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

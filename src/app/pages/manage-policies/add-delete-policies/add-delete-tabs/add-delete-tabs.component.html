@@ -1,0 +1,11 @@
+<div class="container mt-8 position-relative">
+  <div class="get-quote-stepwizard">
+    <ul id="progressbar">
+      <!-- <li *ngFor="let tab of tabs; let i = index" [routerLink]="[tab.url]" [class.checked]="i < currentTab"
+        routerLinkActive="open"><span>{{tab.name}}</span></li> -->
+      <li *ngFor="let tab of tabs; let i = index" [class.checked]="i < currentTab"
+        [class.open]="i == currentTab"><span>{{tab.name}}</span> </li>
+    </ul>
+    <router-outlet></router-outlet>
+  </div>
+</div>
