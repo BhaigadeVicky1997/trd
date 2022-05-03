@@ -50,6 +50,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
   cancelPolicyForm: FormGroup;
   driverFormData: FormGroup;
   violationFormData: FormGroup;
+  OwnerForm: FormGroup;
   vehicleSelectedID: any;
   violationData: any[] = [];
   vData: [] = [];
@@ -65,10 +66,13 @@ export class GetQuotevehicleViewComponent implements OnInit {
   maxDate: Date = new Date();
   selectedVehicleIndex: any;
   vehiclePrimaryId: any;
-  isParking: string = 'no';
+  isParking: boolean = false;
   isMainDriver: boolean = false;
-  isTraficViolation: string = 'no';
+  isTraficViolation: boolean = false;
   isCancelPolicyPage: boolean = false;
+  isFeaturePage: boolean = false;
+  userDetails: any = null;
+
   async ngOnInit() {
     if (
       this._router.url.startsWith(
@@ -86,17 +90,25 @@ export class GetQuotevehicleViewComponent implements OnInit {
         '/wazen/manage/feature/vehicles/get-quote-vehicle-details'
       )
     ) {
+      this.isFeaturePage = true;
     } else {
+      this.userDetails = this._globalService.quoteUser.value;
+
+      this.OwnerForm = this._formBuilder.group({
+        occupationId: new FormControl('', [Validators.required]),
+        educationId: new FormControl('', [Validators.required]),
+      });
+
       this.violationFormData = this._formBuilder.group({
         violationDate: new FormControl('', [Validators.required]),
         violationType: new FormControl(null, [Validators.required]),
       });
 
       this.driverFormData = this._formBuilder.group({
-        driverId: new FormControl('', [
-          Validators.required,
-          Validators.pattern('^[1|2|7]+[0-9]{9}$'),
-        ]),
+        driverId: new FormControl(
+          { value: this.userDetails.nationalID, disabled: true },
+          [Validators.required, Validators.pattern('^[1|2|7]+[0-9]{9}$')]
+        ),
         driverName: new FormControl('', [
           Validators.required,
           Validators.pattern('^[A-Z a-z]{5,30}$'),
@@ -107,12 +119,12 @@ export class GetQuotevehicleViewComponent implements OnInit {
       });
 
       this.vehicleFormData = this._formBuilder.group({
-        vehiclePurpose: new FormControl('', [Validators.required]),
-        vehicleAvgMil: new FormControl('', [
+        vehiclePurposeId: new FormControl('', [Validators.required]),
+        vehicleAvgMil: new FormControl(0, [
           Validators.required,
           Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         ]),
-        vehicleEmiratesValue: new FormControl('', [
+        vehicleEstimateValue: new FormControl(0, [
           Validators.required,
           Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         ]),
@@ -213,9 +225,9 @@ export class GetQuotevehicleViewComponent implements OnInit {
     window.scrollTo(0, 0);
     this.selectedVehicleIndex = index;
     this.VehicalNotSelected = true;
-    this.vehicleSelectedID = this.localVehicleData[index].vehicleID;
+    this.vehicleSelectedID = this.localVehicleData[index].id;
     this.vehiclePrimaryId = this.localVehicleData[index].id;
-    !this.isCancelPolicyPage && this.setAllDetails();
+    !this.isCancelPolicyPage && !this.isFeaturePage && this.setAllDetails();
   }
 
   vId: any;
@@ -224,45 +236,55 @@ export class GetQuotevehicleViewComponent implements OnInit {
     this._sharedUtils.showSpinner();
     this._quoteService
       .getAllVehicleDataByVehicleID(this.vehicleSelectedID)
-      .subscribe((res: any) => {
-        this.violationData = res.data[0].vehicleViolation;
-        this.vData = res.data[0].vehicleViolation;
-        this.quoteData = res.data;
-        console.log(this.quoteData);
-        this.dId = this.quoteData[0].dId;
-        this.vId = this.quoteData[0].vid;
-        //let ddob = new Date(this.quoteData[0].driverDob).toISOString();
-        // Set Values
-        this.isMainDriver = this.quoteData[0].isMainDriver;
-        this.driverFormData.controls['driverId'].setValue(
-          this.quoteData[0].driverID
-        );
-        this.driverFormData.controls['driverName'].setValue(
-          this.quoteData[0].driverName
-        );
-        this.driverFormData.controls['driverDob'].setValue(
-          this.quoteData[0].dateOfBirth
-        );
-        this.driverFormData.controls['driverMedicle'].setValue(
-          this.quoteData[0].medicalIssues || ''
-        );
-        this.driverFormData.controls['driverEducation'].setValue(
-          this.quoteData[0].education || ''
-        );
-        this.vehicleFormData.controls['vehiclePurpose'].setValue(
-          this.quoteData[0].purposeofVehicle || ''
-        );
-        this.vehicleFormData.controls['vehicleAvgMil'].setValue(
-          this.quoteData[0].averageDailyMileage
-        );
-        this.vehicleFormData.controls['vehicleEmiratesValue'].setValue(
-          this.quoteData[0].emiratesValue
-        );
-        this.isParking = this.quoteData[0].parkingGarage ? 'yes' : 'no';
-        this._sharedUtils.hideSpinner();
-        // emiratesValue: null
-        // isSelected: false
-      });
+      .subscribe(
+        (res: any) => {
+          if (res.data) {
+            this.violationData = res.data[0].vehicleViolation;
+            this.vData = res.data[0].vehicleViolation;
+            this.quoteData = res.data;
+            console.log(this.quoteData);
+            this.dId = this.quoteData[0].dId;
+            this.vId = this.quoteData[0].vid;
+            //let ddob = new Date(this.quoteData[0].driverDob).toISOString();
+            // Set Values
+            this.isMainDriver = this.quoteData[0].isMainDriver;
+            this.driverFormData.controls['driverId'].setValue(
+              this.quoteData[0].driverID
+            );
+            this.driverFormData.controls['driverName'].setValue(
+              this.quoteData[0].driverName
+            );
+            this.driverFormData.controls['driverDob'].setValue(
+              this.quoteData[0].dateOfBirth
+            );
+            this.driverFormData.controls['driverMedicle'].setValue(
+              this.quoteData[0].medicalIssueId || ''
+            );
+            this.driverFormData.controls['driverEducation'].setValue(
+              this.quoteData[0].educationId
+            );
+            this.vehicleFormData.controls['vehiclePurposeId'].setValue(
+              this.quoteData[0].vehiclePurposeId || ''
+            );
+            this.vehicleFormData.controls['vehicleAvgMil'].setValue(
+              this.quoteData[0].averageDailyMileage
+            );
+            this.vehicleFormData.controls['vehicleEstimateValue'].setValue(
+              this.quoteData[0].estimateValue
+            );
+            this.isParking = this.quoteData[0].parkingGarage;
+          }
+          this._sharedUtils.hideSpinner();
+          // emiratesValue: null
+          // isSelected: false
+        },
+        (err) => {
+          this._sharedUtils.hideSpinner();
+        }
+      );
+    this.driverFormData.controls['driverId'].setValue(
+      this.userDetails.nationalID
+    );
   }
 
   updateRadioChecked(x) {
@@ -295,7 +317,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
         violationDate: new Date(
           this.violationFormData.value.violationDate
         ).toISOString(),
-        violationType: Number(this.violationFormData.value.violationType),
+        violationTypeId: Number(this.violationFormData.value.violationType),
       };
       if (!this.editViolationId) {
         this._quoteService
@@ -304,7 +326,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
             if (res.succeeded) {
               this.parkingGarage = res.data;
               let violationTypeName = this.violationType.find(
-                (x) => x.id == violationForm['violationType']
+                (x) => x.id == violationForm['violationTypeId']
               );
               this.parkingGarage = {
                 ...this.parkingGarage,
@@ -403,6 +425,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
           this.violationData.splice(index, 1);
         }
         this._sharedUtils.hideSpinner();
+        this.deleteViolationId = '';
         //this.setAllDetails();
       });
   }
@@ -436,6 +459,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
   getQuote(driverFdata: any, vehicleFdata: any) {
     this.isSubmitted = true;
     this._sharedUtils.showSpinner();
+
     for (const i in this.driverFormData.controls) {
       this.driverFormData.controls[i].markAsDirty();
       this.driverFormData.controls[i].updateValueAndValidity();
@@ -454,7 +478,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
         isMainDriver: this.isMainDriver,
         vId: this.vId,
         vehicleID: this.vehicleSelectedID,
-        purposeofVehicle: vehicleFdata.vehiclePurpose,
+        purposeofVehicle: vehicleFdata.vehiclePurposeId,
         averageDailyMileage: vehicleFdata.vehicleAvgMil,
         parkingGarage: this.isParking,
         emiratesValue: vehicleFdata.vehicleEmiratesValue,
@@ -467,9 +491,8 @@ export class GetQuotevehicleViewComponent implements OnInit {
         vehicleViolation: this.violationData,
         isSelected: true,
       };
-      this._quoteService
-        .updateAllDriverVehicle(allData)
-        .subscribe((res: any) => {
+      this._quoteService.updateAllDriverVehicle(allData).subscribe(
+        (res: any) => {
           if (res.succeeded) {
             window.scrollTo(0, 0);
             this._sharedUtils.showToast('Vehicle Added Succesfully', 1);
@@ -493,7 +516,11 @@ export class GetQuotevehicleViewComponent implements OnInit {
           }
           this._sharedUtils.hideSpinner();
           this.isSubmitted = false;
-        });
+        },
+        (err) => {
+          this.isSubmitted = false;
+        }
+      );
       console.log(allData);
       //alert(this.itemIndex +' '+ this.vehicleLength)
       if (this.tempData.length == this.vehicleLength - 1) {
@@ -540,8 +567,28 @@ export class GetQuotevehicleViewComponent implements OnInit {
     });
   }
   cancelPolicy() {
-    this._router.navigateByUrl(
-      'wazen/manage/cancel-policy/vehicles/review-policy'
-    );
+    for (const i in this.cancelPolicyForm.controls) {
+      this.cancelPolicyForm.controls[i].markAsDirty();
+      this.cancelPolicyForm.controls[i].updateValueAndValidity();
+    }
+    if (this.cancelPolicyForm.valid) {
+      this.localVehicleData[this.selectedVehicleIndex]['cancellationDetails'] =
+        this.cancelPolicyForm.value;
+      this._globalService.cancelVehicleDetails.next([
+        ...this._globalService.cancelVehicleDetails.value,
+        this.localVehicleData[this.selectedVehicleIndex],
+      ]);
+      if (this.localVehicleData.length - 1 == this.selectedVehicleIndex) {
+        this._router.navigateByUrl(
+          '/wazen/manage/cancel-policy/vehicles/review-policy'
+        );
+      } else {
+        this.selectItem(this.selectedVehicleIndex + 1);
+        this.cancelPolicyForm.reset();
+      }
+    }
+  }
+  reviewFeature() {
+    this._router.navigateByUrl('/wazen/manage/feature/vehicles/review-feature');
   }
 }

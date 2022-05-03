@@ -8,6 +8,7 @@ import { IQuoteResponse } from '../models/IQuote';
 import { IVehicleImageResponse } from '../models/IVehicleImage';
 import { IStatus } from '../models/IStatus';
 import { IFileUploadResponse } from '../models/IFileUpload';
+import { IVehicleResponse } from '../models/IVehicles';
 
 @Injectable({
   providedIn: 'root',
@@ -17,9 +18,7 @@ export class QuoteService {
 
   getOtpByNationalId(Id: number, Dob: string): Observable<IOtpSendResponse> {
     return this._httpClient.get<IOtpSendResponse>(
-      `${
-        AppConstants.GET_QUOTE_BY_NATIONALID + '?NationalID='
-      }${Id}+${'&DateOfBirth='}${Dob}`
+      `${AppConstants.GET_QUOTE_BY_NATIONALID}?NIN=${Id}&DateOfBirth=${Dob}`
     );
   }
   getOtpByCustomerId(Id: string): Observable<IOtpSendResponse> {
@@ -41,21 +40,18 @@ export class QuoteService {
     sequenceNumebr?: any
   ): Observable<any> {
     return this._httpClient.get<any>(
-      `${AppConstants.ADD_VEHICLE_SEQUENCE_CUSTOMERID}?SequenceNumber=${sequenceNumebr}&CustomID=${CustomerId}`
+      `${AppConstants.ADD_VEHICLE_SEQUENCE_CUSTOMERID}?SequenceNumber=${sequenceNumebr}&CustomerId=${CustomerId}`
     );
   }
-  addNewVehicalByForCancelPolicy(
-    CustomerId: any,
-    data:any
-  ): Observable<any> {
+  addNewVehicalByForCancelPolicy(CustomerId: any, data: any): Observable<any> {
     return this._httpClient.get<any>(
       `${AppConstants.ADD_VEHICLE_FOR_CANCEL_POLICY}?SequenceNumber=${data.sequenceNumber}&PolicyNumber=${data.policyNumber}&InsuranceCompanyName=${data.insuranceCompany}`
     );
   }
 
-  getVehicleByCutomerId(CustomerId: any): Observable<IPolicyResponse> {
-    return this._httpClient.get<IPolicyResponse>(
-      `${AppConstants.GET_VEHICLE_BY_CUSTOMER_ID}${CustomerId}`
+  getVehicleByCutomerId(CustomerId: any, policyType='ALL'): Observable<IVehicleResponse> {
+    return this._httpClient.get<IVehicleResponse>(
+      `${AppConstants.GET_VEHICLE_BY_CUSTOMER_ID}?CustomerId=${CustomerId}`
     );
   }
 
@@ -88,7 +84,7 @@ export class QuoteService {
 
   getAllVehicleDataByVehicleID(vehicleId: any): Observable<any> {
     return this._httpClient.get<IPolicyResponse>(
-      `${AppConstants.GET_ALL_VEHICLE_BY_VEHICLE_ID}${vehicleId}`
+      `${AppConstants.GET_ALL_VEHICLE_BY_VEHICLE_ID}?VehicleId=${vehicleId}`
     );
   }
 
@@ -103,7 +99,7 @@ export class QuoteService {
 
   deleteVehicleViolationById(violationId: any): Observable<any> {
     return this._httpClient.delete<any>(
-      `${AppConstants.DELETE_VEHICLE_VIOLATION_BY_ID}${violationId}`
+      `${AppConstants.DELETE_VEHICLE_VIOLATION_BY_ID}?Id=${violationId}`
     );
   }
 
@@ -156,6 +152,11 @@ export class QuoteService {
     return this._httpClient.post<IFileUploadResponse>(
       `${AppConstants.UPLOAD_VEHICLE_IMAGE_BY_VEHICLE_ID}`,
       formData
+    );
+  }
+  sendMailToIc(type: number) {
+    return this._httpClient.get<IStatus>(
+      `${AppConstants.SEND_MAIL_TO_IC}?Type=${type}`
     );
   }
 }

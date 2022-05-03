@@ -12,22 +12,21 @@
           </div>
         </div>
       </div>
-      <div class="get-quote-wrap_inner"
-        *ngIf="policies.length; else vehicleNotAvailable">
+      <div class="get-quote-wrap_inner" *ngIf="vehicles.length; else vehicleNotAvailable">
         <div class="col-12">
           <div class="row my-3">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4" *ngFor="let policy of policies let i = index;"
-              (click)="selectItem(policy,policy.id)">
-              <div class="acc-policies-list" [ngClass]="{active: isSelectedItem(policy, policy.id) }">
-                <!-- <span class="badge-complete policies-status">New {{i}}</span> -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4" *ngFor="let vehicle of vehicles let i = index;"
+              (click)="selectItem(i)">
+              <div class="acc-policies-list" [ngClass]="{active: isSelectedItem(i) }">
+                <span class="badge-complete policies-status" *ngIf="vehicle.vehicleData.status">New</span>
                 <span class="check-icon"></span>
                 <div class="d-flex align-items-center policies-car">
                   <div class="policies-carname">
-                    <span>{{ policy.vehicleMake }} </span>
-                    <p class="mb-0">{{ policy.vehicleModel }}</p>
+                    <span>{{ vehicle.vehicleData.vehicleMake }} </span>
+                    <p class="mb-0">{{ vehicle.vehicleData.vehicleModel }}</p>
                   </div>
                   <div class="policies-carnum">
-                    <span>{{policy.vehicleNumber.split('-')[0]}}</span>
+                    <span>{{vehicle.vehicleData.vehicleNumber.split('-')[0]}}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="22.774" height="32.25" viewBox="0 0 22.774 32.25">
                       <g id="Group_581" data-name="Group 581" transform="translate(0 0)">
                         <g id="Group_580" data-name="Group 580" transform="translate(0 0)">
@@ -48,7 +47,7 @@
                     </svg>
 
                     <!-- <span>HXB</span> -->
-                    <span>{{ policy.vehicleNumber.split('-')[1] }}</span>
+                    <span>{{ vehicle.vehicleData.vehicleNumber.split('-')[1] }}</span>
                   </div>
                 </div>
                 <table class="table table-sm table-borderless">
@@ -57,13 +56,15 @@
                       <td>
                         <p class="fs-xs fw-5 mb-0">Policy Type:</p>
                       </td>
-                      <td><b class="fs-xs ">{{ !policy.policyType ? '-' : policy.policyType }}</b></td>
+                      <td><b
+                          class="fs-xs ">{{ !vehicle.vehicleData.policyType ? '-' : vehicle.vehicleData.policyType }}</b>
+                      </td>
                     </tr>
                     <tr style="height:20px;">
                       <td>
                         <p class="fs-xs fw-5 mb-0">Policy Expiry Date:</p>
                       </td>
-                      <td><b class="fs-xs ">{{ policy.expiryDate | date: "shortDate" }}</b></td>
+                      <td><b class="fs-xs ">{{ vehicle.vehicleData.expiryDate | date: "shortDate" }}</b></td>
                     </tr>
                   </tbody>
                 </table>
@@ -79,10 +80,10 @@
           </ng-template> -->
         </div>
 
-        <div class="text-center get-quote_total_count" *ngIf="policyLength !== 0">
-          <p class="mt-lg-5 text-fade fs-sb fs-s">{{policySelect}}/{{policyLength}} Vehicles Selected</p>
+        <div class="text-center get-quote_total_count" *ngIf="vehicleLength !== 0">
+          <p class="mt-lg-5 text-fade fs-sb fs-s">{{selectedItems.length}}/{{vehicles.length}} Vehicles Selected</p>
           <button type="submit" class="btn-main px-5 m-w-100" (click)="vehicleDetails()"
-            [disabled]=" policySelect == 0 ? true :false">Next</button>
+            [disabled]="!selectedItems.length">Next</button>
         </div>
       </div>
     </div>
@@ -125,7 +126,7 @@
                 </div>
               </div>
               <div class="d-flex justify-content-center py-3">
-                <button class="btn-main px-5 ">Add</button>
+                <button class="btn-main px-5" [disabled]="isAddingNewVehicle">Add</button>
               </div>
             </form>
           </div>

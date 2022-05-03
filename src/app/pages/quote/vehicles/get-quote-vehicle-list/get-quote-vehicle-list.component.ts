@@ -13,6 +13,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { IVehicleResponse, IVehicles, VehicleData } from 'src/app/models/IVehicles';
 
 @Component({
   selector: 'app-get-quote-vehicle-list',
@@ -24,9 +25,9 @@ export class GetQuotevehicleListComponent implements OnInit {
   addVehicleByPolicyNumberForm: FormGroup;
   CustomerId: any;
   displayStyle = 'none';
-  policies: IPolicy[] = [];
-  policyLength: any;
-  policySelect: any = 0;
+  vehicles: IVehicles[] = [];
+  vehicleLength: any;
+  vehicleSelect: any = 0;
   vehiclelayout = true;
   heghtlengh = 'null';
   retrivevehicle = false;
@@ -36,6 +37,8 @@ export class GetQuotevehicleListComponent implements OnInit {
     addNewVehicle: false,
   };
   nolist: boolean = false;
+  policyType: string = 'ALL';
+  isAddingNewVehicle: boolean = false;
 
   constructor(
     private _activeRoute: ActivatedRoute,
@@ -53,9 +56,10 @@ export class GetQuotevehicleListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._router.url.startsWith('/wazen/manage/cancel-policy') &&
+      (this.policyType = 'TPL');
     this.getPolicyByCustomerId(this.CustomerId);
     // if (this._router.url.startsWith('/wazen/quotes/vehicles/vehicles')) {
-    typeof this.policyLength == 'undefined' && (this.vehicleNotfound = false);
     this.addNewVehicleForm = this._formBuilder.group({
       seqNo: new FormControl('', [Validators.required]),
     });
@@ -71,56 +75,47 @@ export class GetQuotevehicleListComponent implements OnInit {
 
   getPolicyByCustomerId(CustomerId) {
     this.retrivevehicle = true;
-    this._qoteService.getVehicleByCutomerId(CustomerId).subscribe(
-      (res: IPolicyResponse) => {
-        console.log(res);
-        if (res.succeeded) {
-          this.policies = res.data;
-          this.policyLength = res.data.length;
+    this._qoteService
+      .getVehicleByCutomerId(CustomerId, this.policyType)
+      .subscribe(
+        (res: IVehicleResponse) => {
+          console.log(res);
+          if (res.succeeded) {
+            if (res.data) this.vehicles = res.data;
+            else this.vehicleNotfound = false;
+            if (this._router.url.startsWith('/wazen/manage/cancel-policy')) {
+              // this.cancelPolicy.vehicleNotfound =
+              //   res.data && res.data.length == 0;
+            }
+          }
+          this.retrivevehicle = false;
+        },
+        (err) => {
+          console.log(err);
+          this.retrivevehicle = false;
           if (this._router.url.startsWith('/wazen/manage/cancel-policy')) {
-            this.cancelPolicy.vehicleNotfound =
-              res.data && res.data.length == 0;
+            this.cancelPolicy.vehicleNotfound = true;
           }
         }
-        this.retrivevehicle = false;
-      },
-      (err) => {
-        console.log(err);
-        this.retrivevehicle = false;
-        if (this._router.url.startsWith('/wazen/manage/cancel-policy')) {
-          this.cancelPolicy.vehicleNotfound = true;
-        }
-      }
-    );
+      );
   }
 
   selectedItems = [];
   tempId = [];
-  selectItem(item: any, id: any) {
-    if (this.tempId.length < 5) this.selectedItems[id] = item;
-    if (!this.tempId.includes(id)) {
-      if (this.tempId.length == 5) {
-        this._sharedUtils.showToast(
-          'Only 5 vehicles can be selected at a time',
-          '1'
-        );
-        return;
-      }
-      //checking weather array contain the id
-      this.tempId.push(id);
-      this.policySelect = this.tempId.length; //adding to array because value doesnt exists
-    } else {
-      this.tempId.splice(this.tempId.indexOf(id), 1); //deleting
-      this.selectedItems[id] = this.selectedItems.filter(
-        ({ item }) => item !== this.selectedItems[id]
-      );
-      this.policySelect = this.tempId.length;
-      console.log(this.selectedItems[id]);
-    }
+  selectItem(index: number) {
+    if (this.selectedItems.includes(this.vehicles[index].vehicleData.vehicleId))
+      this.selectedItems.splice(index, 1);
+    else this.selectedItems.push(this.vehicles[index].vehicleData.vehicleId);
+
+    // = this.selectedItems.filter(
+    //   ({ item }) => item !== this.selectedItems[id]
+    // );
+    // this.policySelect = this.tempId.length;
+    // console.log(this.selectedItems[id]);
   }
 
-  isSelectedItem(item: any, id: any) {
-    return this.selectedItems[id] && this.selectedItems[id] === item;
+  isSelectedItem(index: number) {
+    return this.selectedItems.includes(this.vehicles[index].vehicleData.vehicleId); //this.selectedItems[id] && this.selectedItems[id] === item;
   }
 
   openPopup() {
@@ -137,7 +132,8 @@ export class GetQuotevehicleListComponent implements OnInit {
 
   sequenceValue: any;
   AddNewvehicle(SequenceNum: any) {
-    //this._sharedUtils.showSpinner();
+    this._sharedUtils.showSpinner();
+    this.isAddingNewVehicle = true;
     this.vehiclelayout = true;
     this.retrivevehicle = true;
     for (const i in this.addNewVehicleForm.controls) {
@@ -154,10 +150,11 @@ export class GetQuotevehicleListComponent implements OnInit {
             if (res.succeeded) {
               this.vehicleNotfound = false;
               this.displayStyle = 'none';
-              this.policies.push(res.data);
-              this.policyLength = this.policies.length;
+              res.data['status'] = 'new';
+              this.vehicles.push(res.data);
+              this.vehicleLength = this.vehicles.length;
               this.changeDetection.detectChanges();
-              console.log(this.policies);
+              // console.log(this.policies);
               // setTimeout(() => {
               //   this.vehiclelayout = true;
               //   this.retrivevehicle = false;
@@ -173,6 +170,9 @@ export class GetQuotevehicleListComponent implements OnInit {
                 this.displayStyle = 'none';
               }
             }
+            this.vehiclelayout = true;
+            this.retrivevehicle = false;
+            this.isAddingNewVehicle = false;
             this._sharedUtils.hideSpinner();
           },
           (err: any) => {
@@ -180,6 +180,7 @@ export class GetQuotevehicleListComponent implements OnInit {
             this.retrivevehicle = false;
             this.vehiclelayout = false;
             this.vehicleNotfound = true;
+            this.isAddingNewVehicle = false;
             this._sharedUtils.hideSpinner();
           }
         );
@@ -188,9 +189,9 @@ export class GetQuotevehicleListComponent implements OnInit {
 
   localVehicleData: any = [];
   vehicleDetails() {
-    for (let index = 0; index < this.policies.length; index++) {
-      if (this.tempId.includes(this.policies[index].id)) {
-        this.localVehicleData.push(this.policies[index]);
+    for (let index = 0; index < this.vehicles.length; index++) {
+      if (this.tempId.includes(this.vehicles[index].vehicleData.vehicleId)) {
+        this.localVehicleData.push(this.vehicles[index]);
       }
     }
     localStorage.setItem(
@@ -216,9 +217,7 @@ export class GetQuotevehicleListComponent implements OnInit {
           this.CustomerId
       );
     } else if (
-      this._router.url.startsWith(
-        '/wazen/manage/feature/vehicles/get-quote-vehicle-details'
-      )
+      this._router.url.startsWith('/wazen/manage/feature/vehicles/vehicles')
     ) {
       this._router.navigateByUrl(
         '/wazen/manage/feature/vehicles/get-quote-vehicle-details/' +

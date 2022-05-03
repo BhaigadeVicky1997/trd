@@ -185,7 +185,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   }
   getVehicleDetailsById() {
     this._quoteService.getVehicleByCutomerId(this.CustomerId).subscribe(
-      (res: IPolicyResponse) => {
+      (res: any) => {
         console.log(res);
         if (res.succeeded) {
           this.policies = res.data;

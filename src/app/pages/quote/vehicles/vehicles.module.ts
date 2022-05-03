@@ -20,6 +20,7 @@ import {
   OWL_DATE_TIME_FORMATS,
 } from 'ng-pick-datetime';
 import { ReviewCancelPolicyComponent } from './review-cancel-policy/review-cancel-policy.component';
+import { ReviewFeaturesComponent } from './review-features/review-features.component';
 
 registerLocaleData(ar_dz);
 
@@ -109,6 +110,14 @@ const routes: Routes = [
         },
       },
       {
+        path: 'review-feature',
+        component: ReviewFeaturesComponent,
+        data: {
+          parent: 'Get Quote Vehicle Details',
+          title: 'Get Quote Vehicle Details',
+        },
+      },
+      {
         path: '',
         redirectTo: 'get-quote',
         pathMatch: 'full',
@@ -125,6 +134,7 @@ const routes: Routes = [
     GetQuotevehicleViewComponent,
     GetQuoteVerificationComponent,
     ReviewCancelPolicyComponent,
+    ReviewFeaturesComponent,
   ],
   imports: [
     CommonModule,

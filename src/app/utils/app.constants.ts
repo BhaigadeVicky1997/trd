@@ -36,7 +36,6 @@ export class AppConstants {
   public static GET_CUSTOMER_TRANSACTION_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}CustomerTransaction/CustomerTransactionCtID`;
   public static GET_CUSTOMER_TRANSACTION_BY_DATE: string = `${AppConstants.API_ENDPOINT}CustomerTransaction/CustomerTransactionDate`;
 
-
   public static GET_POLICY: string = `${AppConstants.API_ENDPOINT}MyPolicy/all`;
   public static GET_POLICY_BY_ID: string = `${AppConstants.API_ENDPOINT}MyPolicy/`;
   public static GET_POLICY_BY_POICY_ID: string = `${AppConstants.API_ENDPOINT}MyPolicy`;
@@ -49,31 +48,36 @@ export class AppConstants {
 
   public static UPDATE_CUSTOMERS: string = `${AppConstants.API_ENDPOINT}Customer/`;
 
-
   //Get Quote//
-  public static GET_QUOTE_BY_NATIONALID: string = `${AppConstants.API_ENDPOINT}Customer/GetCustomerQuoteOTP`;
+  // public static GET_QUOTE_BY_NATIONALID: string = `${AppConstants.API_ENDPOINT}Customer/GetCustomerQuoteOTP`;
+  public static GET_QUOTE_BY_NATIONALID: string = `${AppConstants.API_ENDPOINT}TempCustomer/GetQuoteByNINAndDOB`;
   public static GET_QUOTE_VERIFY_OTP: string = `${AppConstants.API_ENDPOINT}Customer/VerifyCustomerQuoteOTP`;
-  public static ADD_VEHICLE_SEQUENCE_CUSTOMERID: string = `${AppConstants.API_ENDPOINT}Vehicle/GetVehicleBySequenceNumber`;
+  // public static ADD_VEHICLE_SEQUENCE_CUSTOMERID: string = `${AppConstants.API_ENDPOINT}Vehicle/GetVehicleBySequenceNumber`;
+  public static ADD_VEHICLE_SEQUENCE_CUSTOMERID: string = `${AppConstants.API_ENDPOINT}TempVehicle/tempVehicleBySequenceNumberAndCustomerId`;
   public static ADD_VEHICLE_FOR_CANCEL_POLICY: string = `${AppConstants.API_ENDPOINT}Vehicle/GetVehicleForCancelPolicy`;
-  public static GET_VEHICLE_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}CustomerVehicle/GetVByCustomerId/`;
+  // public static GET_VEHICLE_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}CustomerVehicle/GetVByCustomerId/`;
+  // public static GET_VEHICLE_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}TempVehicle/tempVehicleByCustomerId`;
+  public static GET_VEHICLE_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}TempVehicle/GetVehicleDriverViolationListByCustomerId`;
   public static GET_SELECTED_VEHICLE_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}CustomerVehicle/GetCustomerSelectVehicleByCustomerId/`;
 
+  // public static GET_ALL_EDUCATION: string = `${AppConstants.API_ENDPOINT}Education/all`;
+  public static GET_ALL_EDUCATION: string = `${AppConstants.API_ENDPOINT}TempDriver/allEducation`;
 
-
-  public static GET_ALL_EDUCATION: string = `${AppConstants.API_ENDPOINT}Education/all`;
-
-  public static GET_ALL_VIOLATION_TYPE: string = `${AppConstants.API_ENDPOINT}ViolationType/all`;
-  public static ADD_VEHICLE_VIOLATION: string = `${AppConstants.API_ENDPOINT}VehicleViolation`;
-  public static GET_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/GetDriver_VehicleAndViolationDetailsByVehicleID/`;
-  public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}VehicleViolation/`;
+  // public static GET_ALL_VIOLATION_TYPE: string = `${AppConstants.API_ENDPOINT}ViolationType/all`;
+  public static GET_ALL_VIOLATION_TYPE: string = `${AppConstants.API_ENDPOINT}TempDriver/allViolationType`;
+  // public static ADD_VEHICLE_VIOLATION: string = `${AppConstants.API_ENDPOINT}VehicleViolation`;
+  public static ADD_VEHICLE_VIOLATION: string = `${AppConstants.API_ENDPOINT}TempDriver/AddVehicleViolation`;
+  // public static GET_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/GetDriver_VehicleAndViolationDetailsByVehicleID/`;
+  public static GET_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/DriverVehicleDetailByVehicleId`;
+  // public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}VehicleViolation/`;
+  public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/DeleteVehicleViolation`;
   public static UPDATE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}VehicleViolation/`;
-  public static ADD_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/AddUpdateVehicleDriver`;
-  public static GET_ALL_MEDICLE_ISSUES: string = `${AppConstants.API_ENDPOINT}MedicalIssue/all`;
-  public static GET_ALL_VEHICLE_PURPOSE: string = `${AppConstants.API_ENDPOINT}VehiclePurpose/all`;
-
-
-
-
+  // public static ADD_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/AddUpdateVehicleDriver`;
+  public static ADD_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/AddandUpdateDriver`;
+  // public static GET_ALL_MEDICLE_ISSUES: string = `${AppConstants.API_ENDPOINT}MedicalIssue/all`;
+  public static GET_ALL_MEDICLE_ISSUES: string = `${AppConstants.API_ENDPOINT}TempDriver/allMedicalIssue`;
+  // public static GET_ALL_VEHICLE_PURPOSE: string = `${AppConstants.API_ENDPOINT}VehiclePurpose/all`;
+  public static GET_ALL_VEHICLE_PURPOSE: string = `${AppConstants.API_ENDPOINT}TempDriver/allVehiclePurpose`;
 
   public static CHANGE_PASSWORD: string = `${AppConstants.API_ENDPOINT}Customer/UpdateChangePassword`;
 
@@ -83,11 +87,9 @@ export class AppConstants {
   public static ADD_VEHICLE_IMAGE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}VehicleImage`;
   public static NEWS_SUBCRIPTION: string = `${AppConstants.API_ENDPOINT}Customer/AddNewsLetter`;
 
-
   public static LANGUAGE_PREFERENCE: string = `${AppConstants.API_ENDPOINT}Customer/AddLanguagePreference`;
 
   public static UPLOAD_VEHICLE_IMAGE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}VehicleImage/UploadVehicleImage`;
-
 
   public static GET_INVOICE: string = `${AppConstants.API_ENDPOINT}MedicalIssue/GetBase64`;
   public static SEND_OTP: string = `${AppConstants.API_ENDPOINT}Customer/GetCustomersendOTP`;
@@ -100,13 +102,15 @@ export class AppConstants {
 
   public static GET_POLICY_CLAIMS: string = `${AppConstants.API_ENDPOINT}abcd`;
 
-   /*Faqs*/
-   public static GET_ALL_FAQS:string=`${AppConstants.API_ENDPOINT}FAQ/GetAllFAQsByModule`;
+  /*Faqs*/
+  public static GET_ALL_FAQS: string = `${AppConstants.API_ENDPOINT}FAQ/GetAllFAQsByModule`;
 
-   public static ADD_CONTACT_US: string = `${AppConstants.API_ENDPOINT}Complaint`;
+  public static ADD_CONTACT_US: string = `${AppConstants.API_ENDPOINT}Complaint`;
 
-   public static GET_ABOUT_US: string = `${AppConstants.API_ENDPOINT}AboutUs/all`;
+  public static GET_ABOUT_US: string = `${AppConstants.API_ENDPOINT}AboutUs/all`;
 
-   public static GET_TERMS_AND_CONDITIONS: string = `${AppConstants.API_ENDPOINT}TermsAndConditions/all`;
-   
+  public static GET_TERMS_AND_CONDITIONS: string = `${AppConstants.API_ENDPOINT}TermsAndConditions/all`;
+  
+  public static SEND_MAIL_TO_IC: string = `${AppConstants.API_ENDPOINT}MyPolicy/SendMailOnCancelRenewAddRemoveFeaturePolicy`;
+
 }

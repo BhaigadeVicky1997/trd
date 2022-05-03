@@ -88,7 +88,7 @@
         </div>
       </div>
     </div>
-    <div class="get-quote-wrap_inner position-relative" *ngIf="VehicalNotSelected && !isCancelPolicyPage">
+    <div class="get-quote-wrap_inner position-relative" *ngIf="VehicalNotSelected && !isCancelPolicyPage && !isFeaturePage">
       <div class="card mt-lg-3 pt-lg-5">
         <!-- <div class="form-group col-12 col-md-6 d-block d-md-none mb-3">
           <div class="position-relative  datepicker">
@@ -98,6 +98,10 @@
         </div> -->
         <div class="get-quote-wrap-tab-outter">
           <ul class="nav nav-tabs wazen-tab mb-4" id="profile-wrap" role="tablist">
+            <li class="nav-item" role="presentation" *ngIf="false">
+              <a class="nav-link active" id="driver-details-tab" data-bs-toggle="tab" href="#owner-details" role="tab"
+                aria-controls="owner-details" aria-selected="true">Owner details</a>
+            </li>
             <li class="nav-item " role="presentation">
               <a class="nav-link active " id="driver-details-tab" data-bs-toggle="tab" href="#driver-details" role="tab"
                 aria-controls="driver-details" aria-selected="true">Driver details</a>
@@ -109,6 +113,40 @@
           </ul>
         </div>
         <div class="tab-content tab-container" id="myTabContent">
+          <div class="tab-pane fade show active" id="owner-details" role="tabpanel" aria-labelledby="policies-tab"
+          *ngIf="false">
+          <div class="col-12">
+            <div class="driver-details-wrap-2 row my-md-3">
+              <h4 class="fs-b text-center">Owner details</h4>
+              <form class="my-lg-4 mx-lg-5 px-lg-5" [formGroup]="OwnerForm" novalidate>
+                <div class="form-row d-md-flex ">
+                  <div class="form-group col-12 col-md-6">
+                    <select setValidatorClass class="form-control" formControlName="occupationId">
+                      <option value="">Occupation</option>
+                      <option *ngFor="let item of medicleArry" [value]="item['id']">{{item['medicalIssueName']}}
+                      </option>
+                    </select>
+                    <div class="errors" [class.mb-3]="OwnerForm.controls.occupationId.errors" *ngIf="
+                    OwnerForm.controls.occupationId.dirty && OwnerForm.controls.occupationId.errors
+                      ">
+                    </div>
+                  </div>
+                  <div class="form-group col-12 col-md-6">
+                    <select setValidatorClass class="form-control" formControlName="educationId">
+                      <option value="">Education</option>
+                      <option *ngFor="let item of medicleArry" [value]="item['id']">{{item['medicalIssueName']}}
+                      </option>
+                    </select>
+                    <div class="errors" [class.mb-3]="OwnerForm.controls.educationId.errors" *ngIf="
+                    OwnerForm.controls.educationId.dirty && OwnerForm.controls.educationId.errors
+                      ">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
           <div class="tab-pane fade  show active" id="driver-details" role="tabpanel" aria-labelledby="policies-tab">
             <div class="col-12">
               <div class="driver-details-wrap-1 row justify-content-center mb-md-5 mt-md-4">
@@ -134,7 +172,7 @@
                       <input
                         [attr.setValidatorClass]="driverFormData.controls.driverId.dirty && driverFormData.controls.driverId.errors"
                         type="text" class="form-control" formControlName="driverId"
-                        placeholder="Owner ID / Iqama NO / CR" maxlength="10">
+                        placeholder="Owner ID / Iqama NO / CR" maxlength="10" readonly>
                       <div class="errors" *ngIf="
                         driverFormData.controls.driverId.dirty && driverFormData.controls.driverId.errors
                         ">
@@ -237,17 +275,17 @@
                 <form class="my-lg-4 mx-lg-5 px-lg-5" [formGroup]="vehicleFormData" novalidate>
                   <div class="form-row d-md-flex ">
                     <div class="form-group col-12 col-md-6 col-sm-12">
-                      <select setValidatorClass class="form-control" formControlName="vehiclePurpose">
+                      <select setValidatorClass class="form-control" formControlName="vehiclePurposeId">
                         <option value="" selected disabled>Purpose</option>
                         <option *ngFor="let item of purposeArry" [value]="item['id']">{{item['vehiclePurposeName']}}
                         </option>
-                        <div class="errors" [class.mb-3]="vehicleFormData.controls.vehiclePurpose.errors" *ngIf="
-                       vehicleFormData.controls.vehiclePurpose.dirty && vehicleFormData.controls.vehiclePurpose.errors
+                        <div class="errors" [class.mb-3]="vehicleFormData.controls.vehiclePurposeId.errors" *ngIf="
+                       vehicleFormData.controls.vehiclePurposeId.dirty && vehicleFormData.controls.vehiclePurposeId.errors
                         ">
                           <div class="
                           invalid-feedback
                           animate__animated animate__slideInDown animate__faster"
-                            *ngIf="vehicleFormData.controls.vehiclePurpose.errors.required">
+                            *ngIf="vehicleFormData.controls.vehiclePurposeId.errors.required">
                             Purpose is required.
                           </div>
                         </div>
@@ -272,14 +310,14 @@
                   <div class="form-row d-md-flex ">
                     <div class="form-group col-12 col-md-6">
                       <input setValidatorClass type="text" class="form-control" placeholder="Estimate Value"
-                        formControlName="vehicleEmiratesValue">
-                      <div class="errors" [class.mb-3]="vehicleFormData.controls.vehicleEmiratesValue.errors" *ngIf="
-                        vehicleFormData.controls.vehicleEmiratesValue.dirty && vehicleFormData.controls.vehicleEmiratesValue.errors
+                        formControlName="vehicleEstimateValue">
+                      <div class="errors" [class.mb-3]="vehicleFormData.controls.vehicleEstimateValue.errors" *ngIf="
+                        vehicleFormData.controls.vehicleEstimateValue.dirty && vehicleFormData.controls.vehicleEstimateValue.errors
                         ">
                         <div class="
                           invalid-feedback
                           animate__animated animate__slideInDown animate__faster"
-                          *ngIf="vehicleFormData.controls.vehicleEmiratesValue.errors.required">
+                          *ngIf="vehicleFormData.controls.vehicleEstimateValue.errors.required">
                           Estimate value is required.
                         </div>
                       </div>
@@ -298,12 +336,12 @@
             <div class="driver-details-checkbox">
               <span class="fs-s px-lg-4 mb-0">Parking garage</span>
               <div class="px-2">
-                <input id="radio-1" class="radio-custom" type="radio" name="isParking" value="yes"
+                <input id="radio-1" class="radio-custom" type="radio" name="isParking" [value]="true"
                   [(ngModel)]="isParking">
                 <label for="radio-1" class="radio-custom-label">Yes</label>
               </div>
               <div class="px-2">
-                <input id="radio-2" class="radio-custom" type="radio" name="isParking" value="no"
+                <input id="radio-2" class="radio-custom" type="radio" name="isParking" [value]="false"
                   [(ngModel)]="isParking">
                 <label for="radio-2" class="radio-custom-label">No</label>
               </div>
@@ -315,12 +353,12 @@
                 <span class="fs-s px-lg-4 mb-0">Any traffic violation</span>
                 <div class="px-2">
                   <input id="radio-5" class="radio-custom" type="radio" name="isTraficViolation"
-                    [(ngModel)]="isTraficViolation" value="yes">
+                    [(ngModel)]="isTraficViolation" [value]="true">
                   <label for="radio-5" class="radio-custom-label">Yes</label>
                 </div>
                 <div class="px-2">
                   <input id="radio-6" class="radio-custom" type="radio" name="isTraficViolation"
-                    [(ngModel)]="isTraficViolation" value="no">
+                    [(ngModel)]="isTraficViolation" [value]="false">
                   <label for="radio-6" class="radio-custom-label">No</label>
                 </div>
               </div>
@@ -332,7 +370,7 @@
                       <p class="mb-0">{{v.violationTypeName}}</p>
                     </div>
                     <div class="traffic-violation-wrap_list-r">
-                      <a href="javascript:" (click)="editTrafficViolation(v.id,v.violationDate,v.violationType)">
+                      <a href="javascript:" (click)="editTrafficViolation(v.id,v.violationDate,v.violationTypeId)">
                         <i class="edit-icon"></i>
                       </a>
                       <a href="javascript:" (click)="deleteTrafficViolation(v.id)">
@@ -343,7 +381,7 @@
                 </div>
 
               </div>
-              <button class="btn-main mx-3" id="new-vehicle-popup-btn" [disabled]="isTraficViolation != 'yes'"
+              <button class="btn-main mx-3" id="new-vehicle-popup-btn" [disabled]="isTraficViolation"
                 (click)="addTrafficViolation()">+ Add traffic violation</button>
             </div>
           </div>
@@ -527,7 +565,7 @@
         </div>
       </form>
     </div>
-    <div class="card my-lg-3 mb-5 pt-lg-5 add-remove-get-quote-features">
+    <div class="card my-lg-3 mb-5 pt-lg-5 add-remove-get-quote-features" *ngIf="isFeaturePage">
       <ul class="nav nav-tabs wazen-tab mb-4" id="profile-wrap" role="tablist">
         <li class="nav-item " role="presentation">
           <a class="nav-link active " id="add-features-tab" data-bs-toggle="tab" href="#add-features" role="tab"
@@ -660,7 +698,7 @@
           </div>
           <div class="total-summary_r">
             <p class="">1/4 Vehicles completed</p>
-            <button class="btn-main" id="add-remove-con-btn">Next</button>
+            <button class="btn-main" id="add-remove-con-btn" (click)="reviewFeature()" >Next</button>
           </div>
         </div>
       </div>

@@ -122,31 +122,34 @@ export class DashboardComponent implements OnInit {
             console.log(res);
             if (res.succeeded) {
               let user = {
-                salutation: res.data.salutation,
+                salutation: res.data.salutationId,
                 firstName: res.data.englishFirstName,
                 lastName: res.data.englishLastName,
-                nationalID: res.data.nationalID.trim(),
+                nationalID: res.data.nin && res.data.nin.trim(),
                 contact: res.data.mobile,
-                email: 'rohitchauhan8898515299@gmail.com'
+                email: 'rohitchauhan8898515299@gmail.com',
               };
               this._globalService.quoteUser.next(user);
-              this._globalService.customerId.next(res.data.customerID);
-              localStorage.setItem('tempCustomer_ID', res.data.customerID);
+              this._globalService.customerId.next(res.data.id);
+              localStorage.setItem('tempCustomer_ID', res.data.id);
               setTimeout(() => {
-                this.sharedUtils.showToast(
-                  'OTP is send to your mobile or email id',
-                  '1'
-                );
+                // this.sharedUtils.showToast(
+                //   'OTP is send to your mobile or email id',
+                //   '1'
+                // );
                 this.sharedUtils.hideSpinner();
                 this.loader = false;
                 this.isSubmitted = false;
+                // this._router.navigateByUrl(
+                //   '/wazen/quotes/vehicles/get-quote-verification/' +
+                //     this.getQuoteForm.value.nationalId +
+                //     '/' +
+                //     moment(this.getQuoteForm.value.dateOfBirth).format(
+                //       'YYYY-M-D'
+                //     )
+                // );
                 this._router.navigateByUrl(
-                  '/wazen/quotes/vehicles/get-quote-verification/' +
-                    this.getQuoteForm.value.nationalId +
-                    '/' +
-                    moment(this.getQuoteForm.value.dateOfBirth).format(
-                      'YYYY-M-D'
-                    )
+                  '/wazen/quotes/vehicles/vehicles/' + res.data.id
                 );
               }, 1500);
             }
@@ -229,13 +232,11 @@ export class DashboardComponent implements OnInit {
   }
 
   getFaqs() {
-    this._faqService.getFaqs().subscribe(
-      (res: IFaqsResponse) => {
-        if (res.succeeded) {
-          this.Faqs = res.data;
-          console.log("FAQs", this.Faqs);
-        }
-      },
-    );
+    this._faqService.getFaqs().subscribe((res: IFaqsResponse) => {
+      if (res.succeeded) {
+        this.Faqs = res.data;
+        console.log('FAQs', this.Faqs);
+      }
+    });
   }
 }

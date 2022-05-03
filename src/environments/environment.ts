@@ -4,11 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'https://localhost:44330/api/v1/',
-  // fileUrl: 'https://localhost:44330/WazenUploads/',
-  apiUrl: 'https://wplusapidev.aspnetdevelopment.in/api/v1/',
-  fileUrl: 'https://wplusapidev.aspnetdevelopment.in/WazenUploads/',
-
+  apiUrl: 'http://localhost:54806/api/v1/',
+  fileUrl: 'http://localhost:54806/WazenUploads/',
   clientId:
     '232338756020-nm59sed4aufk0gtanlgoskdunmtluvin.apps.googleusercontent.com',
   appId: '270508575124274',
