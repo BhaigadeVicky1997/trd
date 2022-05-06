@@ -248,8 +248,8 @@ export class GetQuotevehicleViewComponent implements OnInit {
             //let ddob = new Date(this.quoteData[0].driverDob).toISOString();
             // Set Values
             this.isMainDriver = this.quoteData[0].isMainDriver;
-            this.driverFormData.controls['driverId'].setValue(
-              this.quoteData[0].driverID
+            this.driverFormData.controls['dnid'].setValue(
+              this.quoteData[0].dnid
             );
             this.driverFormData.controls['driverName'].setValue(
               this.quoteData[0].driverName
@@ -282,9 +282,9 @@ export class GetQuotevehicleViewComponent implements OnInit {
           this._sharedUtils.hideSpinner();
         }
       );
-    this.driverFormData.controls['driverId'].setValue(
-      this.userDetails.nationalID
-    );
+    // this.driverFormData.controls['driverId'].setValue(
+    //   this.userDetails.nationalID
+    // );
   }
 
   updateRadioChecked(x) {
@@ -483,7 +483,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
         parkingGarage: this.isParking,
         emiratesValue: vehicleFdata.vehicleEmiratesValue,
         dId: this.dId,
-        driverID: driverFdata.driverId,
+        dnid: driverFdata.dnid,
         driverName: driverFdata.driverName,
         dateOfBirth: driverFdata.driverDob,
         education: driverFdata.driverEducation,
@@ -543,7 +543,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
     this.selectItem(this.selectedVehicleIndex);
   }
   changeCalendar() {
-    this.driverFormData.controls['driverId'].valueChanges.subscribe((value) => {
+    this.driverFormData.controls['dnid'].valueChanges.subscribe((value) => {
       let type = (value && value.trim()) || '';
       if (type.startsWith('1')) {
         this._dateTimeAdapter.setLocale('en-u-ca-islamic');
