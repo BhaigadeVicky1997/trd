@@ -13,7 +13,11 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { IVehicleResponse, IVehicles, VehicleData } from 'src/app/models/IVehicles';
+import {
+  IVehicleResponse,
+  IVehicles,
+  VehicleData,
+} from 'src/app/models/IVehicles';
 
 @Component({
   selector: 'app-get-quote-vehicle-list',
@@ -58,7 +62,7 @@ export class GetQuotevehicleListComponent implements OnInit {
   ngOnInit() {
     this._router.url.startsWith('/wazen/manage/cancel-policy') &&
       (this.policyType = 'TPL');
-    this.getPolicyByCustomerId(this.CustomerId);
+    this.getPolicyByCustomerId();
     // if (this._router.url.startsWith('/wazen/quotes/vehicles/vehicles')) {
     this.addNewVehicleForm = this._formBuilder.group({
       seqNo: new FormControl('', [Validators.required]),
@@ -73,10 +77,10 @@ export class GetQuotevehicleListComponent implements OnInit {
     // }
   }
 
-  getPolicyByCustomerId(CustomerId) {
+  getPolicyByCustomerId() {
     this.retrivevehicle = true;
     this._qoteService
-      .getVehicleByCutomerId(CustomerId, this.policyType)
+      .getVehicleByCutomerId(this.CustomerId, this.policyType)
       .subscribe(
         (res: IVehicleResponse) => {
           console.log(res);
@@ -89,6 +93,7 @@ export class GetQuotevehicleListComponent implements OnInit {
             }
           }
           this.retrivevehicle = false;
+          this.displayStyle = 'none';
         },
         (err) => {
           console.log(err);
@@ -115,7 +120,9 @@ export class GetQuotevehicleListComponent implements OnInit {
   }
 
   isSelectedItem(index: number) {
-    return this.selectedItems.includes(this.vehicles[index].vehicleData.vehicleId); //this.selectedItems[id] && this.selectedItems[id] === item;
+    return this.selectedItems.includes(
+      this.vehicles[index].vehicleData.vehicleId
+    ); //this.selectedItems[id] && this.selectedItems[id] === item;
   }
 
   openPopup() {
@@ -148,12 +155,13 @@ export class GetQuotevehicleListComponent implements OnInit {
             this.vehiclelayout = true;
             this.retrivevehicle = false;
             if (res.succeeded) {
-              this.vehicleNotfound = false;
-              this.displayStyle = 'none';
-              res.data['status'] = 'new';
-              this.vehicles.push(res.data);
-              this.vehicleLength = this.vehicles.length;
-              this.changeDetection.detectChanges();
+              this.getPolicyByCustomerId();
+              // this.vehicleNotfound = false;
+              // this.displayStyle = 'none';
+              // res.data['status'] = 'new';
+              // this.vehicles.push(res.data);
+              // this.vehicleLength = this.vehicles.length;
+              // this.changeDetection.detectChanges();
               // console.log(this.policies);
               // setTimeout(() => {
               //   this.vehiclelayout = true;
@@ -189,16 +197,11 @@ export class GetQuotevehicleListComponent implements OnInit {
 
   localVehicleData: any = [];
   vehicleDetails() {
-    for (let index = 0; index < this.vehicles.length; index++) {
-      if (this.tempId.includes(this.vehicles[index].vehicleData.vehicleId)) {
-        this.localVehicleData.push(this.vehicles[index]);
-      }
-    }
     localStorage.setItem(
       'localVehicleData',
-      JSON.stringify(this.localVehicleData)
+      JSON.stringify(this.vehicles)
     );
-    // this._globalService.vehicalLocalList.next(this.localVehicleData);
+    this._globalService.vehicalLocalList.next(this.localVehicleData);
     if (
       this._router.url.startsWith(
         '/wazen/manage/upgrade-policy/vehicles/vehicles'

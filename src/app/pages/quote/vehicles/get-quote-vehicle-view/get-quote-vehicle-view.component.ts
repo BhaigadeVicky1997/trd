@@ -105,8 +105,8 @@ export class GetQuotevehicleViewComponent implements OnInit {
       });
 
       this.driverFormData = this._formBuilder.group({
-        driverId: new FormControl(
-          { value: this.userDetails.nationalID, disabled: true },
+        dnid: new FormControl(
+          '',
           [Validators.required, Validators.pattern('^[1|2|7]+[0-9]{9}$')]
         ),
         driverName: new FormControl('', [

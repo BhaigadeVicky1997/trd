@@ -17,18 +17,18 @@
                   style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2324px;">
                   <div class="owl-item active" style="width: 377.333px; margin-right: 10px;"
                     *ngFor="let vehilcle of localVehicleData let i = index;">
-                    <!-- (click)="selectItem(vehilcle,vehilcle.id,i+1)" -->
+                    <!-- (click)="selectItem(vehilcle,vehilcle.vehicleData.id,i+1)" -->
                     <div class="item w-100">
                       <div class="acc-policies-list"
                         [ngClass]="{'active': selectedVehicleIndex == i,'saved': selectedVehicleIndex > i}">
                         <span class="check-icon"></span>
                         <div class="d-flex align-items-center policies-car">
                           <div class="policies-carname">
-                            <span>{{ vehilcle.vehicleMake }} </span>
-                            <p class="mb-0">{{ vehilcle.vehicleModel }} </p>
+                            <span>{{ vehilcle.vehicleData.vehicleMake }} </span>
+                            <p class="mb-0">{{ vehilcle.vehicleData.vehicleModel }} </p>
                           </div>
                           <div class="policies-carnum">
-                            <span>{{ vehilcle.vehicleNumber.split('-')[0] }}</span>
+                            <span>{{ vehilcle.vehicleData.vehicleNumber.split('-')[0] }}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22.774" height="32.25"
                               viewBox="0 0 22.774 32.25">
                               <g id="Group_581" data-name="Group 581" transform="translate(0 0)">
@@ -46,7 +46,7 @@
                                 </text>
                               </g>
                             </svg>
-                            <span>{{vehilcle.vehicleNumber.split('-')[1]}}</span>
+                            <span>{{vehilcle.vehicleData.vehicleNumber.split('-')[1]}}</span>
                           </div>
                         </div>
                         <table class="table table-sm table-borderless">
@@ -55,7 +55,7 @@
                               <td>
                                 <p class="fs-xs fw-5 mb-0">Policy Type:</p>
                               </td>
-                              <td><b class="fs-xs ">{{ !vehilcle.policyType ? '-' : vehilcle.policyType }}</b>
+                              <td><b class="fs-xs ">{{ !vehilcle.vehicleData.policyType ? '-' : vehilcle.vehicleData.policyType }}</b>
                               </td>
                             </tr>
                             <tr>
@@ -63,7 +63,7 @@
                                 <p class="fs-xs fw-5 mb-0">Policy Expiry Date:
                                 </p>
                               </td>
-                              <td><b class="fs-xs ">{{ vehilcle.expiryDate | date: "shortDate" }}</b></td>
+                              <td><b class="fs-xs ">{{ vehilcle.vehicleData.expiryDate | date: "shortDate" }}</b></td>
                             </tr>
                           </tbody>
                         </table>
@@ -170,22 +170,22 @@
                   <div class="form-row d-md-flex ">
                     <div class="form-group col-12 col-md-6">
                       <input
-                        [attr.setValidatorClass]="driverFormData.controls.driverId.dirty && driverFormData.controls.driverId.errors"
-                        type="text" class="form-control" formControlName="driverId"
-                        placeholder="Owner ID / Iqama NO / CR" maxlength="10" readonly>
+                        [attr.setValidatorClass]="driverFormData.controls.dnid.dirty && driverFormData.controls.dnid.errors"
+                        type="text" class="form-control" formControlName="dnid"
+                        placeholder="Owner ID / Iqama NO / CR" maxlength="10">
                       <div class="errors" *ngIf="
-                        driverFormData.controls.driverId.dirty && driverFormData.controls.driverId.errors
+                        driverFormData.controls.dnid.dirty && driverFormData.controls.dnid.errors
                         ">
                         <div class="
                   invalid-feedback
                   animate__animated animate__slideInDown animate__faster"
-                          *ngIf="driverFormData.controls.driverId.errors.required">
+                          *ngIf="driverFormData.controls.dnid.errors.required">
                           Number is required.
                         </div>
                         <div class="
                   invalid-feedback
                   animate__animated animate__slideInDown animate__faster"
-                          *ngIf="driverFormData.controls.driverId.errors.pattern">
+                          *ngIf="driverFormData.controls.dnid.errors.pattern">
                           Should be of 10 digit and only starts with 1,2 or 7.
                         </div>
                       </div>
@@ -381,7 +381,7 @@
                 </div>
 
               </div>
-              <button class="btn-main mx-3" id="new-vehicle-popup-btn" [disabled]="isTraficViolation"
+              <button class="btn-main mx-3" id="new-vehicle-popup-btn" [disabled]="!isTraficViolation"
                 (click)="addTrafficViolation()">+ Add traffic violation</button>
             </div>
           </div>
