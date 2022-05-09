@@ -225,8 +225,8 @@ export class GetQuotevehicleViewComponent implements OnInit {
     window.scrollTo(0, 0);
     this.selectedVehicleIndex = index;
     this.VehicalNotSelected = true;
-    this.vehicleSelectedID = this.localVehicleData[index].id;
-    this.vehiclePrimaryId = this.localVehicleData[index].id;
+    this.vehicleSelectedID = this.localVehicleData[index].vehicleData.vehicleId;
+    this.vehiclePrimaryId = this.localVehicleData[index].vehicleData.vehicleId;
     !this.isCancelPolicyPage && !this.isFeaturePage && this.setAllDetails();
   }
 
@@ -307,10 +307,6 @@ export class GetQuotevehicleViewComponent implements OnInit {
 
   saveTrafficViolation() {
     this._sharedUtils.showSpinner();
-    this.displayStyle = 'none';
-    this.activestatus = false;
-    this.violationdata = 'Yes';
-
     if (typeof this.vehicleSelectedID != 'undefined') {
       let violationForm = {
         vehicleID: this.vehicleSelectedID,
@@ -337,6 +333,9 @@ export class GetQuotevehicleViewComponent implements OnInit {
                 'Traffic Violation Added Successfully',
                 1
               );
+              this.displayStyle = 'none';
+              this.activestatus = false;
+              this.violationdata = 'Yes';
               //this.setAllDetails();
             } else {
               this._sharedUtils.showToast('Error', 0);
@@ -348,7 +347,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
       } else {
         let data = {
           id: this.editViolationId,
-          vehicleID: this.vehicleSelectedID,
+          vehicleId: this.vehicleSelectedID,
           ...this.violationFormData.value,
         };
         this._quoteService
@@ -359,6 +358,9 @@ export class GetQuotevehicleViewComponent implements OnInit {
                 'Traffic Violation Updated Successfully',
                 1
               );
+              this.displayStyle = 'none';
+              this.activestatus = false;
+              this.violationdata = 'Yes';
               //this.setAllDetails();
               console.log(res);
             } else {
@@ -441,7 +443,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
     this.violationdata = 'No';
     this.disabledQoute = true;
     for (let index = 0; index < this.localVehicleData.length; index++) {
-      if (vehId.includes(this.localVehicleData[index].vehicleID)) {
+      if (vehId.includes(this.localVehicleData[index].vehicleData.vehicleId)) {
         //this.localVehicleData.push(this.localVehicleData[index]);
         this.localVehicleData.splice(this.localVehicleData[index], 1);
         console.log(true);

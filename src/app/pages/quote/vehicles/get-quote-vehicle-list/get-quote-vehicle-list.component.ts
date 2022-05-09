@@ -105,24 +105,18 @@ export class GetQuotevehicleListComponent implements OnInit {
       );
   }
 
-  selectedItems = [];
-  tempId = [];
+  selectedVehicles: any = [];
   selectItem(index: number) {
-    if (this.selectedItems.includes(this.vehicles[index].vehicleData.vehicleId))
-      this.selectedItems.splice(index, 1);
-    else this.selectedItems.push(this.vehicles[index].vehicleData.vehicleId);
-
-    // = this.selectedItems.filter(
-    //   ({ item }) => item !== this.selectedItems[id]
-    // );
-    // this.policySelect = this.tempId.length;
-    // console.log(this.selectedItems[id]);
+    if (
+      this.selectedVehicles.includes(this.vehicles[index])
+    )
+      this.selectedVehicles.splice(index, 1);
+    else this.selectedVehicles.push(this.vehicles[index]);
   }
 
   isSelectedItem(index: number) {
-    return this.selectedItems.includes(
-      this.vehicles[index].vehicleData.vehicleId
-    ); //this.selectedItems[id] && this.selectedItems[id] === item;
+    return this.selectedVehicles.includes(this.vehicles[index]); 
+    //this.selectedItems[id] && this.selectedItems[id] === item;
   }
 
   openPopup() {
@@ -199,9 +193,9 @@ export class GetQuotevehicleListComponent implements OnInit {
   vehicleDetails() {
     localStorage.setItem(
       'localVehicleData',
-      JSON.stringify(this.vehicles)
+      JSON.stringify(this.selectedVehicles)
     );
-    this._globalService.vehicalLocalList.next(this.localVehicleData);
+    this._globalService.vehicalLocalList.next(this.selectedVehicles);
     if (
       this._router.url.startsWith(
         '/wazen/manage/upgrade-policy/vehicles/vehicles'

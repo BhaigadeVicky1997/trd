@@ -81,9 +81,9 @@
         </div>
 
         <div class="text-center get-quote_total_count" *ngIf="vehicleLength !== 0">
-          <p class="mt-lg-5 text-fade fs-sb fs-s">{{selectedItems.length}}/{{vehicles.length}} Vehicles Selected</p>
+          <p class="mt-lg-5 text-fade fs-sb fs-s">{{selectedVehicles.length}}/{{vehicles.length}} Vehicles Selected</p>
           <button type="submit" class="btn-main px-5 m-w-100" (click)="vehicleDetails()"
-            [disabled]="!selectedItems.length">Next</button>
+            [disabled]="!selectedVehicles.length">Next</button>
         </div>
       </div>
     </div>
