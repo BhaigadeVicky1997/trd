@@ -335,7 +335,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
               );
               this.displayStyle = 'none';
               this.activestatus = false;
-              this.violationdata = 'Yes';
+              this.violationdata = 'Yes'; 
               //this.setAllDetails();
             } else {
               this._sharedUtils.showToast('Error', 0);
