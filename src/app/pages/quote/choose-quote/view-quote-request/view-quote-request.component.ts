@@ -82,13 +82,15 @@ export class ViewQuoteRequestComponent implements OnInit {
       this.quoteResponseType = 1;
   }
 
+
   onTabChange(tab) {
     this.selectedTab = tab;
     this._sharedUtils.showSpinner();
     this.insuranceType = this.selectedTab == 0 ? 'Comprehensive' : 'TPL';
-    this.filteredInsuranceCompaines = this.insuranceCompaines.filter(
-      (x) => x.product == this.insuranceType
-    );
+    // this.1 = this.insuranceCompaines.filter(
+    //   (x) => x.product == this.insuranceType
+    // );
+    this.getquoteResponseByType(this.vehicleSelectedID)
     this._sharedUtils.hideSpinner();
   }
   openDetailsPopup(index, type?) {

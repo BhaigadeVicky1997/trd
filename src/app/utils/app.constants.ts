@@ -2,6 +2,7 @@ import { environment } from '../../environments/environment';
 
 export class AppConstants {
   public static API_ENDPOINT: string = environment.apiUrl;
+  public static API_ENDPOINT_POLICY: string = environment.apiUrlPolicy;
 
   public static USER_TOKEN: string = 'USER-TOKEN';
   public static USER_DATA: string = 'USER-DATA';
@@ -81,8 +82,8 @@ export class AppConstants {
 
   public static CHANGE_PASSWORD: string = `${AppConstants.API_ENDPOINT}Customer/UpdateChangePassword`;
 
-  public static GET_QUOTE_RESPONSE_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}QuoteResponse/`;
-  public static GET_QUOTE_RESPONSE_BY_CUSTOMER_ID_IN_TYPE: string = `${AppConstants.API_ENDPOINT}QuoteResponse/`;
+  public static GET_QUOTE_RESPONSE_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT_POLICY}QuoteResponse/GetQuoteResponseByCustomerIDVehicleID`;
+  public static GET_QUOTE_RESPONSE_BY_CUSTOMER_ID_IN_TYPE: string = `${AppConstants.API_ENDPOINT_POLICY}QuoteResponse/GetQuoteResponseByCustomerIDVehicleID`;
 
   public static ADD_VEHICLE_IMAGE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}VehicleImage`;
   public static NEWS_SUBCRIPTION: string = `${AppConstants.API_ENDPOINT}Customer/AddNewsLetter`;
