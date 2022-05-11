@@ -73,7 +73,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     }, 1000);
     this.getPolicyByCustomerId();
     this.selectItem(0);
-    //this.getquoteResponseByType(this.policies[0].vehicleID);
+    //this.getquoteResponseByType(this.policies[0].vehicleId);
     if (
       this._router.url.startsWith(
         '/wazen/manage/upgrade-policy/choose-quotes/quote-request'
@@ -135,7 +135,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     // this.vehicleLength = Object.keys(this.localVehicleData).length;
     // this.policies.every((x: any) =>
     //   this.savedPolicies.policies.push({
-    //     id: x.vehicleID,
+    //     id: x.vehicleId,
     //     saved: false,
     //     valid: false,
     //     policyAmt: 0,
@@ -147,7 +147,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     //     console.log(res);
     //     if (res.succeeded) {
     //       this.policies = res.data;
-    //       this.policies.every((x: any) => this.savedPolicies.policies.push({ id: x.vehicleID, saved: false, valid: false }))
+    //       this.policies.every((x: any) => this.savedPolicies.policies.push({ id: x.vehicleId, saved: false, valid: false }))
     //       this.policyLength = res.data.length;
     //     }
     //   },
@@ -156,7 +156,7 @@ export class ViewQuoteRequestComponent implements OnInit {
   }
 
   selectItem(index: number) {
-    this.vehicleSelectedID = this.policies[index].vehicleID;
+    this.vehicleSelectedID = this.policies[index].vehicleData.vehicleId;
     this.getquoteResponseByType(this.vehicleSelectedID);
     window.scrollTo(0, 0);
     this.grandTotal && this.clearData();
@@ -256,7 +256,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     };
 
     this.savedVehicles[this.selectedVehicleIndex] = {
-      ...this.policies[this.selectedVehicleIndex],
+      ...this.policies[this.selectedVehicleIndex].vehicleData,
       policyDetails,
     };
     this.savedVehicles[this.selectedVehicleIndex]['valid'] = true;
@@ -324,7 +324,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     console.log(this.savedVehicles);
 
     let vehicle = this.savedVehicles.find(
-      (x: any) => x.vehicleID == this.vehicleSelectedID
+      (x: any) => x.vehicleId == this.vehicleSelectedID
     );
     if (vehicle && vehicle.valid) {
       this.savedVehicles[this.selectedVehicleIndex]['saved'] = true;

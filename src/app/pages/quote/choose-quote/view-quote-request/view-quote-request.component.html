@@ -22,11 +22,11 @@
                         [ngClass]="{'active': selectedVehicleIndex === i,'saved': selectedVehicleIndex > i || savedPolicies.allSaved}">
                         <div class="d-flex align-items-center policies-car">
                           <div class="policies-carname">
-                            <span>{{ policy.vehicleMake }} </span>
-                            <p class="mb-0">{{ policy.vehicleModel }}</p>
+                            <span>{{ policy.vehicleData.vehicleMake }} </span>
+                            <p class="mb-0">{{ policy.vehicleData.vehicleModel }}</p>
                           </div>
                           <div class="policies-carnum">
-                            <span>{{ policy.vehicleNumber.split('-')[0] }}</span>
+                            <span>{{ policy.vehicleData.vehicleNumber.split('-')[0] }}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22.774" height="32.25"
                               viewBox="0 0 22.774 32.25">
                               <g id="Group_581" data-name="Group 581" transform="translate(0 0)">
@@ -44,7 +44,7 @@
                                 </text>
                               </g>
                             </svg>
-                            <span>{{policy.vehicleNumber.split('-')[1]}}</span>
+                            <span>{{policy.vehicleData.vehicleNumber.split('-')[1]}}</span>
                           </div>
                         </div>
                         <table class="table table-sm table-borderless">
@@ -54,7 +54,7 @@
                                 <p class="fs-xs fw-5 mb-0">Policy Type:</p>
                               </td>
                               <td>
-                                <b class="fs-xs ">{{ !policy.policyType ? '-' : policy.policyType }} </b>
+                                <b class="fs-xs ">{{ !policy.vehicleData.policyType ? '-' : policy.vehicleData.policyType }} </b>
                               </td>
                             </tr>
                             <tr>
@@ -63,7 +63,7 @@
                                   Policy Expiry Date:
                                 </p>
                               </td>
-                              <td><b class="fs-xs ">{{ policy.expiryDate | date: "shortDate" }}</b></td>
+                              <td><b class="fs-xs ">{{ policy.vehicleData.expiryDate | date: "shortDate" }}</b></td>
                             </tr>
                           </tbody>
                         </table>
