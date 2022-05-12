@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 export class AppConstants {
   public static API_ENDPOINT: string = environment.apiUrl;
   public static API_ENDPOINT_POLICY: string = environment.apiUrlPolicy;
+  public static API_ENDPOINT_TRANSACTION: string = environment.apiUrlTransaction;
 
   public static USER_TOKEN: string = 'USER-TOKEN';
   public static USER_DATA: string = 'USER-DATA';
@@ -34,8 +35,8 @@ export class AppConstants {
   public static UPDATE_CUSTOMER: string = `${AppConstants.API_ENDPOINT}Customer`;
   public static CUSTOMER_SIGNUP: string = `${AppConstants.API_ENDPOINT}Customer/CustomerSignUpWithOTP`;
 
-  public static GET_CUSTOMER_TRANSACTION_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT}CustomerTransaction/CustomerTransactionCtID`;
-  public static GET_CUSTOMER_TRANSACTION_BY_DATE: string = `${AppConstants.API_ENDPOINT}CustomerTransaction/CustomerTransactionDate`;
+  public static GET_CUSTOMER_TRANSACTION_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT_TRANSACTION}CustomerTransaction/CustomerTransactionCtID`;
+  public static GET_CUSTOMER_TRANSACTION_BY_DATE: string = `${AppConstants.API_ENDPOINT_TRANSACTION}CustomerTransaction/CustomerTransactionDate`;
 
   public static GET_POLICY: string = `${AppConstants.API_ENDPOINT}MyPolicy/all`;
   public static GET_POLICY_BY_ID: string = `${AppConstants.API_ENDPOINT}MyPolicy/`;
@@ -43,7 +44,7 @@ export class AppConstants {
   public static ADD_POLICY: string = `${AppConstants.API_ENDPOINT}MyPolicy`;
   public static UPDATE_POLICY: string = `${AppConstants.API_ENDPOINT}MyPolicy`;
   public static DELETE_POLICY: string = `${AppConstants.API_ENDPOINT}MyPolicy/`;
-  public static GET_CUSTOMER_TRANSACTION: string = `${AppConstants.API_ENDPOINT}CustomerTransaction/all`;
+  public static GET_CUSTOMER_TRANSACTION: string = `${AppConstants.API_ENDPOINT_TRANSACTION}CustomerTransaction/all`;
 
   public static GET_CUSTOMER_BY_ID: string = `${AppConstants.API_ENDPOINT}Customer/`;
 
@@ -97,7 +98,8 @@ export class AppConstants {
 
   public static ADD_CLAIM_POLICY: string = `${AppConstants.API_ENDPOINT}PolicyClaim`;
 
-  public static GET_PAYMENT_FORM: string = `${AppConstants.API_ENDPOINT}Payment/GetPaymentForm`;
+  //public static GET_PAYMENT_FORM: string = `${AppConstants.API_ENDPOINT}Payment/GetPaymentForm`;
+  public static GET_PAYMENT_FORM: string = `${AppConstants.API_ENDPOINT_TRANSACTION}DirectPay`;
 
   public static GET_ALL_INSURANCE_COMPANIES_NAMES: string = `${AppConstants.API_ENDPOINT}InsuranceCompanies/GetAllInsuranceCompaniesNames`;
 

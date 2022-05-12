@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:54806/api/v1/',
   apiUrlPolicy: 'http://localhost:54807/api/v1/',
+  apiUrlTransaction: 'http://localhost:54809/api/v1/',
   fileUrl: 'http://localhost:54806/WazenUploads/',
   clientId:
     '232338756020-nm59sed4aufk0gtanlgoskdunmtluvin.apps.googleusercontent.com',
