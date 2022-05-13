@@ -134,15 +134,14 @@ export class ViewQuoteRequestComponent implements OnInit {
 
   getPolicyByCustomerId() {
     this.policies = JSON.parse(localStorage.getItem('localVehicleData'));
-    // this.vehicleLength = Object.keys(this.localVehicleData).length;
-    // this.policies.every((x: any) =>
-    //   this.savedPolicies.policies.push({
-    //     id: x.vehicleId,
-    //     saved: false,
-    //     valid: false,
-    //     policyAmt: 0,
-    //   })
-    // );
+    this.policies.every((x: any) =>
+      this.savedPolicies.policies.push({
+        id: x.vehicleData.vehicleId,
+        saved: false,
+        valid: false,
+        policyAmt: 0,
+      })
+    );
 
     // this._quoteService.getSelectedVehicleByCutomerId(this.CustomerId).subscribe(
     //   (res: IPolicyResponse) => {
@@ -206,7 +205,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     this.insuranceType = this.selectedTab == 0 ? 'Comprehensive' : 'TPL';
     this.isQuoteResponse = false;
     this._quoteService
-      .getquoteResponseByType(this.CustomerId, vehicleId)
+      .getquoteResponseByType(this.CustomerId, vehicleId, this.insuranceType)
       .subscribe(
         (res: IQuoteResponse) => {
           console.log(res);

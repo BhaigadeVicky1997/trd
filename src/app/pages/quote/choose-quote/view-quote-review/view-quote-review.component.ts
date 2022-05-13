@@ -86,7 +86,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     private _paymentFormService: PaymentformService,
     private _authService: AuthService,
     private _router: Router
-  ) {
+  ) {debugger;
     this.CustomerId = this._globalService.customerId.value;
     this.vehicles = this._globalService.selectedPolicyForVehicles.value;
     this.vehicles.forEach((vehicle) => {
@@ -114,7 +114,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     this.policies = JSON.parse(localStorage.getItem('localVehicleData'));
     this.policies.every((x: any) =>
       this.savedPolicies.policies.push({
-        id: x.vehicleID,
+        id: x.vehicleData.vehicleId,
         saved: false,
         valid: false,
         policyAmt: 0,
@@ -170,9 +170,9 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     this.selectedItem = index;
     this.vehicleImage = '';
     this.selectedIndex = index;
-    this.vehicleSelectedID = this.vehicles[index].vehicleID;
+    this.vehicleSelectedID = this.vehicles[index].vehicleData.vehicleID;
     this.isImageSaved = false;
-    this.selectedVehicle = this.vehicles[index];
+    this.selectedVehicle = this.vehicles[index].vehicleData;
     if (!isSelectedVehicleSaved) {
       this.totalAmount =
         this.selectedVehicle.policyDetails.premium.totalPremium + this.vat;

@@ -127,10 +127,11 @@ export class QuoteService {
 
   getquoteResponseByType(
     CustomerId: any,
-    VehicleId: any
+    VehicleId: any,
+    InsuranceType: any,
   ): Observable<IQuoteResponse> {
     return this._httpClient.get<IQuoteResponse>(
-      `${AppConstants.GET_QUOTE_RESPONSE_BY_CUSTOMER_ID_IN_TYPE}?CustomerID=${CustomerId}&VehicleID=${VehicleId}`
+      `${AppConstants.GET_QUOTE_RESPONSE_BY_CUSTOMER_ID_IN_TYPE}?CustomerID=${CustomerId}&VehicleID=${VehicleId}&QuoteType=${InsuranceType}`
     );
   }
   addVehicleImage(
