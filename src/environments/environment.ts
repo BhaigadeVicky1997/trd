@@ -4,9 +4,12 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:54806/api/v1/',
+  /*apiUrl: 'http://localhost:54806/api/v1/',
   apiUrlPolicy: 'http://localhost:54807/api/v1/',
-  apiUrlTransaction: 'http://localhost:54809/api/v1/',
+  apiUrlTransaction: 'http://localhost:54809/api/v1/',*/
+  apiUrl: 'http://180.149.247.134:8095/api/v1/',
+  apiUrlPolicy: 'http://180.149.247.134:8096/api/v1/',
+  apiUrlTransaction: 'http://180.149.247.134:8098/api/v1',
   fileUrl: 'http://localhost:54806/WazenUploads/',
   clientId:
     '232338756020-nm59sed4aufk0gtanlgoskdunmtluvin.apps.googleusercontent.com',
