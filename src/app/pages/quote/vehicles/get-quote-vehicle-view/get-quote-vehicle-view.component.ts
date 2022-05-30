@@ -65,6 +65,9 @@ export class GetQuotevehicleViewComponent implements OnInit {
   VehicalNotSelected: boolean = false;
   maxDate: Date = new Date();
   selectedVehicleIndex: any;
+  vehicleSeqId : any;
+  customerID:any;
+  sequnceNumber : any;
   vehiclePrimaryId: any;
   isParking: boolean = false;
   isMainDriver: boolean = false;
@@ -227,10 +230,10 @@ export class GetQuotevehicleViewComponent implements OnInit {
     window.scrollTo(0, 0);
     this.selectedVehicleIndex = index;
     this.VehicalNotSelected = true;
-    console.log(this.localVehicleData[0].vehicleData.vehicleId)
-    this.vehicleSelectedID = this.localVehicleData[0]?.vehicleData.vehicleId;
-    
-    this.vehiclePrimaryId = this.localVehicleData[0].vehicleData.vehicleId;
+    this.vehicleSelectedID = this.localVehicleData[index].vehicleData.vehicleId;
+    this.vehicleSeqId=this.localVehicleData[index].vehicleData.vehicleId;
+    this.vehiclePrimaryId = this.localVehicleData[index].vehicleData.vehicleId;
+    this.sequnceNumber = this.localVehicleData[index].vehicleData.sequenceNumber;
     !this.isCancelPolicyPage && !this.isFeaturePage && this.setAllDetails();
   }
 
@@ -480,7 +483,12 @@ export class GetQuotevehicleViewComponent implements OnInit {
     }
     if (this.vehicleFormData.valid && this.driverFormData.valid) {
       let ddob = new Date(driverFdata.driverDob).toISOString;
+      this.selectItem(this.selectedVehicleIndex);
+console.log(vehicleFdata.vehicleEstimateValue);
       let allData = {
+        id:  this.vehicleSeqId,
+        customerID:localStorage.getItem("tempCustomer_ID"),
+        sequenceNumber:this.sequnceNumber,
         isMainDriver: this.isMainDriver,
         vId: this.vId,
         vehicleID: this.vehicleSelectedID,
@@ -489,13 +497,14 @@ export class GetQuotevehicleViewComponent implements OnInit {
         parkingGarage: this.isParking,
         emiratesValue: vehicleFdata.vehicleEmiratesValue,
         dId: this.dId,
-        dnid: driverFdata.dnid,
+        driverNationalId: driverFdata.dnid,
         driverName: driverFdata.driverName,
         dateOfBirth: driverFdata.driverDob,
         education: driverFdata.driverEducation,
         medicalIssues: driverFdata.driverMedicle,
         vehicleViolation: this.violationData,
         isSelected: true,
+        estimateValue:vehicleFdata.vehicleEstimateValue
       };
       this._quoteService.updateAllDriverVehicle(allData).subscribe(
         (res: any) => {
