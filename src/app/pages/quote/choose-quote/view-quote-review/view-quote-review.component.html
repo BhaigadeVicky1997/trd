@@ -136,7 +136,7 @@
     <div class="card mt-3 mb-5 pt-lg-5" *ngIf="vehicleSelectedID">
       <div class="quote-review-wrap">
         <div class="row bg-sec mx-lg-4 mb-lg-3 py-lg-5 px-lg-5 br-5 m-0 pt-3 pb-md-3">
-          <div class="col-lg-5 col-md-6" *ngIf="selectedVehicle.policyDetails.product == 'Comprehensive'">
+          <div class="col-lg-5 col-md-6" *ngIf="selectedVehicle.product == 'Comprehensive'">
             <app-file-upload-wrapper [reset]="selectedIndex" (onChange)="onChange($event)" [files]="files">
             </app-file-upload-wrapper>
           </div>
@@ -150,11 +150,11 @@
                   </tr>
                   <tr>
                     <td>Insurance Company:</td>
-                    <td><b>{{selectedVehicle.policyDetails.companyName}}</b></td>
+                    <td><b>{{selectedVehicle.companyName}}</b></td>
                   </tr>
                   <tr>
                     <td>Policy type</td>
-                    <td><b>{{selectedVehicle.policyDetails.product}}</b></td>
+                    <td><b>{{selectedVehicle.product}}</b></td>
                   </tr>
                   <tr>
                     <td>Effective Date</td>
@@ -168,7 +168,7 @@
                   <tr>
                     <td>Premium</td>
                     <td>
-                      <div class="policies-price"> {{selectedVehicle.policyDetails.premium.totalPremium}} </div>
+                      <div class="policies-price"> {{selectedVehicle.premium.totalPremium}} </div>
                     </td>
                   </tr>
                 </tbody>
@@ -177,7 +177,7 @@
                 <div class="col-sm-12 col-lg-10 add-additional-list-con_sec my-4">
                   <p class="mb-0 fs-b fs-s textlight">Additional Coverage</p>
                   <div class="d-flex justify-content-between align-items-center my-3 px-3"
-                    *ngFor="let additionalCharge of selectedVehicle.policyDetails.premium.additionalCovers">
+                    *ngFor="let additionalCharge of selectedVehicle.premium.additionalCovers">
                     <ng-container *ngIf="additionalCharge.checked; else uncheckedCharges">
                       <p class="mb-0"> <i class="add-additional-check"></i>
                         {{additionalCharge.featureDesc}}</p>
@@ -193,10 +193,10 @@
               <table cellspacing="0" class="mb-4" *ngIf="!selectedVehicle.valid">
                 <tbody>
                   <tr
-                    *ngFor="let additionalCharge of selectedVehicle.policyDetails.premium.additionalCovers; let i = index">
+                    *ngFor="let additionalCharge of selectedVehicle.premium.additionalCovers; let i = index">
                     <td *ngIf="additionalCharge.checked">
                       <dl>
-                        <dt *ngIf="i == 0">Additional Coverage</dt>
+                        <dt *ngIf="i == 0">Additional Coverage</dt> 
                         <dd>{{additionalCharge.featureDesc}}</dd>
                       </dl>
                     </td>
@@ -241,7 +241,7 @@
             </div>
           </div>
           <div class="col-12 col-md-6 p-0"
-            [ngClass]="selectedVehicle.policyDetails.product === 'Comprehensive' ? 'offset-md-6' : 'offset-md-1'">
+            [ngClass]="selectedVehicle.product === 'Comprehensive' ? 'offset-md-6' : 'offset-md-1'">
             <div class="get-quote-wrap_total my-lg-3 p-3">
               <table>
                 <tbody>
@@ -277,7 +277,7 @@
             <button type="submit" class="btn-main px-5 m-w-100 mx-3" *ngIf="selectedItem != 0"
               (click)="goToPreviousVehicle()">Previous</button>
             <button class="btn-main px-5" *ngIf="!this.selectedVehicle.save"
-              [disabled]="(isSubmitted || (!isImageSaved && selectedVehicle.policyDetails.product == 'Comprehensive'))"
+              [disabled]="(isSubmitted || (!isImageSaved && selectedVehicle.product == 'Comprehensive'))"
               (click)="saveQuoteResponse()">
               <span *ngIf="isSubmitted" class="spinner-border spinner-border-sm" role="status"
                 aria-hidden="true"></span>

@@ -321,7 +321,7 @@ export class ViewQuoteRequestComponent implements OnInit {
   // }
 
   saveVehicle() {
-    debugger;
+    // debugger;
     console.log(this.savedVehicles);
 
     let vehicle = this.savedVehicles.find(
@@ -336,6 +336,7 @@ export class ViewQuoteRequestComponent implements OnInit {
       this.savedVehicles.forEach((x) => {
         this.grandTotal += x.policyDetails.premium.totalPremium;
       });
+      console.log(savedVehicles);
       this.policy.premiumDetails[
         this.selectedTab == 0 ? this.selectedDeductionIndex : 0
       ].totalPremium;
@@ -344,7 +345,9 @@ export class ViewQuoteRequestComponent implements OnInit {
       this.selectedItem = this.selectedItem + 1;
 
       if (this.selectedVehicleIndex == this.policies.length - 1) {
+        
         this._globalService.selectedPolicyForVehicles.next(this.savedVehicles);
+        
         this._router.navigateByUrl('wazen/quotes/choose-quotes/quote-review');
       } else {
         this._sharedUtils.showToast('Policy added.', '1');

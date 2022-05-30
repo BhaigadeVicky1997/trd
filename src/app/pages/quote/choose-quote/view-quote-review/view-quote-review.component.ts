@@ -86,9 +86,10 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     private _paymentFormService: PaymentformService,
     private _authService: AuthService,
     private _router: Router
-  ) {debugger;
+  ) {
     this.CustomerId = this._globalService.customerId.value;
-    this.vehicles = this._globalService.selectedPolicyForVehicles.value;
+     this.vehicles = this._globalService.selectedPolicyForVehicles.value;
+    console.log(this.vehicles)
     this.vehicles.forEach((vehicle) => {
       vehicle.valid = false;
       vehicle.save = false;
@@ -111,24 +112,28 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   }
 
   getPolicyByCustomerId() {
-    this.policies = JSON.parse(localStorage.getItem('localVehicleData'));
-    this.policies.every((x: any) =>
+    this.policies = JSON.parse(localStorage.getItem('localpolicyDetails'));
+    if(this.policies){
+      this.policies.every((x: any) =>
       this.savedPolicies.policies.push({
-        id: x.vehicleData.vehicleId,
+        id: x.policyDetails.vehicleId,
         saved: false,
         valid: false,
         policyAmt: 0,
       })
     );
-    // this.vehicleLength = Object.keys(this.localVehicleData).length;
+    }
+
+    // this.vehicleLength = Object.keys(this.localpolicyDetails).length;
   }
   tempData2: any = [];
   onAdditionalChargesChange(index: number) {
-    this.selectedVehicle.policyDetails.premium.additionalCovers[index].checked =
-      !this.selectedVehicle.policyDetails.premium.additionalCovers[index]
+    console.log(this.selectedVehicle)
+    this.selectedVehicle.premium.additionalCovers[index].checked =
+      !this.selectedVehicle.premium.additionalCovers[index]
         .checked;
     let charges =
-      this.selectedVehicle.policyDetails.premium.additionalCovers[index];
+      this.selectedVehicle.premium.additionalCovers[index];
     if (charges.checked) this.totalAmount += charges.featureAmount;
     else this.totalAmount -= charges.featureAmount;
   }
@@ -163,19 +168,23 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
         (err) => console.log(err)
       );
   }
+  
   tempData: any = [];
   selectItem(index: number, isSelectedVehicleSaved = false) {
+    console.log(index)
     window.scrollTo(0, 0);
     this.isSelectedVehicleSaved = isSelectedVehicleSaved;
     this.selectedItem = index;
     this.vehicleImage = '';
     this.selectedIndex = index;
-    this.vehicleSelectedID = this.vehicles[index].vehicleData.vehicleID;
+    this.vehicleSelectedID = this.vehicles[index].policyDetails.vehicleId;
+    console.log(this.vehicleSelectedID)
     this.isImageSaved = false;
-    this.selectedVehicle = this.vehicles[index].vehicleData;
+    this.selectedVehicle = this.vehicles[index].policyDetails;
+    console.log(this.selectedVehicle)
     if (!isSelectedVehicleSaved) {
       this.totalAmount =
-        this.selectedVehicle.policyDetails.premium.totalPremium + this.vat;
+        this.selectedVehicle.premium?.totalPremium + this.vat;
       this.serviceCharges.forEach((element) => {
         this.totalAmount += element.value;
       });
@@ -198,7 +207,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   openAddFilesDialog() {
     const e: HTMLElement = this.FileSelectInputDialog.nativeElement;
     e.click();
-  }
+  } 
 
   fileChangeEvent(fileInput: any) {
     this.imageError = null;
@@ -276,6 +285,13 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     // }
     // let savedVehicles = this.vehicles.filter((x: any) => x.save == true);
     // this.policySelect = savedVehicles.length;
+    this.vehicles.forEach((vehicle) => {
+      vehicle.valid = false;
+      vehicle.save = true;
+      // vehicle.policyDetails.premium.additionalCovers.forEach((x) => {
+      //   x.checked = false;
+      // });
+    });
     this.selectedVehicle.save = true;
     this.isSubmitted = false;
     this.sharedUtils.showToast(
@@ -285,11 +301,16 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   }
   tempData3: any = [];
   saveVehicle() {
+    console.log('save vehicle')
     // this.grandTotal += this.totalAmount;
     // this.grandTotal += parseInt(
     //   this.selectedVehicle.policyDetails.premium.totalPremium
     // );
     this.selectedVehicle.valid = true;
+    this.vehicles.forEach((vehicle)=>{
+      vehicle.save = true;
+      vehicle.valid = true;
+    })
     if (this.selectedIndex == this.vehicles.length - 1) {
       this.sharedUtils.showToast('Please checkout policies', '1');
     }
@@ -390,11 +411,11 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   }
 
   makeVehiclePolicy() {
-    debugger
+    // debugger
     this.serviceCharges.forEach((element) => {
       this.sumServiceCharge += element.value;
     });
-    this.selectedVehicle.policyDetails.premium.additionalCovers.forEach(
+    this.selectedVehicle.premium.additionalCovers.forEach(
       (element) => {
         if (element.checked == true) {
           this.sumAdditionalCoverage += element.featureAmount;
@@ -402,12 +423,12 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       }
     );
     let additionalCovers =
-      this.selectedVehicle.policyDetails.premium.additionalCovers.filter(
+      this.selectedVehicle.premium.additionalCovers.filter(
         (charge) => charge.checked == true
       );
     this.vehicleChosenList.push({
       customerID: this.CustomerId,
-      policyType: this.selectedVehicle.policyDetails.product,
+      policyType: this.selectedVehicle.product,
       expiryDate: this.selectedVehicle.expiryDate,
       vehicleId: this.selectedVehicle.vehicleID,
       insuranceCompanyName: 'ACIG',
@@ -415,7 +436,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       vehicleNumber: this.selectedVehicle.vehicleNumber,
       vehicleMake: this.selectedVehicle.vehicleMake,
       premiumAmount:
-        this.selectedVehicle.policyDetails.premium.totalPremium.toString(),
+        this.selectedVehicle.premium.totalPremium.toString(),
       additionalCoverageAmount: this.sumAdditionalCoverage.toString(),
       serviceChargeAmount: this.sumServiceCharge.toString(),
       additionalCoverage: JSON.stringify(additionalCovers),

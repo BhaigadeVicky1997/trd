@@ -144,6 +144,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
     this.localVehicleData = JSON.parse(
       localStorage.getItem('localVehicleData')
     );
+    console.log(this.localVehicleData)
     this.selectItem(0);
     this.vehicleLength = Object.keys(this.localVehicleData).length;
   }
@@ -221,12 +222,15 @@ export class GetQuotevehicleViewComponent implements OnInit {
   }
 
   selectItem(index: any) {
+    console.log(index)
     $('[href="#driver-details"]').tab('show');
     window.scrollTo(0, 0);
     this.selectedVehicleIndex = index;
     this.VehicalNotSelected = true;
-    this.vehicleSelectedID = this.localVehicleData[index].vehicleData.vehicleId;
-    this.vehiclePrimaryId = this.localVehicleData[index].vehicleData.vehicleId;
+    console.log(this.localVehicleData[0].vehicleData.vehicleId)
+    this.vehicleSelectedID = this.localVehicleData[0]?.vehicleData.vehicleId;
+    
+    this.vehiclePrimaryId = this.localVehicleData[0].vehicleData.vehicleId;
     !this.isCancelPolicyPage && !this.isFeaturePage && this.setAllDetails();
   }
 
