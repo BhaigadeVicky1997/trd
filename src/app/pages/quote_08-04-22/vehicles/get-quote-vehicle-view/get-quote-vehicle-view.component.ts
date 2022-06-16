@@ -335,7 +335,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
                 'Traffic Violation Added Successfully',
                 1
               );
-              //this.setAllDetails();
+              this.setAllDetails();
             } else {
               this._sharedUtils.showToast('Error', 0);
             }

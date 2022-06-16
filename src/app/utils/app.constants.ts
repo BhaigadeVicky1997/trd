@@ -73,8 +73,9 @@ export class AppConstants {
   // public static GET_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/GetDriver_VehicleAndViolationDetailsByVehicleID/`;
   public static GET_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/DriverVehicleDetailByVehicleId`;
   // public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}VehicleViolation/`;
-  public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/DeleteVehicleViolation`;
-  public static UPDATE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/UpdateVehicleViolation`; 
+  public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}TempVehicleViolation/DeleteTempVehicleViolation`;
+   //TempDriver/UpdateVehicleViolation
+  public static UPDATE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}TempVehicleViolation/UpdateTempVehicleViolation`; 
   // public static ADD_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/AddUpdateVehicleDriver`;
   public static ADD_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/AddandUpdateDriver`;
   // public static GET_ALL_MEDICLE_ISSUES: string = `${AppConstants.API_ENDPOINT}MedicalIssue/all`;

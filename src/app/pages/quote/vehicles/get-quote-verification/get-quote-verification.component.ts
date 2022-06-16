@@ -53,7 +53,7 @@ export class GetQuoteVerificationComponent implements OnInit {
   }
 
   sendOTPByCustomerId() {
-    this._sharedUtils.showSpinner();
+    // this._sharedUtils.showSpinner();
     this._quoteService.getOtpByCustomerId(this.customerId).subscribe(
       (res: IOtpSendResponse) => {
         console.log(res);
@@ -90,7 +90,7 @@ export class GetQuoteVerificationComponent implements OnInit {
   }
   
   sendOTPByID() {
-    this._sharedUtils.showSpinner();
+    // this._sharedUtils.showSpinner();
     this._quoteService.getOtpByNationalId(this.Id, this.Dob).subscribe(
       (res: IOtpSendResponse) => {
         console.log(res);
@@ -115,7 +115,11 @@ export class GetQuoteVerificationComponent implements OnInit {
   }
 
   verifyOTP(data: any) {
-    this._sharedUtils.showSpinner();
+    // this._sharedUtils.showSpinner();
+    //Need to remove below line testing
+    this.disclaimer = true;
+     return false
+
     this.otp = data.one + '' + data.two + '' + data.three + '' + data.four;
     this._quoteService.getOtpVerify(this.customerId, this.otp).subscribe(
       (res: any) => {

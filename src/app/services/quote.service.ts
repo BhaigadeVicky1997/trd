@@ -15,7 +15,7 @@ import { IVehicleResponse } from '../models/IVehicles';
 })
 export class QuoteService {
   constructor(private _httpClient: HttpClient) {}
-
+  
   getOtpByNationalId(Id: number, Dob: string): Observable<IOtpSendResponse> {
     return this._httpClient.get<IOtpSendResponse>(
       `${AppConstants.GET_QUOTE_BY_NATIONALID}?NIN=${Id}&DateOfBirth=${Dob}`
