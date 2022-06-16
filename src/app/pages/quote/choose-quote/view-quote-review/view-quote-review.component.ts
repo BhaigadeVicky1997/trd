@@ -72,7 +72,8 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   paymentAmt: IPaymentAmt;
   inputFields: string;
   redirectform: string;
-  vehicleChosenList: IVehicle[] = [];
+  // IVehicle[]
+  vehicleChosenList: any[] = [];
   sumServiceCharge: number = 0;
   sumAdditionalCoverage: number = 0;
   compeletedVehicles: number = 0;
@@ -319,6 +320,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     this.closeAdditionalPopup();
   }
   onNextPolicy() {
+    this._authService.userFlagForSpecialCase.next(true);
     this.selectedVehicle['totalAmount'] = this.totalAmount;
     this.makeVehiclePolicy();
     this.grandTotal += this.totalAmount;
@@ -333,6 +335,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       let user = this._authService.userState.value;
       if (!Object.keys(user).length) {
         this._authService.userState.subscribe((res) => {
+          console.log(res)
           if (Object.keys(res).length) {
             this.checkoutPolicies();
           }
@@ -355,6 +358,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     window.scrollTo(0, 0);
   }
   checkoutPolicies() {
+    console.log('Chcckp')
     if (
       this._router.url.startsWith(
         '/wazen/manage/upgrade-policy/choose-quotes/quote-review'
@@ -369,7 +373,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       vehicleList: this.vehicleChosenList,
     };
     console.log(this.paymentAmt);
-
+    return false;
     this._paymentFormService.getPaymentForm(this.paymentAmt).subscribe(
       (res: any) => {
         console.log(res);
@@ -411,6 +415,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   }
 
   makeVehiclePolicy() {
+    console.log(this.selectedVehicle)
     // debugger
     this.serviceCharges.forEach((element) => {
       this.sumServiceCharge += element.value;
@@ -429,12 +434,12 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     this.vehicleChosenList.push({
       customerID: this.CustomerId,
       policyType: this.selectedVehicle.product,
-      expiryDate: this.selectedVehicle.expiryDate,
-      vehicleId: this.selectedVehicle.vehicleID,
+      // expiryDate: this.selectedVehicle.expiryDate,
+      // vehicleId: this.selectedVehicle.vehicleId,  
       insuranceCompanyName: 'ACIG',
-      vehicleModel: this.selectedVehicle.vehicleModel,
-      vehicleNumber: this.selectedVehicle.vehicleNumber,
-      vehicleMake: this.selectedVehicle.vehicleMake,
+      // vehicleModel: this.selectedVehicle.vehicleModel,
+      // vehicleNumber: this.selectedVehicle.vehicleNumber,
+      // vehicleMake: this.selectedVehicle.vehicleMake,
       premiumAmount:
         this.selectedVehicle.premium.totalPremium.toString(),
       additionalCoverageAmount: this.sumAdditionalCoverage.toString(),

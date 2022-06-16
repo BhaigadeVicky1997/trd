@@ -40,7 +40,7 @@ export class SharedUtils {
     this._spinner.hide();
   }
 
-  showToast(msg, type) {
+  showToast(msg:any, type) {
     const opt: any = cloneDeep(this.options);
     opt.toastComponent = CustomToastComponent;
     opt.toastClass = 'notyf confirm';

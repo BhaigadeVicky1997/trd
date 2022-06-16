@@ -73,8 +73,9 @@ export class SigninComponent implements OnInit {
         .subscribe(
           (res: ISignInResponse) => {
             console.log(res);
-            if (res.succeeded && res.data) {
-              if (res.data.isVerified) {
+            // res.succeeded
+            if (res) {
+              if (res.isAuthenticated == true) {
                 this.signInButton.nativeElement.click();
                 this._sharedUtils.showToast('Welcome user', 1);
                 if (this.checkUrl == true) {
@@ -89,7 +90,8 @@ export class SigninComponent implements OnInit {
                 $('#email-verification-popup').modal('show');
               }
             } else {
-              this._sharedUtils.showToast('Please verify your credentials', 0);
+              console.log(res)
+                this._sharedUtils.showToast(res.message, 0);
             }
             this.isSubmitted = false;
           },

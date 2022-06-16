@@ -2,8 +2,10 @@ import { environment } from '../../environments/environment';
 
 export class AppConstants {
   public static API_ENDPOINT: string = environment.apiUrl;
+  public static API_IDENTITY_ENDPOINT: string = environment.identityUrl; 
   public static API_ENDPOINT_POLICY: string = environment.apiUrlPolicy;
   public static API_ENDPOINT_TRANSACTION: string = environment.apiUrlTransaction;
+
 
   public static USER_TOKEN: string = 'USER-TOKEN';
   public static USER_DATA: string = 'USER-DATA';
@@ -19,7 +21,7 @@ export class AppConstants {
   public static GET_ROLES: string = `${AppConstants.API_ENDPOINT}Role/all`;
   public static ADD_ROLES: string = `${AppConstants.API_ENDPOINT}Role/all`;
 
-  public static GET_CUSTOMER_LOGIN: string = `${AppConstants.API_ENDPOINT}Customer/CustomerSignIn`;
+  public static GET_CUSTOMER_LOGIN: string = `${AppConstants.API_IDENTITY_ENDPOINT}Account/authenticate`;
   public static GET_USER_BY_ID: string = `${AppConstants.API_ENDPOINT}User/`;
   public static GET_USER_BY_EmailF: string = `${AppConstants.API_ENDPOINT}User/ForgotPassword/`;
 
@@ -33,8 +35,7 @@ export class AppConstants {
 
   public static UPDATE_CUSTOMER_LOGIN: string = `${AppConstants.API_ENDPOINT}Customer/UpdateCustomerEmailAndPassword`;
   public static UPDATE_CUSTOMER: string = `${AppConstants.API_ENDPOINT}Customer`;
-  public static CUSTOMER_SIGNUP: string = `${AppConstants.API_ENDPOINT}Customer/CustomerSignUpWithOTP`;
-
+  public static CUSTOMER_SIGNUP: string = `${AppConstants.API_ENDPOINT}Account/register`;
   public static GET_CUSTOMER_TRANSACTION_BY_CUSTOMER_ID: string = `${AppConstants.API_ENDPOINT_TRANSACTION}CustomerTransaction/CustomerTransactionCtID`;
   public static GET_CUSTOMER_TRANSACTION_BY_DATE: string = `${AppConstants.API_ENDPOINT_TRANSACTION}CustomerTransaction/CustomerTransactionDate`;
 
@@ -49,7 +50,7 @@ export class AppConstants {
   public static GET_CUSTOMER_BY_ID: string = `${AppConstants.API_ENDPOINT}Customer/`;
 
   public static UPDATE_CUSTOMERS: string = `${AppConstants.API_ENDPOINT}Customer/`;
-
+  
   //Get Quote//
   // public static GET_QUOTE_BY_NATIONALID: string = `${AppConstants.API_ENDPOINT}Customer/GetCustomerQuoteOTP`;
   public static GET_QUOTE_BY_NATIONALID: string = `${AppConstants.API_ENDPOINT}TempCustomer/GetQuoteByNINAndDOB`;
@@ -68,18 +69,20 @@ export class AppConstants {
   // public static GET_ALL_VIOLATION_TYPE: string = `${AppConstants.API_ENDPOINT}ViolationType/all`;
   public static GET_ALL_VIOLATION_TYPE: string = `${AppConstants.API_ENDPOINT}TempDriver/allViolationType`;
   // public static ADD_VEHICLE_VIOLATION: string = `${AppConstants.API_ENDPOINT}VehicleViolation`;
-  public static ADD_VEHICLE_VIOLATION: string = `${AppConstants.API_ENDPOINT}TempDriver/AddVehicleViolation`;
+  public static ADD_VEHICLE_VIOLATION: string = `${AppConstants.API_ENDPOINT}TempVehicleViolation/AddTempVehicleViolation`;
   // public static GET_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/GetDriver_VehicleAndViolationDetailsByVehicleID/`;
   public static GET_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/DriverVehicleDetailByVehicleId`;
   // public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}VehicleViolation/`;
   public static DELETE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/DeleteVehicleViolation`;
-  public static UPDATE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}VehicleViolation/`;
+  public static UPDATE_VEHICLE_VIOLATION_BY_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/UpdateVehicleViolation`; 
   // public static ADD_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}Vehicle/AddUpdateVehicleDriver`;
   public static ADD_ALL_VEHICLE_BY_VEHICLE_ID: string = `${AppConstants.API_ENDPOINT}TempDriver/AddandUpdateDriver`;
   // public static GET_ALL_MEDICLE_ISSUES: string = `${AppConstants.API_ENDPOINT}MedicalIssue/all`;
   public static GET_ALL_MEDICLE_ISSUES: string = `${AppConstants.API_ENDPOINT}TempDriver/allMedicalIssue`;
   // public static GET_ALL_VEHICLE_PURPOSE: string = `${AppConstants.API_ENDPOINT}VehiclePurpose/all`;
   public static GET_ALL_VEHICLE_PURPOSE: string = `${AppConstants.API_ENDPOINT}TempDriver/allVehiclePurpose`;
+
+  public static CREATE_VEHICLE_DRIVER_BY_TEMPCUSTOMERID: string = `${AppConstants.API_ENDPOINT}TempVehicle/CreateVehicleDriverByTempCustomerId`
 
   public static CHANGE_PASSWORD: string = `${AppConstants.API_ENDPOINT}Customer/UpdateChangePassword`;
 

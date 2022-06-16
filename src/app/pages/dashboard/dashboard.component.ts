@@ -130,8 +130,8 @@ export class DashboardComponent implements OnInit {
                 email: 'rohitchauhan8898515299@gmail.com',
               };
               this._globalService.quoteUser.next(user);
-              this._globalService.customerId.next(res.data.id);
-              localStorage.setItem('tempCustomer_ID', res.data.id);
+              // this._globalService.customerId.next(res.data.id);
+              localStorage.setItem('tempCustomer_ID',res.data.id );
               setTimeout(() => {
                 // this.sharedUtils.showToast(
                 //   'OTP is send to your mobile or email id',

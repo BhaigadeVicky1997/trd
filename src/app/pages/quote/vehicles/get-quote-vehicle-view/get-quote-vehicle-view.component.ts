@@ -52,12 +52,12 @@ export class GetQuotevehicleViewComponent implements OnInit {
   violationFormData: FormGroup;
   OwnerForm: FormGroup;
   vehicleSelectedID: any;
-  violationData: any[] = [];
+  violationData: any = [ ];
   vData: [] = [];
   quoteData: any;
   editTraffic: any;
   editViolationId: any = '';
-  parkingGarage: any;
+  parkingGarage: any = [];
   vehicleLength;
   showQouotebutton: any = 'Save Details';
   itemIndexes: any = 0;
@@ -143,7 +143,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
       }, 1000);
     }
 
-    // this.localVehicleData = this._globalService.vehicalLocalList.value;
+    this.localVehicleData = this._globalService.vehicalLocalList.value;
     this.localVehicleData = JSON.parse(
       localStorage.getItem('localVehicleData')
     );
@@ -230,10 +230,10 @@ export class GetQuotevehicleViewComponent implements OnInit {
     window.scrollTo(0, 0);
     this.selectedVehicleIndex = index;
     this.VehicalNotSelected = true;
-    this.vehicleSelectedID = this.localVehicleData[index].vehicleData.vehicleId;
-    this.vehicleSeqId=this.localVehicleData[index].vehicleData.vehicleId;
-    this.vehiclePrimaryId = this.localVehicleData[index].vehicleData.vehicleId;
-    this.sequnceNumber = this.localVehicleData[index].vehicleData.sequenceNumber;
+    this.vehicleSelectedID = this.localVehicleData[index]?.vehicleData.vehicleId;
+    this.vehicleSeqId=this.localVehicleData[index]?.vehicleData.vehicleId;
+    this.vehiclePrimaryId = this.localVehicleData[index]?.vehicleData.vehicleId;
+    this.sequnceNumber = this.localVehicleData[index]?.vehicleData.sequenceNumber;
     !this.isCancelPolicyPage && !this.isFeaturePage && this.setAllDetails();
   }
 
@@ -245,13 +245,21 @@ export class GetQuotevehicleViewComponent implements OnInit {
       .getAllVehicleDataByVehicleID(this.vehicleSelectedID)
       .subscribe(
         (res: any) => {
-          if (res.data) {
+          console.log('Get Vehicle Deatils');
+          console.log(res)
+          if(res.data.length === 0){
+            this._sharedUtils.hideSpinner();
+
+          }
+          else if (res.data) {
             this.violationData = res.data[0].vehicleViolation;
             this.vData = res.data[0].vehicleViolation;
             this.quoteData = res.data;
             console.log(this.quoteData);
             this.dId = this.quoteData[0].dId;
             this.vId = this.quoteData[0].vid;
+            console.log(this.dId);
+            console.log(this.vId);
             //let ddob = new Date(this.quoteData[0].driverDob).toISOString();
             // Set Values
             this.isMainDriver = this.quoteData[0].isMainDriver;
@@ -281,6 +289,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
             );
             this.isParking = this.quoteData[0].parkingGarage;
           }
+           
           this._sharedUtils.hideSpinner();
           // emiratesValue: null
           // isSelected: false
@@ -335,6 +344,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
                 ...this.parkingGarage,
                 violationTypeName: violationTypeName.name,
               };
+              console.log(this.parkingGarage)
               this.violationData.push(this.parkingGarage);
               this._sharedUtils.showToast(
                 'Traffic Violation Added Successfully',
@@ -435,7 +445,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
         }
         this._sharedUtils.hideSpinner();
         this.deleteViolationId = '';
-        //this.setAllDetails();
+        this.setAllDetails();
       });
   }
 
@@ -490,22 +500,27 @@ console.log(vehicleFdata.vehicleEstimateValue);
         customerID:localStorage.getItem("tempCustomer_ID"),
         sequenceNumber:this.sequnceNumber,
         isMainDriver: this.isMainDriver,
-        vId: this.vId,
+        vId: this.vehicleSelectedID,
         vehicleID: this.vehicleSelectedID,
-        purposeofVehicle: vehicleFdata.vehiclePurposeId,
+        // purposeofVehicle: vehicleFdata.vehiclePurposeId,
+        vehiclePurposeId: Number(vehicleFdata.vehiclePurposeId),
         averageDailyMileage: vehicleFdata.vehicleAvgMil,
         parkingGarage: this.isParking,
         emiratesValue: vehicleFdata.vehicleEmiratesValue,
-        dId: this.dId,
+        // dId: this.dId,
+        driverId: this.dId,
         driverNationalId: driverFdata.dnid,
         driverName: driverFdata.driverName,
         dateOfBirth: driverFdata.driverDob,
-        education: driverFdata.driverEducation,
-        medicalIssues: driverFdata.driverMedicle,
+        educationId: Number(driverFdata.driverEducation),
+        medicalIssueId: Number(driverFdata.driverMedicle),
         vehicleViolation: this.violationData,
         isSelected: true,
-        estimateValue:vehicleFdata.vehicleEstimateValue
+        estimateValue:vehicleFdata.vehicleEstimateValue,
+        genderId: 1
       };
+      console.log(allData)
+      // return false
       this._quoteService.updateAllDriverVehicle(allData).subscribe(
         (res: any) => {
           if (res.succeeded) {

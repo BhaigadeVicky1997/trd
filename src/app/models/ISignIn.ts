@@ -50,6 +50,7 @@ export interface ISignIn {
   logId?: any;
   idIssuePlace?: any;
   token: string;
+ 
 }
 
 export interface ISignInResponse extends IStatus {

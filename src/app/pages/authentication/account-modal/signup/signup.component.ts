@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerSignup = this._formBuilder.group({
-      salutation: new FormControl('Mr.'),
+      salutation: new FormControl("1"),
       firstName: new FormControl('', [
         Validators.required,
         Validators.pattern('^[A-Za-z]+$'),
@@ -66,7 +66,7 @@ export class SignupComponent implements OnInit {
       ]),
       nationalID: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[1|2|7]+[0-9]{9}$'),
+        // Validators.pattern('^[1|2|7]+[0-9]{9}$'),
       ]),
       email: new FormControl('', [
         Validators.required,
@@ -94,6 +94,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup() {
+    
     this.isSubmitted = true;
     for (const i in this.customerSignup.controls) {
       this.customerSignup.controls[i].markAsDirty();
@@ -101,7 +102,7 @@ export class SignupComponent implements OnInit {
     }
     if (this.customerSignup.valid) {
       this._authService.signup(this.customerSignup.value).subscribe(
-        (res: any) => {
+        (res: any) => { 
           console.log(res);
           if (res.succeeded) {
             if (res.data) this._globalService.customerId.next(res.data.id);
@@ -112,13 +113,19 @@ export class SignupComponent implements OnInit {
             $('#email-verification-popup').modal('show');
             this.customerSignup.reset();
           } else {
-            if (
+            if(res.message === 'User Already Exist'){
+              this._sharedUtils.showToast('User Already Exist', 0);
+              this.isSubmitted = false;
+              return;
+            }
+            else if (
               JSON.stringify(res.data.email) ===
               JSON.stringify(this.customerSignup.get('email').value)
             ) {
               this.isEmailExist = true;
               this.isMobileExist = false;
-            } else if (
+            } 
+            else if (
               JSON.stringify(res.data.mobile) ===
               JSON.stringify(this.customerSignup.get('contact').value)
             ) {

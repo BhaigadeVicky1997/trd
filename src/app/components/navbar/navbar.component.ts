@@ -53,6 +53,8 @@ export class NavbarComponent implements OnInit {
     private _authService: AuthService
   ) {
     this._authService.userState.subscribe((res: any) => {
+      console.log(res);
+  
       if (Object.keys(res).length) {
         this.user = res.username;
       } else {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { IForgotPasswordResponse } from '../models/IAuthentication';
+import {  ToastrService } from 'ngx-toastr';
 import {
   ISignIn,
   ISignInResponse,
@@ -20,7 +21,10 @@ import { GlobalService } from './global.service';
 })
 export class AuthService {
   userState: BehaviorSubject<{}> = new BehaviorSubject<{}>(null);
+  userFlagForSpecialCase: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
   constructor(
+    private _ToastrService:ToastrService,
     private _router: Router,
     private _httpClient: HttpClient,
     private _globalService: GlobalService
@@ -35,22 +39,28 @@ export class AuthService {
   }
 
   signin(user, rememberMe): Observable<ISignInResponse> {
+    let signinData = {
+      email: user.username,
+      password: user.password,
+    };
     return this._httpClient
-      .get<ISignInResponse>(
-        `${AppConstants.GET_CUSTOMER_LOGIN}?EmailAddress=${user.username}&Password=${user.password}`
-      )
+      .post<IStatus>(`${AppConstants.GET_CUSTOMER_LOGIN}`, signinData)
       .pipe(
-        tap((res: ISignInResponse) => {
-          if (res.succeeded && res.data) {
-            if (res.data.isVerified) {
+        tap((res: any) => {
+          console.log(res);
+          if (res) {
+            if (res.isAuthenticated) {
               let data = {
-                id: res.data.id,
-                englishFirstName: res.data.englishFirstName,
-                email: res.data.email,
-                mobile: res.data.mobile,
+                id: res.data?.id,
+                // englishFirstName: res.data.englishFirstName,
+                email: res.data?.email,
+                password: signinData.password,
+                username: res.data?.userName,
+                // mobile: res.data.mobile,
               };
               this.setUser(data);
             } else {
+              this._ToastrService.error(res.message)
               this._globalService.customerId.next(res.data.id);
             }
           }
@@ -119,32 +129,58 @@ export class AuthService {
   }
 
   signup(customer): Observable<any> {
+    // let signupData = {
+    //   salutation: customer.salutation,
+    //   englishFirstName: customer.firstName,
+    //   englishLastName: customer.lastName,
+    //   email: customer.email,
+    //   mobile: customer.contact,
+    //   password: customer.password,
+    //   nationalID: customer.nationalID,
+    // };
     let signupData = {
-      salutation: customer.salutation,
-      englishFirstName: customer.firstName,
-      englishLastName: customer.lastName,
+      salutationId: parseInt(customer.salutation),
+      firstName: customer.firstName,
+      lastName: customer.lastName,
+      nationalIdTypeId: 2,
+      nin: customer.nationalID,
+      // customer.nationalID
+      roleName: 'CUSTOMER',
       email: customer.email,
-      mobile: customer.contact,
       password: customer.password,
-      nationalID: customer.nationalID,
+      mobile: customer.contact,
     };
+    console.log(signupData);
     return this._httpClient
       .post<IStatus>(`${AppConstants.CUSTOMER_SIGNUP}`, signupData)
       .pipe(
         tap((res: any) => {
-          if (res.succeeded && res.data) {
-            this._globalService.customerId.next(res.data.id);
+          console.log(res);
+          if (res.succeeded == true) {
+            this._globalService.customerId.next(res.id);
+            this.userFlagForSpecialCase.subscribe((flag) => {
+              if (flag == true) {
+                this._globalService.customerId.subscribe((customerID) => {
+                  const tempCustID = localStorage.getItem('tempCustomer_ID');
+                  console.log(tempCustID,customerID)
+                  this._httpClient.get<any>(
+                    `${AppConstants.CREATE_VEHICLE_DRIVER_BY_TEMPCUSTOMERID}?TempCustomerId=${tempCustID}&CustomerId=${customerID}`
+                  ).subscribe(res=>{})
+                });
+              }
+            });
           }
         })
       );
   }
 
   setUser(customer: any) {
+    console.log(customer);
     let data = {
       id: customer.id,
-      username: customer.englishFirstName,
+      username: customer.username,
       email: customer.email,
-      mobile: customer.mobile,
+      // mobile: customer.mobile,
     };
     let token = btoa(JSON.stringify(data));
     this._globalService.customerId.next(customer.id);

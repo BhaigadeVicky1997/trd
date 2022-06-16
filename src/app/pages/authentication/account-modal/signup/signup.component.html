@@ -10,11 +10,11 @@
         <div class="form-row d-flex"
           [class.mb-3]="!customerSignup.controls.firstName.dirty || !customerSignup.controls.firstName.errors">
           <div class="form-group col-md-2 col-3">
-            <select class="form-control" formControlName="salutation">
-              <option value="Mr.">
+            <select class="form-control" placeholder="customerSignup.salutation.value" formControlName="salutation">
+              <option selected value="1">
                 {{ "auth.tabs.signup.input.mr" | translate }}
               </option>
-              <option value="Mrs.">
+              <option value="2">
                 {{ "auth.tabs.signup.input.mrs" | translate }}
               </option>
             </select>
@@ -202,9 +202,9 @@
               <span *ngIf="isSubmitted" class="spinner-border spinner-border-sm" role="status"
                 aria-hidden="true"></span>
               {{
-              isSubmitted
-              ? ("pleaseWait" | translate)
-              : ("auth.tabs.signup.input.jointoWazen" | translate)
+              !isSubmitted
+              ? ("auth.tabs.signup.input.jointoWazen" | translate) : ("pleaseWait" | translate)
+        
               }}
             </button>
           </div>
@@ -216,7 +216,7 @@
             </button>
             <button type="submit" class="btn-main" (click)="OnEditProfile()">
               {{
-              isSubmitted ? ("pleaseWait" | translate) : ("save" | translate)
+              !isSubmitted ? ("save" | translate) : ("pleaseWait" | translate) 
               }}
             </button>
           </div>
