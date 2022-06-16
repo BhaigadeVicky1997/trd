@@ -202,7 +202,7 @@ export class ViewQuoteRequestComponent implements OnInit {
   }
 
   getquoteResponseByType(vehicleId: string) {
-    this.insuranceType = this.selectedTab == 0 ? 'TPL' : '';
+    this.insuranceType = this.selectedTab == 0 ? 'CMP' :'TPL';
     this.isQuoteResponse = false;
     this._quoteService
       .getquoteResponseByType(this.CustomerId, vehicleId, this.insuranceType)
