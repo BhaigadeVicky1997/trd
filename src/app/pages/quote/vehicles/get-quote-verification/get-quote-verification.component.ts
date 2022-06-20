@@ -118,6 +118,9 @@ export class GetQuoteVerificationComponent implements OnInit {
     // this._sharedUtils.showSpinner();
     //Need to remove below line testing
     this.disclaimer = true;
+    this._router.navigateByUrl(
+      '/wazen/quotes/vehicles/vehicles/' + this.customerId
+    );
      return false
 
     this.otp = data.one + '' + data.two + '' + data.three + '' + data.four;

@@ -12,6 +12,7 @@ export class GlobalService {
   public quoteUser: BehaviorSubject<{}> = new BehaviorSubject({});
   public resetEmail: BehaviorSubject<string> = new BehaviorSubject('');
   public vehicalLocalList: BehaviorSubject<[]> = new BehaviorSubject([]);
+  public idID:BehaviorSubject<any> = new BehaviorSubject(null);
   public claimPolicy: BehaviorSubject<any> = new BehaviorSubject({});
   public selectedPolicyForVehicles: BehaviorSubject<any> = new BehaviorSubject(
     []

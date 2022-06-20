@@ -165,7 +165,9 @@ export class AuthService {
                   console.log(tempCustID,customerID)
                   this._httpClient.get<any>(
                     `${AppConstants.CREATE_VEHICLE_DRIVER_BY_TEMPCUSTOMERID}?TempCustomerId=${tempCustID}&CustomerId=${customerID}`
-                  ).subscribe(res=>{})
+                  ).subscribe(res=>{
+                    console.log(res)
+                  })
                 });
               }
             });

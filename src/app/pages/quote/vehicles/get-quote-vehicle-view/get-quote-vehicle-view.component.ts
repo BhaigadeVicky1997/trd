@@ -240,6 +240,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
   vId: any;
   dId: any;
   setAllDetails() {
+    console.log(this.vehicleSelectedID)
     this._sharedUtils.showSpinner();
     this._quoteService
       .getAllVehicleDataByVehicleID(this.vehicleSelectedID)
@@ -260,6 +261,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
             this.vId = this.quoteData[0].vid;
             console.log(this.dId);
             console.log(this.vId);
+            this._quoteService.getVoilationByVehicle.next(this.quoteData.tempVehicleViolation)
             //let ddob = new Date(this.quoteData[0].driverDob).toISOString();
             // Set Values
             this.isMainDriver = this.quoteData[0].isMainDriver;
@@ -423,6 +425,11 @@ export class GetQuotevehicleViewComponent implements OnInit {
     this.displayDelete = 'none';
     this.displayConfirm = 'none';
     this.violationFormData.reset();
+  }
+
+  //Get all voilation List
+  getAllTrafficVoilationList(){
+    this._quoteService
   }
 
   // Show remove popup for quote list

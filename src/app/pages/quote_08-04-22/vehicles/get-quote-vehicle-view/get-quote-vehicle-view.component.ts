@@ -231,6 +231,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
   vId: any;
   dId: any;
   setAllDetails() {
+    console.log(this.vehicleSelectedID)
     this._sharedUtils.showSpinner();
     this._quoteService
       .getAllVehicleDataByVehicleID(this.vehicleSelectedID)

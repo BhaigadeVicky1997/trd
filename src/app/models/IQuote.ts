@@ -51,6 +51,7 @@ export interface Quote {
   quotationNo: string;
   product: string;
   companyName: string;
+  icid:string;
   premiumDetails: PremiumDetail[];
 }
 

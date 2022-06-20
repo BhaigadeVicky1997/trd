@@ -164,7 +164,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     this.selectedItem = index;
     this.selectedVehicleIndex = index;
 
-    //this.setAllDetails();
+    this.setAllDetails();
     this.selectedDeductionIndex = Math.round(this.policyPremiums.length / 2);
     // this.deductionSelectedIndex[index] = this.selectedDeductionIndex;
   }
@@ -180,6 +180,7 @@ export class ViewQuoteRequestComponent implements OnInit {
   }
 
   setAllDetails() {
+    console.log(this.vehicleSelectedID)
     this._quoteService
       .getAllVehicleDataByVehicleID(this.vehicleSelectedID)
       .subscribe((res: any) => {
@@ -202,7 +203,7 @@ export class ViewQuoteRequestComponent implements OnInit {
   }
 
   getquoteResponseByType(vehicleId: string) {
-    this.insuranceType = this.selectedTab == 0 ? 'CMP' :'TPL';
+    this.insuranceType = this.selectedTab == 0 ? 'TPL' : '';
     this.isQuoteResponse = false;
     this._quoteService
       .getquoteResponseByType(this.CustomerId, vehicleId, this.insuranceType)
@@ -255,7 +256,7 @@ export class ViewQuoteRequestComponent implements OnInit {
       vehicleId: this.policy.vehicleId,
       premium: selectedPolicy,
     };
-
+   this._globalService.idID.next(this.policy.icid);
     this.savedVehicles[this.selectedVehicleIndex] = {
       ...this.policies[this.selectedVehicleIndex].vehicleData,
       policyDetails,

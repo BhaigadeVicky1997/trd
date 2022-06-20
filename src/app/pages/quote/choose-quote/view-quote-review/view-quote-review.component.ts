@@ -320,7 +320,10 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     this.closeAdditionalPopup();
   }
   onNextPolicy() {
-    this._authService.userFlagForSpecialCase.next(true);
+    console.log('HI CHECKOUT');
+    console.log(this.vehicles);
+    console.log(this.selectedVehicle)
+    // this._authService.userFlagForSpecialCase.next(true);
     this.selectedVehicle['totalAmount'] = this.totalAmount;
     this.makeVehiclePolicy();
     this.grandTotal += this.totalAmount;
@@ -328,6 +331,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     // this.selectedVehicle.policyDetails.premium.additionalCovers.forEach(
     //   (charge) => (charge.checked = false)
     // );
+
     this.compeletedVehicles = this.vehicles.filter(
       (x) => x.save == true
     ).length;
@@ -367,13 +371,18 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       if (!this.isTermsAccepted) return;
 
     this.sharedUtils.showSpinner();
-    this.paymentAmt = {
-      amount: Math.round(this.grandTotal * 100),
-      language: 'en',
-      vehicleList: this.vehicleChosenList,
-    };
+    this._globalService.idID.subscribe(icid=>{
+      this.paymentAmt = {
+        amount: Math.round(this.grandTotal * 100),
+        language: 'en',
+        vehicleList: this.vehicleChosenList,
+        ICID: icid,
+        
+      };
+    })
     console.log(this.paymentAmt);
-    return false;
+    console.log('Old Quote!')
+    // return false;
     this._paymentFormService.getPaymentForm(this.paymentAmt).subscribe(
       (res: any) => {
         console.log(res);
@@ -416,7 +425,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
 
   makeVehiclePolicy() {
     console.log(this.selectedVehicle)
-    // debugger
+   
     this.serviceCharges.forEach((element) => {
       this.sumServiceCharge += element.value;
     });

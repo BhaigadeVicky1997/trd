@@ -33,6 +33,7 @@ export class ViewQuoteRequestComponent implements OnInit {
   policies: any[] = [];
   policyLength: any;
   policySelect: any = 0;
+  icID:any;
   vehicleSelectedID: any;
   selectedVehicleIndex: number = 0;
   savedPolicies = {
@@ -163,7 +164,7 @@ export class ViewQuoteRequestComponent implements OnInit {
     this.selectedItem = index;
     this.selectedVehicleIndex = index;
 
-    //this.setAllDetails();
+    this.setAllDetails();
     this.selectedDeductionIndex = Math.round(this.policyPremiums.length / 2);
     // this.deductionSelectedIndex[index] = this.selectedDeductionIndex;
   }
@@ -201,10 +202,10 @@ export class ViewQuoteRequestComponent implements OnInit {
   }
 
   getquoteResponseByType(vehicleId: string) {
-    this.insuranceType = this.selectedTab == 0 ? 'Comprehensive' : 'TPL';
+    this.insuranceType = this.selectedTab == 0 ? 'TPL' : 'CMP';
     this.isQuoteResponse = false;
     this._quoteService
-      .getquoteResponseByType(this.CustomerId, vehicleId)
+      .getquoteResponseByType(this.CustomerId, vehicleId,this.insuranceType)
       .subscribe(
         (res: IQuoteResponse) => {
           console.log(res);
@@ -254,7 +255,7 @@ export class ViewQuoteRequestComponent implements OnInit {
       vehicleId: this.policy.vehicleId,
       premium: selectedPolicy,
     };
-
+    this._globalService.idID.next(Number(this.policy.icid))
     this.savedVehicles[this.selectedVehicleIndex] = {
       ...this.policies[this.selectedVehicleIndex],
       policyDetails,
@@ -274,6 +275,7 @@ export class ViewQuoteRequestComponent implements OnInit {
 
   saveQuoteResponse() {
     this.isSubmitted = true;
+    this.icID = 
     this.saveVehicle();
   }
 

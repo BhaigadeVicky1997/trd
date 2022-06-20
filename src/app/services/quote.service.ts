@@ -1,7 +1,7 @@
 import { IPolicyResponse } from 'src/app/models/IPolicy';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IOtpSend, IOtpSendResponse } from './../models/IOtpSend';
 import { AppConstants } from '../utils/app.constants';
 import { IQuoteResponse } from '../models/IQuote';
@@ -15,7 +15,7 @@ import { IVehicleResponse } from '../models/IVehicles';
 })
 export class QuoteService {
   constructor(private _httpClient: HttpClient) {}
-  
+  public getVoilationByVehicle: BehaviorSubject<[]> = new BehaviorSubject([]);
   getOtpByNationalId(Id: number, Dob: string): Observable<IOtpSendResponse> {
     return this._httpClient.get<IOtpSendResponse>(
       `${AppConstants.GET_QUOTE_BY_NATIONALID}?NIN=${Id}&DateOfBirth=${Dob}`
@@ -70,6 +70,8 @@ export class QuoteService {
   getAllEducation(): Observable<any> {
     return this._httpClient.get<any>(`${AppConstants.GET_ALL_EDUCATION}`);
   }
+
+  
 
   getAllViolationType(): Observable<any> {
     return this._httpClient.get<any>(`${AppConstants.GET_ALL_VIOLATION_TYPE}`);

@@ -185,7 +185,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
   }
   getVehicleDetailsById() {
     this._quoteService.getVehicleByCutomerId(this.CustomerId).subscribe(
-      (res: IPolicyResponse) => {
+      (res: any) => {
         console.log(res);
         if (res.succeeded) {
           this.policies = res.data;
@@ -342,13 +342,18 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       if (!this.isTermsAccepted) return;
 
     this.sharedUtils.showSpinner();
-    this.paymentAmt = {
-      amount: Math.round(this.grandTotal * 100),
-      language: 'en',
-      vehicleList: this.vehicleChosenList,
-    };
+    this._globalService.idID.subscribe(icid=>{
+      this.paymentAmt = {
+        amount: Math.round(this.grandTotal * 100),
+        language: 'en',
+        vehicleList: this.vehicleChosenList,
+        ICID: icid,
+  
+      };
+    })
     console.log(this.paymentAmt);
-
+    console.log('New Quote!')
+    return false;
     this._paymentFormService.getPaymentForm(this.paymentAmt).subscribe(
       (res: any) => {
         console.log(res);
