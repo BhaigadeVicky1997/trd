@@ -385,8 +385,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     
     this._paymentFormService.getPaymentForm(this.paymentAmt).subscribe(
       (res: any) => {
-        console.log(res);
-        return false;
+
         if (res.succeeded) {
           this.inputFields = res.data;
           console.log(this.inputFields);
