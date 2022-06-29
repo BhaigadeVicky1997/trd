@@ -373,21 +373,24 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
     this.sharedUtils.showSpinner();
     this._globalService.idID.subscribe(icid=>{
       this.paymentAmt = {
-        amount: Math.round(this.grandTotal * 100),
-        language: 'en',
+        totalAmount: Math.round(this.grandTotal * 100),
+        // language: 'en',
         vehicleList: this.vehicleChosenList,
-        ICID: icid,
-        
+        icid: icid,
+        customerId: this.CustomerId
       };
     })
     console.log(this.paymentAmt);
     console.log('Old Quote!')
-    // return false;
+    
     this._paymentFormService.getPaymentForm(this.paymentAmt).subscribe(
       (res: any) => {
         console.log(res);
+        return false;
         if (res.succeeded) {
           this.inputFields = res.data;
+          console.log(this.inputFields);
+        
           setTimeout(() => {
             this._globalService.quoteUser.next({});
             document.forms['redirectFormdata'].submit();
@@ -442,7 +445,7 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       );
     this.vehicleChosenList.push({
       customerID: this.CustomerId,
-      policyType: this.selectedVehicle.product,
+      policyTypeId: this.selectedVehicle.product,
       // expiryDate: this.selectedVehicle.expiryDate,
       // vehicleId: this.selectedVehicle.vehicleId,  
       insuranceCompanyName: 'ACIG',
@@ -451,9 +454,9 @@ export class ViewQuoteReviewComponent implements OnInit, OnDestroy {
       // vehicleMake: this.selectedVehicle.vehicleMake,
       premiumAmount:
         this.selectedVehicle.premium.totalPremium.toString(),
-      additionalCoverageAmount: this.sumAdditionalCoverage.toString(),
-      serviceChargeAmount: this.sumServiceCharge.toString(),
-      additionalCoverage: JSON.stringify(additionalCovers),
+        additionalCoverageAmount: this.sumAdditionalCoverage.toString(),
+        serviceChargeAmount: this.sumServiceCharge.toString(),
+      // additionalCoverage: JSON.stringify(additionalCovers),
       vat: this.vat.toString(),
     });
     this.sumServiceCharge = 0;

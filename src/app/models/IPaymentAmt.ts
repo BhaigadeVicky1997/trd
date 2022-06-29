@@ -1,10 +1,11 @@
 import { IVehicle } from "./IVehicle";
 
 export interface IPaymentAmt{
-  amount: number,
-  language: string,
-  ICID:string;
+  totalAmount: number,
+  language?: string,
+  icid:string;
   vehicleList:IVehicle[],
+  customerId:any
 }
 
 

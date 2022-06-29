@@ -188,8 +188,8 @@ export class ViewQuoteRequestComponent implements OnInit {
         // this.quoteData =  res.data;
         // console.log(this.quoteData[0].dateOfBirth);
         // console.log(this.quoteData);
-        // //let ddob = new Date(this.quoteData[0].driverDob).toISOString();
-        // // Set Values
+        //let ddob = new Date(this.quoteData[0].driverDob).toISOString();
+        // Set Values
         // this.driverFormData.controls["driverId"].setValue(this.quoteData[0].driverId);
         // this.driverFormData.controls["driverName"].setValue(this.quoteData[0].driverName);
         // this.driverFormData.controls["driverDob"].setValue(this.quoteData[0].driverDob);

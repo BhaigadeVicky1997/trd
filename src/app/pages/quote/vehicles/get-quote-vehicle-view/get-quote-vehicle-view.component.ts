@@ -52,7 +52,7 @@ export class GetQuotevehicleViewComponent implements OnInit {
   violationFormData: FormGroup;
   OwnerForm: FormGroup;
   vehicleSelectedID: any;
-  violationData: any = [ ];
+  violationData: any = [];
   vData: [] = [];
   quoteData: any;
   editTraffic: any;
@@ -253,8 +253,8 @@ export class GetQuotevehicleViewComponent implements OnInit {
 
           }
           else if (res.data) {
-            this.violationData = res.data[0].vehicleViolation;
-            this.vData = res.data[0].vehicleViolation;
+            this.violationData = res.data[0].tempVehicleViolation;
+            this.vData = res.data[0].tempVehicleViolation;
             this.quoteData = res.data;
             console.log(this.quoteData);
             this.dId = this.quoteData[0].dId;
